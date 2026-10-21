@@ -531,6 +531,53 @@ h1,h2,h3,h4{font-family:var(--font-heading);font-weight:700;letter-spacing:-.035
 .site-footer{background:#000;border-top:1px solid rgba(255,255,255,.1);color:#6e6e73}
 /* sentuhan gerak ala Apple: muncul lebih lambat & halus */
 .reveal-on-scroll{transform:translateY(44px);transition:opacity 1s var(--ease-spring),transform 1s var(--ease-spring)}
+
+/* ================= TEKS BERANIMASI + SCROLL HALUS ================= */
+:root{--ease-text:cubic-bezier(.16,1,.3,1)}
+html.lenis,html.lenis body{height:auto}
+html.lenis{scroll-behavior:auto}
+/* 1. judul section: kata demi kata naik dari balik garis */
+.st .w{display:inline-block;overflow:hidden;vertical-align:top;padding:0 .03em .14em;margin:0 -.03em -.14em}
+.st .wi{display:inline-block;transform:translate3d(0,108%,0);transition:transform 1.05s var(--ease-text);transition-delay:calc(var(--d,0) * 1ms)}
+.st.in .wi{transform:none}
+.section-header.reveal-on-scroll{transform:none}
+/* 2. judul hero: baris naik bergantian saat halaman dibuka */
+.hero-title .ln{display:block;overflow:hidden;padding-bottom:.12em;margin-bottom:-.12em}
+.hero-title .ln>span{transform:translate3d(0,112%,0);transition:transform 1.3s var(--ease-text)}
+.hero-title .ln:nth-child(2)>span{transition-delay:.16s}
+.hero-title.in .ln>span{transform:none}
+/* 3. kilau berjalan di teks gradasi */
+.gradient-text-gold,.legacy-num-hero{background-image:linear-gradient(100deg,#ff9f0a 0%,#ff453a 38%,#ffd38a 50%,#ff453a 62%,#ff9f0a 100%);background-size:240% 100%;animation:txt-shine 6s linear infinite}
+@keyframes txt-shine{from{background-position:120% 50%}to{background-position:-120% 50%}}
+/* 4. kutipan Fitra Eri menyala kata demi kata mengikuti scroll */
+.lit .q{opacity:.18;transition:opacity .3s linear}
+.lit .q.on{opacity:1}
+/* 5. pita klaim kinetik (kecepatannya ikut scroll) */
+.kinetic-strip{position:relative;z-index:2;overflow:hidden;padding:clamp(2.2rem,5vw,4rem) 0;background:#000;border-bottom:1px solid rgba(255,255,255,.08);display:grid;gap:clamp(.4rem,1vw,.8rem)}
+.kin-row{display:flex;white-space:nowrap}
+.kin-track{display:flex;align-items:center;flex-shrink:0;will-change:transform}
+.kin-track span{padding-right:clamp(1.1rem,2.6vw,2.2rem);font-family:var(--font-heading);font-weight:800;font-size:clamp(2.2rem,6.4vw,5.4rem);line-height:1.06;letter-spacing:-.045em;color:#f5f5f7}
+.kin-track i{padding-right:clamp(1.1rem,2.6vw,2.2rem);font-style:normal;font-size:clamp(1rem,2.6vw,2rem);color:#ff9f0a}
+.kin-row.outline span{color:transparent;-webkit-text-stroke:1.4px rgba(245,245,247,.5)}
+.kin-track .hot{background:linear-gradient(90deg,#ff9f0a,#ff453a);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-stroke:0}
+/* 6. angka kalkulator "berdenyut" saat berubah */
+.num-pop{animation:num-pop .5s var(--ease-text)}
+@keyframes num-pop{40%{transform:scale(1.06)}}
+/* ---- scroll lebih ringan & halus ---- */
+.benefit-check-item{will-change:transform}
+.benefit-check-item::after{content:"";position:absolute;inset:0;border-radius:inherit;background:#000;opacity:var(--dim,0);pointer-events:none}
+@media(min-width:993px){.benefit-check-item{position:relative}.benefit-check-item::after{display:none}}
+.carousel-container:not(.on) .carousel-track{animation-play-state:paused}
+@media(max-width:768px){
+.site-header .header-inner{background:rgba(28,28,30,.88);backdrop-filter:blur(12px) saturate(1.4);-webkit-backdrop-filter:blur(12px) saturate(1.4)}
+.btn-outline,.hero-actions-group .btn-wa{backdrop-filter:none;-webkit-backdrop-filter:none}
+}
+@media(prefers-reduced-motion:reduce){
+.st .wi,.hero-title .ln>span{transform:none!important;transition:none!important}
+.gradient-text-gold,.legacy-num-hero{animation:none}
+.lit .q{opacity:1}
+.kin-track{transform:none!important}
+}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org/","@type":"Product","name":"Hurricane XCS Voltage Stabilizer","image":"assets/images/img_7_unit_hurricane_xcs.webp","description":"Alat penghemat bahan bakar dan stabilisator kelistrikan kendaraan berteknologi Jerman dengan garansi resmi dan jaminan uang kembali.","brand":{"@type":"Brand","name":"Hurricane XCS"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"999"},"offers":{"@type":"Offer","priceCurrency":"IDR","availability":"https://schema.org/InStock","seller":{"@type":"Organization","name":"Hurricane Indonesia"}}}
@@ -571,7 +618,7 @@ h1,h2,h3,h4{font-family:var(--font-heading);font-weight:700;letter-spacing:-.035
 <div class="container hero-grid">
 <div class="hero-content reveal-on-scroll">
 <div class="hero-badge-pill"><span class="pulse-dot"></span><span>Solusi Hemat BBM</span></div>
-<h1 class="hero-title"><span>BBM Makin Mahal?</span><span class="gradient-text-gold">Stop Buang Uang.</span></h1>
+<h1 class="hero-title"><span class="ln"><span>BBM Makin Mahal?</span></span><span class="ln"><span class="gradient-text-gold">Stop Buang Uang.</span></span></h1>
 <p class="hero-lead">Setiap liter yang terbakar sia-sia adalah uang yang keluar dari kantong Anda. <strong>Hurricane XCS</strong> menstabilkan kelistrikan mobil supaya pembakaran lebih sempurna — konsumsi BBM turun, tarikan lebih enteng. Pasang cuma 5 menit.</p>
 <ul class="hero-chips">
 <li class="hero-chip-item"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#ck"/></svg><span>Hemat BBM s.d 30%</span></li>
@@ -612,6 +659,12 @@ h1,h2,h3,h4{font-family:var(--font-heading);font-weight:700;letter-spacing:-.035
 <a href="https://hurricane.co.id/whatsapp-xcs.html" target="_blank" rel="noopener" class="btn btn-wa btn-sm"><span>Tanya Teknisi Kami Langsung</span><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><use href="#ar"/></svg></a>
 </div>
 </aside>
+
+<!-- PITA KLAIM KINETIK -->
+<section class="kinetic-strip" aria-label="Hemat BBM s.d 30%, pasang cuma 5 menit, garansi s.d 15 tahun, 100% uang kembali, tarikan lebih enteng, aki lebih awet, teknologi Jerman, approved ATPM, 30 tahun di Indonesia">
+<div class="kin-row" aria-hidden="true"><div class="kin-track"><span class="hot">Hemat BBM s.d 30%</span><i>✦</i><span>Pasang Cuma 5 Menit</span><i>✦</i><span class="hot">Garansi s.d 15 Tahun</span><i>✦</i><span>100% Uang Kembali</span><i>✦</i></div></div>
+<div class="kin-row outline" aria-hidden="true"><div class="kin-track"><span>Tarikan Lebih Enteng</span><i>✦</i><span class="hot">Aki Lebih Awet</span><i>✦</i><span>Teknologi Jerman</span><i>✦</i><span>Approved ATPM</span><i>✦</i><span class="hot">30 Tahun di Indonesia</span><i>✦</i></div></div>
+</section>
 
 <!-- VIDEO -->
 <section class="section video-section" id="uji-fitra-eri">
@@ -729,7 +782,7 @@ h1,h2,h3,h4{font-family:var(--font-heading);font-weight:700;letter-spacing:-.035
 </div>
 </div>
 <div class="legacy-monument-card reveal-on-scroll">
-<span class="legacy-num-hero">30<em>TAHUN</em></span>
+<span class="legacy-num-hero"><span data-count="30">30</span><em>TAHUN</em></span>
 <h3 class="legacy-label">Di Pasar Otomotif Indonesia</h3>
 <p class="legacy-desc">Tiga dekade menjaga kelistrikan kendaraan di Indonesia — terbukti sukses melintasi berbagai generasi mesin, mulai dari era karburator, injeksi, turbocharger hingga sistem hybrid modern.</p>
 </div>
@@ -889,14 +942,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const header = document.querySelector('.site-header');
   const navLinks = document.querySelectorAll('.nav-link');
   const sections = document.querySelectorAll('section[id]');
+  let hdrTick = false;
   const onScroll = () => {
+    hdrTick = false;
     const y = window.scrollY;
     header.classList.toggle('is-scrolled', y > 20);
+    if (!navLinks.length) return;
     let current = '';
     sections.forEach(s => { const top = s.offsetTop - 120; if (y >= top && y < top + s.offsetHeight) current = s.id; });
     navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + current));
   };
-  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('scroll', () => { if (!hdrTick) { hdrTick = true; requestAnimationFrame(onScroll); } }, { passive: true });
   onScroll();
 
   const toggle = document.querySelector('.mobile-nav-toggle');
@@ -914,12 +970,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }));
   }
 
-  // 3. HERO PARTICLES
+  // 3. HERO PARTICLES (ringan: sprite cahaya siap pakai, berhenti saat hero tidak terlihat)
   const canvas = document.getElementById('hero-particle-canvas');
-  if (canvas) {
+  if (canvas && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
     const ctx = canvas.getContext('2d');
     let w = canvas.width = canvas.parentElement.offsetWidth;
     let h = canvas.height = canvas.parentElement.offsetHeight;
+    const sprite = rgb => {
+      const c = document.createElement('canvas'); c.width = c.height = 32;
+      const g = c.getContext('2d'), gr = g.createRadialGradient(16, 16, 0, 16, 16, 16);
+      gr.addColorStop(0, 'rgba(' + rgb + ',1)'); gr.addColorStop(.25, 'rgba(' + rgb + ',.85)'); gr.addColorStop(1, 'rgba(' + rgb + ',0)');
+      g.fillStyle = gr; g.fillRect(0, 0, 32, 32); return c;
+    };
+    const SPR = { gold: sprite('245,197,24'), red: sprite('226,35,26') };
     const count = Math.min(38, Math.floor(w / 35));
     class Spark {
       constructor() { this.reset(); }
@@ -927,25 +990,24 @@ document.addEventListener('DOMContentLoaded', () => {
         this.x = Math.random() * w; this.y = h + Math.random() * 20;
         this.size = Math.random() * 2.2 + 0.8; this.sy = Math.random() * 1.2 + 0.4;
         this.sx = (Math.random() - 0.5) * 0.8; this.alpha = Math.random() * 0.6 + 0.2;
-        this.color = Math.random() > 0.4 ? '245,197,24' : '226,35,26';
+        this.img = Math.random() > 0.4 ? SPR.gold : SPR.red;
         this.decay = Math.random() * 0.003 + 0.001;
       }
       update() { this.y -= this.sy; this.x += this.sx; this.alpha -= this.decay; if (this.y < -10 || this.alpha <= 0) this.reset(); }
-      draw() {
-        ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${this.color},${this.alpha})`;
-        ctx.shadowBlur = 8; ctx.shadowColor = `rgba(${this.color},.8)`;
-        ctx.fill(); ctx.shadowBlur = 0;
-      }
+      draw() { const d = this.size * 6; ctx.globalAlpha = Math.max(0, this.alpha); ctx.drawImage(this.img, this.x - d / 2, this.y - d / 2, d, d); }
     }
     const parts = Array.from({ length: count }, () => { const s = new Spark(); s.y = Math.random() * h; return s; });
-    let active = true;
-    document.addEventListener('visibilitychange', () => { active = !document.hidden; });
-    (function loop() {
-      if (active) { ctx.clearRect(0, 0, w, h); parts.forEach(p => { p.update(); p.draw(); }); }
+    let onScreen = true, running = false;
+    const loop = () => {
+      if (!onScreen || document.hidden) { running = false; return; }
+      ctx.clearRect(0, 0, w, h); parts.forEach(p => { p.update(); p.draw(); }); ctx.globalAlpha = 1;
       requestAnimationFrame(loop);
-    })();
+    };
+    const start = () => { if (!running && onScreen && !document.hidden) { running = true; requestAnimationFrame(loop); } };
+    new IntersectionObserver(es => { onScreen = es[0].isIntersecting; start(); }).observe(canvas);
+    document.addEventListener('visibilitychange', start);
     window.addEventListener('resize', () => { w = canvas.width = canvas.parentElement.offsetWidth; h = canvas.height = canvas.parentElement.offsetHeight; });
+    start();
   }
 
   // 4. COUNT-UP
@@ -976,12 +1038,26 @@ document.addEventListener('DOMContentLoaded', () => {
   const slider = document.getElementById('fuel-budget-slider');
   const presets = document.querySelectorAll('.preset-btn');
   const rp = n => 'Rp ' + Number(n).toLocaleString('id-ID');
+  const glide = (id, to, pop) => {               // angka meluncur halus ke nilai baru
+    const el = document.getElementById(id); if (!el) return;
+    const from = el._v == null ? to : el._v; el._v = to;
+    cancelAnimationFrame(el._raf);
+    if (from === to || matchMedia('(prefers-reduced-motion: reduce)').matches) { el.textContent = rp(to); return; }
+    const t0 = performance.now();
+    const step = now => {
+      const p = Math.min(1, (now - t0) / 480), e = 1 - Math.pow(1 - p, 3);
+      el.textContent = rp(Math.round(from + (to - from) * e));
+      if (p < 1) el._raf = requestAnimationFrame(step);
+    };
+    el._raf = requestAnimationFrame(step);
+    if (pop) { el.classList.remove('num-pop'); void el.offsetWidth; el.classList.add('num-pop'); }
+  };
   const calc = budget => {
     const monthly = Math.round(budget * 0.25);
-    document.getElementById('calc-budget-val').textContent = rp(budget);
-    document.getElementById('calc-monthly-savings').textContent = rp(monthly);
-    document.getElementById('calc-annual-savings').textContent = rp(monthly * 12);
-    document.getElementById('calc-3yr-savings').textContent = rp(monthly * 36);
+    glide('calc-budget-val', budget);
+    glide('calc-monthly-savings', monthly);
+    glide('calc-annual-savings', monthly * 12, true);
+    glide('calc-3yr-savings', monthly * 36);
   };
   if (slider) {
     slider.addEventListener('input', e => {
@@ -1058,27 +1134,149 @@ document.addEventListener('DOMContentLoaded', () => {
   if(!items.length)return;
   items.forEach(function(el,i){el.style.setProperty('--i',i);});
   if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-  var ticking=false;
+  var ticking=false,tops=[],hs=[];
   function clamp(n,a,b){return Math.min(b,Math.max(a,n));}
   var desk=matchMedia('(min-width:993px)');
+  function measure(){tops=items.map(function(el){return parseFloat(getComputedStyle(el).top)||0;});hs=items.map(function(el){return el.offsetHeight||1;});}
   function update(){
     ticking=false;
-    if(desk.matches){items.forEach(function(el){el.style.transform='';el.style.filter='';});return;}
+    if(desk.matches){items.forEach(function(el){el.style.transform='';el.style.removeProperty('--dim');});return;}
     for(var i=0;i<items.length-1;i++){
-      var el=items[i],nxt=items[i+1];
-      var stuckTop=parseFloat(getComputedStyle(el).top)||0;
-      var h=el.offsetHeight||1;
-      // seberapa jauh kartu berikutnya sudah naik menimpa kartu ini (0..1)
-      var d=nxt.getBoundingClientRect().top-stuckTop;
-      var p=1-clamp(d/h,0,1);
-      el.style.transform='scale('+(1-p*0.05).toFixed(4)+')';
-      el.style.filter='brightness('+(1-p*0.45).toFixed(3)+')';
+      var d=items[i+1].getBoundingClientRect().top-tops[i];
+      var p=1-clamp(d/hs[i],0,1);                               // seberapa jauh kartu berikutnya menimpa (0..1)
+      items[i].style.transform=p?'scale('+(1-p*0.05).toFixed(4)+')':'';
+      items[i].style.setProperty('--dim',(p*0.45).toFixed(3));  // gelap lewat lapisan opacity (ringan), bukan filter
     }
   }
   function onScroll(){if(!ticking){ticking=true;requestAnimationFrame(update);}}
   window.addEventListener('scroll',onScroll,{passive:true});
-  window.addEventListener('resize',onScroll);
-  update();
+  window.addEventListener('resize',function(){measure();onScroll();});
+  measure();update();
+})();
+</script>
+
+<script>
+/* ===== TEKS BERANIMASI + SCROLL HALUS ===== */
+(function () {
+  'use strict';
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var $$ = function (s, r) { return [].slice.call((r || document).querySelectorAll(s)); };
+
+  /* pecah teks jadi kata (tag di dalamnya tetap dipertahankan) */
+  function splitWords(el, cls, wrap) {
+    (function walk(node) {
+      [].slice.call(node.childNodes).forEach(function (n) {
+        if (n.nodeType === 3) {
+          var f = document.createDocumentFragment();
+          n.textContent.split(/(\s+)/).forEach(function (part) {
+            if (!part) return;
+            if (/^\s+$/.test(part)) { f.appendChild(document.createTextNode(' ')); return; }
+            var inner = document.createElement('span'); inner.className = cls; inner.textContent = part;
+            if (wrap) { var w = document.createElement('span'); w.className = 'w'; w.appendChild(inner); f.appendChild(w); }
+            else f.appendChild(inner);
+          });
+          n.replaceWith(f);
+        } else if (n.nodeType === 1 && n.tagName !== 'BR' && n.tagName !== 'SVG') walk(n);
+      });
+    })(el);
+  }
+
+  /* 1. judul section: kata naik bergantian saat terlihat */
+  var heads = $$('.section-header h2, .testdrive-content h2, .cta-mega-panel h2, .legacy-label');
+  heads.forEach(function (h) {
+    splitWords(h, 'wi', true);
+    $$('.wi', h).forEach(function (wi, i) { wi.style.setProperty('--d', Math.min(i * 55, 900)); });
+    h.classList.add('st');
+  });
+  if (reduce || !('IntersectionObserver' in window)) heads.forEach(function (h) { h.classList.add('in'); });
+  else {
+    var hio = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting || e.boundingClientRect.top < 0) { e.target.classList.add('in'); hio.unobserve(e.target); } }); }, { rootMargin: '0px 0px -12% 0px', threshold: 0.2 });   /* also when jumped past (anchor links) */
+    heads.forEach(function (h) { hio.observe(h); });
+    /* safety net for big jumps (anchor links): anything already above the screen is shown */
+    var sweepT = false;
+    addEventListener('scroll', function () {
+      if (sweepT) return; sweepT = true;
+      requestAnimationFrame(function () {
+        sweepT = false;
+        heads.forEach(function (h) { if (!h.classList.contains('in') && h.getBoundingClientRect().top < innerHeight * 0.9) { h.classList.add('in'); hio.unobserve(h); } });
+      });
+    }, { passive: true });
+  }
+
+  /* 2. judul hero naik saat halaman dibuka */
+  var ht = document.querySelector('.hero-title');
+  if (ht) requestAnimationFrame(function () { requestAnimationFrame(function () { ht.classList.add('in'); }); });
+
+  /* 3. kutipan Fitra Eri menyala kata demi kata mengikuti scroll */
+  var quote = document.querySelector('.fitra-quote-card blockquote');
+  if (quote && !reduce) {
+    splitWords(quote, 'q', false); quote.classList.add('lit');
+    var words = $$('.q', quote), near = false, qt = false, lastN = -1;
+    var lightUp = function () {
+      qt = false;
+      var r = quote.getBoundingClientRect(), vh = innerHeight;
+      var p = Math.min(1, Math.max(0, (vh * 0.88 - r.top) / (r.height + vh * 0.38)));
+      var n = Math.round(p * words.length);
+      if (n === lastN) return; lastN = n;
+      for (var i = 0; i < words.length; i++) words[i].classList.toggle('on', i < n);
+    };
+    new IntersectionObserver(function (es) { near = es[0].isIntersecting; if (near) lightUp(); }, { rootMargin: '25% 0px 25% 0px' }).observe(quote);
+    addEventListener('scroll', function () { if (near && !qt) { qt = true; requestAnimationFrame(lightUp); } }, { passive: true });
+  }
+
+  /* 4. pita klaim kinetik: berjalan terus, makin cepat saat di-scroll, berhenti saat tidak terlihat */
+  var strip = document.querySelector('.kinetic-strip');
+  if (strip && !reduce) {
+    var rows = $$('.kin-row', strip).map(function (row, i) {
+      var t = row.querySelector('.kin-track'), html = t.innerHTML;
+      t.innerHTML = html + html + html;                  // cukup panjang untuk berputar tanpa celah
+      return { t: t, dir: i % 2 ? 1 : -1, x: 0, w: 0 };
+    });
+    var measure = function () { rows.forEach(function (r) { r.w = r.t.scrollWidth / 3; if (r.dir > 0 && !r.x) r.x = -r.w; }); };
+    var visible = false, run = false, boost = 0, lastY = scrollY;
+    var tick = function () {
+      if (!visible) { run = false; return; }
+      boost *= 0.92;
+      var v = 0.55 + boost;
+      rows.forEach(function (r) {
+        r.x += r.dir * v;
+        if (r.dir < 0 && r.x <= -r.w) r.x += r.w;
+        if (r.dir > 0 && r.x >= 0) r.x -= r.w;
+        r.t.style.transform = 'translate3d(' + r.x.toFixed(2) + 'px,0,0)';
+      });
+      requestAnimationFrame(tick);
+    };
+    addEventListener('scroll', function () { var y = scrollY; boost = Math.min(14, boost + Math.abs(y - lastY) * 0.12); lastY = y; }, { passive: true });
+    new IntersectionObserver(function (es) { visible = es[0].isIntersecting; if (visible && !run) { run = true; requestAnimationFrame(tick); } }).observe(strip);
+    addEventListener('resize', measure);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure);
+    measure();
+  }
+
+  /* testimoni berjalan hanya saat terlihat (hemat tenaga, scroll lebih ringan) */
+  var car = document.querySelector('.carousel-container');
+  if (car && 'IntersectionObserver' in window) new IntersectionObserver(function (es) { car.classList.toggle('on', es[0].isIntersecting); }).observe(car);
+  else if (car) car.classList.add('on');
+
+  /* 5. scroll halus (desktop/mouse). HP tetap scroll bawaan yang paling mulus untuk sentuhan */
+  if (reduce || !matchMedia('(pointer: fine)').matches) return;
+  var sc = document.createElement('script');
+  sc.src = 'https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js';
+  sc.onload = function () {
+    if (!window.Lenis) return;
+    var lenis = new Lenis({ lerp: 0.085, wheelMultiplier: 1, smoothWheel: true });
+    window.__lenis = lenis;
+    (function raf(t) { lenis.raf(t); requestAnimationFrame(raf); })(performance.now());
+    var offset = function () { var hh = getComputedStyle(document.documentElement).getPropertyValue('--header-h'); return -((parseFloat(hh) || 74) + 18); };
+    $$('a[href^="#"]').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        var id = a.getAttribute('href'); if (id.length < 2) return;
+        var t = document.querySelector(id); if (!t) return;
+        e.preventDefault(); lenis.scrollTo(t, { offset: offset(), duration: 1.3 });
+      });
+    });
+  };
+  document.body.appendChild(sc);
 })();
 </script>
 </body>
