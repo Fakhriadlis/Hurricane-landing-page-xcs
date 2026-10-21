@@ -477,6 +477,60 @@ mask-image:radial-gradient(closest-side,#000 55%,transparent 100%)}
 .secondary-video-row{max-width:300px}
 .secondary-video-card.is-vertical .sec-thumb-wrap{aspect-ratio:9/16;background:#000}
 .secondary-video-card.is-vertical .sec-thumb-wrap img{object-fit:cover}
+/* ================= GAYA APPLE (dark) ================= */
+:root{
+--font-main:-apple-system,BlinkMacSystemFont,"SF Pro Text","Inter","Helvetica Neue",Arial,sans-serif;
+--font-heading:-apple-system,BlinkMacSystemFont,"SF Pro Display","Inter","Helvetica Neue",Arial,sans-serif;
+--font-num:var(--font-heading);
+--c-bg:#000;--c-bg-subtle:#000;--c-surface:#1d1d1f;--c-surface-2:#2c2c2e;--c-surface-glass:#1d1d1f;
+--c-text-muted:#86868b;--c-text-dim:#6e6e73;--c-gold:#ff9f0a;--c-gold-glow:transparent;
+--ap-card:#1d1d1f;--ap-line:transparent;--ap-shadow:none;
+--shadow-glow-gold:none;--shadow-glow-red:none;
+--ease-spring:cubic-bezier(.28,.11,.32,1)}
+html,body{background:#000}
+body{color:#f5f5f7;font-family:var(--font-main);letter-spacing:-.011em}
+.bg-ambient-layer,.bg-grid-mesh,.hero-section::before,.hero-poster-wrapper::before,.no1-glow-ring{display:none}
+/* tipografi */
+h1,h2,h3,h4{font-family:var(--font-heading);font-weight:700;letter-spacing:-.035em;color:#f5f5f7}
+.hero-title{letter-spacing:-.045em}
+.section-header h2{letter-spacing:-.045em;line-height:1.05}
+.gradient-text-gold,.legacy-num-hero{background:linear-gradient(90deg,#ff9f0a,#ff453a);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;text-shadow:none}
+.gradient-text-gold{display:inline-block}
+.legacy-num-hero{display:inline-block;letter-spacing:-.06em}
+.legacy-num-hero em{-webkit-text-fill-color:#f5f5f7;letter-spacing:.08em}
+.eyebrow{text-transform:none;letter-spacing:0;font-family:var(--font-main);font-size:1rem;font-weight:600;color:#ff9f0a}
+.hero-badge-pill{background:rgba(255,255,255,.08);border:0;color:#f5f5f7;animation:none;text-transform:none;letter-spacing:0;font-family:var(--font-main);font-size:.8rem;font-weight:600}
+.fuel-pill{font-size:.72rem}
+.hero-lead{color:#a1a1a6}
+/* tombol */
+.btn{font-family:var(--font-main);font-weight:600;letter-spacing:-.01em}
+.hero-actions-group .btn-wa{background:rgba(255,255,255,.12);backdrop-filter:blur(20px) saturate(1.8);-webkit-backdrop-filter:blur(20px) saturate(1.8);color:#f5f5f7}
+.hero-actions-group .btn-wa:hover{background:rgba(255,255,255,.2)}
+/* kartu: solid #1d1d1f, tanpa garis, tanpa bayangan */
+.calc-card-wrapper,.video-featured-card,.fitra-quote-card,.secondary-video-card,.benefit-check-item,.legacy-monument-card,.testdrive-poster-frame,.faq-item,.cta-mega-panel,.hero-poster-card,.hero-floating-stat,.atpm-logo-frame,.comp-card-before,.comp-card-after{background:#1d1d1f;border:0;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none}
+.video-featured-card:hover,.testdrive-poster-frame:hover,.secondary-video-card:hover,.faq-item:hover,.faq-item.is-open{border:0;box-shadow:none}
+.video-featured-card{background:#000}
+.video-card-meta{background:#000;border-top:1px solid rgba(255,255,255,.08)}
+.benefit-check-item{box-shadow:0 -14px 34px rgba(0,0,0,.6)}
+.comp-card{padding:2.5rem 2rem}
+.calc-results-box{background:#000;border:0}
+.sub-saving-item{background:#1d1d1f}
+.calc-note{background:rgba(41,151,255,.12);color:#64b5ff}
+.calc-card-wrapper .calc-budget-display,.savings-annual-number,.trust-stat-value{color:#f5f5f7;text-shadow:none}
+.savings-card-lead small{color:#86868b!important}
+.custom-range-slider{background:#3a3a3c;height:6px}
+.preset-btn{background:#2c2c2e;color:#f5f5f7}
+.preset-btn.is-active{background:#f5f5f7;color:#000}
+.benefit-icon-badge{background:rgba(255,159,10,.14);color:#ff9f0a}
+.legacy-monument-card,.cta-mega-panel{background:#1d1d1f}
+.fitra-quote-card blockquote{font-style:normal;font-weight:600;font-size:clamp(1.15rem,2.2vw,1.6rem);letter-spacing:-.025em;line-height:1.35}
+.quote-author-info span{color:#86868b}
+.faq-trigger{font-family:var(--font-heading);font-weight:600;letter-spacing:-.02em}
+.cta-break-banner{background:#000;border-color:rgba(255,255,255,.08)}
+.cta-safety-points{border-top-color:rgba(255,255,255,.08)}
+.site-footer{background:#000;border-top:1px solid rgba(255,255,255,.1);color:#6e6e73}
+/* sentuhan gerak ala Apple: muncul lebih lambat & halus */
+.reveal-on-scroll{transform:translateY(44px);transition:opacity 1s var(--ease-spring),transform 1s var(--ease-spring)}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org/","@type":"Product","name":"Hurricane XCS Voltage Stabilizer","image":"assets/images/img_7_unit_hurricane_xcs.webp","description":"Alat penghemat bahan bakar dan stabilisator kelistrikan kendaraan berteknologi Jerman dengan garansi resmi dan jaminan uang kembali.","brand":{"@type":"Brand","name":"Hurricane XCS"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"999"},"offers":{"@type":"Offer","priceCurrency":"IDR","availability":"https://schema.org/InStock","seller":{"@type":"Organization","name":"Hurricane Indonesia"}}}
@@ -588,7 +642,7 @@ mask-image:radial-gradient(closest-side,#000 55%,transparent 100%)}
 <img src="https://i.ytimg.com/vi/uPBl3oE57Z4/hqdefault.jpg" alt="Review Fitra Eri XCS Super Fast" width="360" height="640" loading="lazy">
 <div class="sec-play-icon"><svg width="22" height="22" fill="currentColor"><use href="#play"/></svg></div>
 </div>
-<div class="sec-content"><h4>Review Fitra Eri — XCS Super Fast</h4><p>Pengujian varian premium Hurricane XCS Super Fast pada mobil performa</p></div>
+<div class="sec-content"><h4>PEMASANGAN PRODUK XCS 7 CEPAT DAN MUDAH!!!</h4></div>
 </div>
 </div>
 </div>
