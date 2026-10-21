@@ -573,6 +573,68 @@ html.lenis{scroll-behavior:auto}
 .btn-outline,.hero-actions-group .btn-wa{backdrop-filter:none;-webkit-backdrop-filter:none}
 }
 
+
+/* ===== VIDEO LAINNYA: 5 kotak bento (1 besar + 4) ===== */
+.xv-wrap{max-width:1100px;margin:3.5rem auto 0}
+.xv-head{margin-bottom:1.1rem}
+.xv-head h3{font-size:clamp(1.25rem,2vw,1.6rem);letter-spacing:-.03em}
+.xv-grid{display:grid;grid-template-columns:1.55fr 1fr 1fr;gap:1rem}
+.xv-card{position:relative;display:block;overflow:hidden;isolation:isolate;aspect-ratio:16/9;padding:0;border:0;border-radius:24px;background:#1d1d1f;color:#f5f5f7;text-align:left;font:inherit;cursor:pointer;transition:transform .5s var(--ease-text,cubic-bezier(.16,1,.3,1))}
+.xv-card.xv-big{grid-row:span 2;aspect-ratio:auto;min-height:100%}
+.xv-card:hover{transform:translateY(-3px)}
+.xv-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .9s var(--ease-text,cubic-bezier(.16,1,.3,1))}
+.xv-card:hover .xv-media{transform:scale(1.05)}
+.xv-shade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,0) 42%,rgba(0,0,0,.78) 100%)}
+.xv-pill{position:absolute;left:14px;top:14px;z-index:2;display:inline-flex;align-items:center;gap:.35rem;padding:.3rem .65rem;border-radius:999px;background:rgba(0,0,0,.6);color:#f5f5f7;font-size:.72rem;font-weight:600}
+.xv-pill.yt svg{color:#ff3b30}
+.xv-play{position:absolute;left:50%;top:50%;z-index:2;width:56px;height:56px;margin:-28px 0 0 -28px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;background:rgba(255,255,255,.22);backdrop-filter:blur(16px) saturate(1.6);-webkit-backdrop-filter:blur(16px) saturate(1.6);transition:transform .3s var(--ease-text,ease),background .3s}
+.xv-play svg{margin-left:3px}
+.xv-big .xv-play{width:76px;height:76px;margin:-38px 0 0 -38px}
+.xv-big .xv-play svg{width:28px;height:28px}
+.xv-card:hover .xv-play{transform:scale(1.1);background:rgba(255,255,255,.3)}
+.xv-title{position:absolute;left:16px;right:16px;bottom:14px;z-index:2;font-size:.92rem;font-weight:600;line-height:1.3;letter-spacing:-.015em;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.xv-big .xv-title{left:24px;right:24px;bottom:22px;font-size:clamp(1.1rem,1.8vw,1.55rem);letter-spacing:-.03em}
+.xv-soon{display:none}
+.xv-card:focus-visible{outline:2px solid #ff9f0a;outline-offset:4px}
+/* kotak yang belum diisi: tampil rapi sebagai "Segera hadir" */
+.xv-card.is-empty{cursor:default;background:radial-gradient(120% 90% at 0% 0%,rgba(255,159,10,.2),transparent 55%),radial-gradient(100% 80% at 100% 100%,rgba(255,69,58,.16),transparent 60%),#141416;box-shadow:inset 0 0 0 1px rgba(255,255,255,.07)}
+.xv-card.is-empty:hover{transform:none}
+.xv-card.is-empty .xv-media{display:none}
+.xv-card.is-empty .xv-play{background:rgba(255,255,255,.07);color:rgba(245,245,247,.55);backdrop-filter:none;-webkit-backdrop-filter:none;transform:none}
+.xv-card.is-empty .xv-pill{background:rgba(255,159,10,.14);color:#ffb340;letter-spacing:.02em}
+.xv-card.is-empty .xv-title{color:rgba(245,245,247,.72)}
+.xv-card.is-empty::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.05) 50%,transparent 70%);background-size:250% 100%;animation:xv-sheen 3.8s linear infinite}
+@keyframes xv-sheen{from{background-position:120% 0}to{background-position:-120% 0}}
+/* pemutar */
+.xv-modal{margin:auto;border:0;padding:0;background:transparent;max-width:none;max-height:none;overflow:visible}
+.xv-modal::backdrop{background:rgba(0,0,0,.88)}
+.xv-stage{width:min(1100px,94vw);aspect-ratio:16/9;border-radius:18px;overflow:hidden;background:#000}
+.xv-stage iframe,.xv-stage video{display:block;width:100%;height:100%;border:0;background:#000}
+.xv-stage.vert{width:auto;height:min(86vh,calc(94vw * 16 / 9));aspect-ratio:9/16}
+.xv-close{position:fixed;top:calc(14px + env(safe-area-inset-top,0px));right:14px;z-index:2;width:44px;height:44px;border-radius:50%;border:0;background:rgba(232,232,237,.95);color:#1d1d1f;font-size:26px;line-height:1;cursor:pointer}
+/* kotak Instagram */
+.xv-card.xv-ig .xv-pill{background:linear-gradient(90deg,#f58529,#dd2a7b 55%,#8134af);color:#fff}
+.xv-card.xv-ig.no-cover{background:radial-gradient(120% 100% at 0% 100%,rgba(245,133,41,.5),transparent 55%),radial-gradient(110% 100% at 100% 0%,rgba(129,52,175,.55),transparent 58%),linear-gradient(135deg,#2a1230,#16101f)}
+.xv-card.xv-ig.no-cover .xv-media{display:none}
+.xv-card.xv-ig.no-cover::before{content:"";position:absolute;right:-8%;top:-14%;width:58%;aspect-ratio:1;border-radius:28%;border:10px solid rgba(255,255,255,.07);pointer-events:none}
+.xv-stage.ig{width:min(420px,92vw);height:min(86vh,760px);aspect-ratio:auto;display:flex;flex-direction:column;background:#fff;border-radius:16px}
+.xv-stage.ig iframe{flex:1;width:100%;height:auto;background:#fff}
+.xv-ig-open{display:flex;align-items:center;justify-content:center;gap:.5rem;flex:0 0 52px;background:linear-gradient(90deg,#f58529,#dd2a7b 55%,#8134af);color:#fff;font-weight:600;font-size:.92rem}
+/* HP: 1 besar di atas, lalu 2 + 2 */
+@media(max-width:768px){
+.xv-wrap{margin-top:2.5rem}
+.xv-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:.7rem}
+.xv-card{aspect-ratio:16/11;border-radius:18px}
+.xv-card.xv-big{grid-column:span 2;grid-row:auto;aspect-ratio:16/9;min-height:0}
+.xv-pill{left:10px;top:10px;padding:.25rem .55rem;font-size:.64rem}
+.xv-play{width:42px;height:42px;margin:-21px 0 0 -21px}
+.xv-play svg{width:18px;height:18px}
+.xv-big .xv-play{width:58px;height:58px;margin:-29px 0 0 -29px}
+.xv-title{left:12px;right:12px;bottom:10px;font-size:.8rem}
+.xv-big .xv-title{left:16px;right:16px;bottom:14px;font-size:1.05rem}
+.xv-stage{border-radius:12px}
+}
+@media(prefers-reduced-motion:reduce){.xv-card.is-empty::after{animation:none}}
 /* ===== KALKULATOR DI HP: angka tidak pernah terpotong ===== */
 .savings-annual-number,.sub-saving-item strong,.calc-budget-display{font-variant-numeric:tabular-nums;white-space:nowrap}
 .sub-saving-item strong{word-break:normal;overflow-wrap:normal}
@@ -636,7 +698,7 @@ html.lenis{scroll-behavior:auto}
 <div class="hero-content reveal-on-scroll">
 <div class="hero-badge-pill"><span class="pulse-dot"></span><span>Solusi Hemat BBM</span></div>
 <h1 class="hero-title"><span class="ln"><span>BBM Makin Mahal?</span></span><span class="ln"><span class="gradient-text-gold">Stop Buang Uang.</span></span></h1>
-<p class="hero-lead">Setiap liter yang terbakar sia-sia adalah uang yang keluar dari kantong Anda. <strong>Hurricane XCS</strong> mengoptimalkan kelistrikan mobil supaya pembakaran lebih sempurna — konsumsi BBM turun, tarikan lebih enteng. Pasang cuma 5 menit.</p>
+<p class="hero-lead">Setiap liter yang terbakar sia-sia adalah uang yang keluar dari kantong Anda. <strong>Hurricane XCS</strong> menstabilkan kelistrikan mobil supaya pembakaran lebih sempurna — konsumsi BBM turun, tarikan lebih enteng. Pasang cuma 5 menit.</p>
 <ul class="hero-chips">
 <li class="hero-chip-item"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#ck"/></svg><span>Hemat BBM s.d 30%</span></li>
 <li class="hero-chip-item"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#ck"/></svg><span>Pasang Cuma 5 Menit</span></li>
@@ -644,7 +706,7 @@ html.lenis{scroll-behavior:auto}
 <li class="hero-chip-item"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#ck"/></svg><span>Garansi s.d 15 Tahun</span></li>
 </ul>
 <div class="hero-actions-group">
-<a href="https://hurricane.co.id/whatsapp-xcs.html" target="_blank" rel="noopener" class="btn btn-primary btn-lg"><span>Jadwalkan Test Drive</span><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#ar"/></svg></a>
+<a href="https://hurricane.co.id/whatsapp-xcs.html" target="_blank" rel="noopener" class="btn btn-primary btn-lg"><span>Ambil Free Test Drive</span><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#ar"/></svg></a>
 <a href="https://hurricane.co.id/whatsapp-xcs.html" target="_blank" rel="noopener" class="btn btn-wa btn-lg"><svg width="20" height="20" fill="currentColor"><use href="#wa"/></svg><span>Konsultasi Gratis</span></a>
 </div>
 <div class="hero-guarantee-note">
@@ -688,31 +750,48 @@ html.lenis{scroll-behavior:auto}
 <div class="container">
 <header class="section-header reveal-on-scroll">
 <span class="eyebrow">Diuji Langsung &amp; Terverifikasi</span>
-<h2>Fitra Eri Coba Hurricane XCS</h2>
+
 <p>Bukan sekadar testimoni berbayar — lihat bagaimana pembalap &amp; jurnalis otomotif nomor 1 Indonesia menguji langsung dampaknya pada efisiensi dan tenaga mobil.</p>
 </header>
-<div class="video-featured-card reveal-on-scroll">
-<div class="video-player-facade" data-video-id="7VlMKFcP1SY" role="button" tabindex="0" aria-label="Putar Video Fitra Eri Tes Hurricane XCS">
-<img src="https://i.ytimg.com/vi/7VlMKFcP1SY/maxresdefault.jpg" alt="Video Review Fitra Eri Hurricane XCS Menghemat BBM" width="1280" height="720" loading="lazy">
-<div class="video-play-btn" aria-hidden="true"><svg width="34" height="34" fill="currentColor"><use href="#play"/></svg></div>
-<div class="video-badge-pill">Fitra Eri VLOG #105</div>
-</div>
-<div class="video-card-meta">
-<div><h3>HURRICANE BISA MENGHEMAT BBM? Saya Tes Langsung</h3><span>Diuji di jalan raya dengan parameter kecepatan &amp; konsumsi bahan bakar terukur</span></div>
-<a href="https://hurricane.co.id/whatsapp-xcs.html" target="_blank" rel="noopener" class="btn btn-outline btn-sm">Tanya Tentang Hasil Uji Ini</a>
-</div>
-</div>
-<figure class="fitra-quote-card reveal-on-scroll">
-<blockquote>&ldquo;Pasang Hurricane XCS dalam 5 menit untuk akselerasi lebih baik, mesin lebih enteng, dan hemat bahan bakar hingga 10% lebih.&rdquo;</blockquote>
-<figcaption class="quote-author-info"><strong>Fitra Eri</strong><span>Jurnalis Otomotif &amp; Juara Balap Nasional</span></figcaption>
-</figure>
-<div class="secondary-video-row reveal-on-scroll">
-<div class="secondary-video-card is-vertical" data-video-id="uPBl3oE57Z4" data-vertical="1" role="button" tabindex="0" aria-label="Putar Review XCS Super Fast">
-<div class="sec-thumb-wrap">
-<img src="https://i.ytimg.com/vi/uPBl3oE57Z4/hqdefault.jpg" alt="Review Fitra Eri XCS Super Fast" width="360" height="640" loading="lazy">
-<div class="sec-play-icon"><svg width="22" height="22" fill="currentColor"><use href="#play"/></svg></div>
-</div>
-<div class="sec-content"><h4>PEMASANGAN PRODUK XCS 7 CEPAT DAN MUDAH!!!</h4></div>
+
+<!-- ===== VIDEO (5 kotak: MP4 / YouTube / Instagram) =====
+     Cara mengisi:
+     · MP4     → taruh file di folder assets/videos/, lalu samakan nama file di data-src DAN src (2 tempat per kartu).
+     · YouTube → ganti LINK_YOUTUBE_1/2/3 dengan link videonya (cukup di data-yt; di href juga boleh).
+                 Format watch?v=…, youtu.be/…, maupun shorts/… semuanya bisa.
+     · Instagram → tempel link Reels/post Instagram di tempat link YouTube (data-yt atau href);
+                 kotaknya otomatis jadi kotak Instagram. Thumbnail Instagram tidak bisa diambil otomatis,
+                 jadi bisa tambahkan sampul sendiri: data-cover="assets/images/nama-sampul.jpg".
+     · Judul   → ubah teks di <span class="xv-title">.
+     Kotak yang file/link-nya belum diisi tampil sebagai "Segera hadir"; begitu diisi, videonya muncul sendiri. -->
+<div class="xv-wrap reveal-on-scroll">
+<div class="xv-head"><h3>Tonton Videonya</h3></div>
+<div class="xv-grid" id="xv-grid">
+<button type="button" class="xv-card xv-mp4 xv-big" data-type="mp4" data-src="assets/vidio/HONDA.mp4" aria-label="Putar video: Video Hurricane XCS #1">
+<video class="xv-media" muted playsinline preload="metadata" src="assets/vidio/HONDA.mp4#t=0.5" aria-hidden="true" tabindex="-1"></video>
+<span class="xv-shade" aria-hidden="true"></span><span class="xv-pill">Video</span><span class="xv-play"><svg width="22" height="22" fill="currentColor" aria-hidden="true"><use href="#play"/></svg></span><span class="xv-soon">Segera hadir</span>
+<span class="xv-title">Honda</span>
+</button>
+<button type="button" class="xv-card xv-mp4" data-type="mp4" data-src="assets/vidio/Wuling.mp4" aria-label="Putar video: Video Hurricane XCS #2">
+<video class="xv-media" muted playsinline preload="metadata" src="assets/vidio/Wuling.mp4#t=0.5" aria-hidden="true" tabindex="-1"></video>
+<span class="xv-shade" aria-hidden="true"></span><span class="xv-pill">Video</span><span class="xv-play"><svg width="22" height="22" fill="currentColor" aria-hidden="true"><use href="#play"/></svg></span><span class="xv-soon">Segera hadir</span>
+<span class="xv-title">Wuling</span>
+</button>
+<a class="xv-card xv-yt" data-type="youtube" data-yt="https://www.youtube.com/watch?v=u1n9uH7l33U" href="https://www.youtube.com/watch?v=u1n9uH7l33U" target="_blank" rel="noopener" aria-label="Putar video YouTube: Video YouTube #1">
+<img class="xv-media" alt="" loading="lazy" decoding="async" width="480" height="360">
+<span class="xv-shade" aria-hidden="true"></span><span class="xv-pill yt"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.8 15.1V8.9l5.6 3.1z"/></svg>YouTube</span><span class="xv-play"><svg width="22" height="22" fill="currentColor" aria-hidden="true"><use href="#play"/></svg></span><span class="xv-soon">Segera hadir</span>
+<span class="xv-title">Fitra Eri</span>
+</a>
+<a class="xv-card xv-yt" data-type="instagram" data-yt="https://www.instagram.com/p/DdYo6uEtaxv/" href="https://www.instagram.com/p/DdYo6uEtaxv/" target="_blank" rel="noopener" aria-label="Putar video instagram: Video instagram #2">
+<img class="xv-media" alt="" loading="lazy" decoding="async" width="480" height="360">
+<span class="xv-shade" aria-hidden="true"></span><span class="xv-pill yt"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.8 15.1V8.9l5.6 3.1z"/></svg>YouTube</span><span class="xv-play"><svg width="22" height="22" fill="currentColor" aria-hidden="true"><use href="#play"/></svg></span><span class="xv-soon">Segera hadir</span>
+<span class="xv-title">Samuelchrist</span>
+</a>
+<a class="xv-card xv-yt" data-type="youtube" data-yt="https://www.instagram.com/reel/DZ14QGEzygM/?obrf=aG1sOHVpZTBiaGdm" href="https://www.instagram.com/reel/DZ14QGEzygM/?obrf=aG1sOHVpZTBiaGdm" target="_blank" rel="noopener" aria-label="Putar video YouTube: Video YouTube #3">
+<img class="xv-media" alt="" loading="lazy" decoding="async" width="480" height="360">
+<span class="xv-shade" aria-hidden="true"></span><span class="xv-pill yt"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.8 15.1V8.9l5.6 3.1z"/></svg>YouTube</span><span class="xv-play"><svg width="22" height="22" fill="currentColor" aria-hidden="true"><use href="#play"/></svg></span><span class="xv-soon">Segera hadir</span>
+<span class="xv-title">Jejouw</span>
+</a>
 </div>
 </div>
 </div>
@@ -909,7 +988,7 @@ html.lenis{scroll-behavior:auto}
 <p class="cta-lead-text">Jangan biarkan bensin Anda terus menguap sia-sia. Hubungi tim konsultan kami sekarang, sebutkan tipe mobil Anda, dan nikmati promo Free Test Drive serta penawaran spesial hari ini!</p>
 <div class="cta-btn-cluster">
 <a href="https://hurricane.co.id/whatsapp-xcs.html" target="_blank" rel="noopener" class="btn btn-wa btn-lg"><svg width="22" height="22" fill="currentColor"><use href="#wa"/></svg><span>Chat WhatsApp Kami Sekarang</span></a>
-<a href="#testdrive" class="btn btn-outline btn-lg"><span>Jadwalkan Test Drive</span></a>
+<a href="#testdrive" class="btn btn-outline btn-lg"><span>Ambil Free Test Drive</span></a>
 </div>
 <ul class="cta-safety-points">
 <li class="cta-safety-item"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="3"><use href="#ck"/></svg><span>Coba Dulu, Baru Bayar</span></li>
@@ -934,6 +1013,8 @@ html.lenis{scroll-behavior:auto}
 </ul>
 </div>
 </footer>
+
+<dialog class="xv-modal" id="xv-modal" aria-label="Pemutar video"><button type="button" class="xv-close" aria-label="Tutup video">&times;</button><div class="xv-stage" id="xv-stage"></div></dialog>
 
 <div class="sticky-mobile-bar" role="complementary" aria-label="Aksi Cepat WhatsApp">
 <a href="https://hurricane.co.id/whatsapp-xcs.html" target="_blank" rel="noopener" class="btn btn-wa btn-block"><svg width="20" height="20" fill="currentColor"><use href="#wa"/></svg><span>Konsultasi &amp; Free Test Drive</span></a>
@@ -1294,6 +1375,98 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
   document.body.appendChild(sc);
+})();
+</script>
+
+<script>
+/* ===== VIDEO LAINNYA: kotak MP4 & YouTube + pemutar ===== */
+(function () {
+  'use strict';
+  var grid = document.getElementById('xv-grid'); if (!grid) return;
+  var modal = document.getElementById('xv-modal'), stage = document.getElementById('xv-stage');
+  var ytId = function (url) {                 /* link watch?v=, youtu.be/, shorts/, embed/, live/ atau ID saja */
+    if (!url) return '';
+    var m = url.match(/(?:youtu\.be\/|[?&]v=|shorts\/|embed\/|live\/)([A-Za-z0-9_-]{11})/) || url.match(/^([A-Za-z0-9_-]{11})$/);
+    return m ? m[1] : '';
+  };
+  var igLink = function (url) {              /* instagram.com/reel/…, /reels/…, /p/…, /tv/… */
+    var m = (url || '').match(/instagram\.com\/(?:[A-Za-z0-9_.]+\/)?(reels?|p|tv)\/([A-Za-z0-9_-]+)/);
+    return m ? { kind: m[1] === 'p' ? 'p' : (m[1] === 'tv' ? 'tv' : 'reel'), code: m[2] } : null;
+  };
+  var IG_ICON = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg>';
+  var empty = function (c) {                  /* belum ada video → kotak "Segera hadir" yang tidak bisa diklik */
+    c.classList.add('is-empty'); c.setAttribute('aria-disabled', 'true'); c.setAttribute('tabindex', '-1');
+    var pill = c.querySelector('.xv-pill'); if (pill) pill.textContent = 'Segera hadir';
+    c.setAttribute('aria-label', 'Video segera hadir');
+    if (c.tagName === 'A') c.removeAttribute('href');
+  };
+  var cards = [].slice.call(grid.querySelectorAll('.xv-card'));
+  cards.forEach(function (c) {
+    if (c.dataset.type !== 'mp4') {
+      var ig = igLink(c.dataset.ig) || igLink(c.dataset.yt) || igLink(c.getAttribute('href'));
+      if (ig) {                                   /* link Instagram → kotak Instagram */
+        c.dataset.type = 'instagram'; c.dataset.igKind = ig.kind; c.dataset.igCode = ig.code;
+        c.href = 'https://www.instagram.com/' + ig.kind + '/' + ig.code + '/';
+        c.classList.add('xv-ig');
+        c.querySelector('.xv-pill').innerHTML = IG_ICON + 'Instagram';
+        var cover = c.dataset.cover, im = c.querySelector('img');
+        if (cover) im.src = cover; else c.classList.add('no-cover');   /* Instagram tidak memberi thumbnail otomatis */
+        c.setAttribute('aria-label', 'Putar video Instagram: ' + c.querySelector('.xv-title').textContent.trim());
+        return;
+      }
+      var id = ytId(c.dataset.yt) || ytId(c.getAttribute('href') || '');   /* link boleh ditaruh di data-yt atau href */
+      if (!id) { empty(c); return; }
+      c.setAttribute('aria-label', 'Putar video YouTube: ' + c.querySelector('.xv-title').textContent.trim());
+      c.dataset.id = id;
+      c.href = 'https://www.youtube.com/watch?v=' + id;
+      c.querySelector('img').src = 'https://i.ytimg.com/vi/' + id + '/hqdefault.jpg';
+    } else {
+      c.setAttribute('aria-label', 'Putar video: ' + c.querySelector('.xv-title').textContent.trim());
+      c.querySelector('video').addEventListener('error', function () { empty(c); });
+    }
+  });
+
+  var lenis = function (stop) { if (window.__lenis) stop ? window.__lenis.stop() : window.__lenis.start(); };
+  var open = function (c) {
+    stage.classList.remove('vert', 'ig'); stage.innerHTML = '';
+    if (c.dataset.type === 'instagram') {
+      var g = document.createElement('iframe');
+      g.src = 'https://www.instagram.com/' + c.dataset.igKind + '/' + c.dataset.igCode + '/embed/';
+      g.title = c.querySelector('.xv-title').textContent;
+      g.allow = 'autoplay; encrypted-media; picture-in-picture; clipboard-write';
+      g.setAttribute('allowtransparency', 'true'); g.setAttribute('scrolling', 'no');
+      var go = document.createElement('a');
+      go.className = 'xv-ig-open'; go.href = c.href; go.target = '_blank'; go.rel = 'noopener';
+      go.innerHTML = IG_ICON + '<span>Buka di Instagram</span>';
+      stage.classList.add('ig'); stage.appendChild(g); stage.appendChild(go);
+    } else if (c.dataset.type === 'youtube') {
+      var f = document.createElement('iframe');
+      f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.id + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
+      f.title = c.querySelector('.xv-title').textContent;
+      f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      f.allowFullscreen = true;
+      stage.appendChild(f);
+    } else {
+      var v = document.createElement('video');
+      v.src = c.dataset.src; v.controls = true; v.autoplay = true; v.playsInline = true;
+      v.addEventListener('loadedmetadata', function () { stage.classList.toggle('vert', v.videoHeight > v.videoWidth); });   /* video tegak tampil tegak */
+      stage.appendChild(v);
+      var p = v.play(); if (p && p.catch) p.catch(function () {});
+    }
+    modal.showModal(); lenis(true);
+  };
+  modal.addEventListener('close', function () { stage.innerHTML = ''; lenis(false); });   /* berhenti total saat ditutup */
+  modal.addEventListener('click', function (e) { if (e.target === modal || e.target.classList.contains('xv-close')) modal.close(); });
+  cards.forEach(function (c) { c.addEventListener('click', function (e) { e.preventDefault(); if (!c.classList.contains('is-empty')) open(c); }); });
+
+  /* pratinjau MP4 bergerak saat kursor di atas kotak (desktop) */
+  if (matchMedia('(hover: hover)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    grid.querySelectorAll('.xv-mp4').forEach(function (c) {
+      var v = c.querySelector('video');
+      c.addEventListener('mouseenter', function () { if (c.classList.contains('is-empty')) return; var p = v.play(); if (p && p.catch) p.catch(function () {}); });
+      c.addEventListener('mouseleave', function () { v.pause(); });
+    });
+  }
 })();
 </script>
 </body>
