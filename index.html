@@ -655,6 +655,8 @@ html.lenis{scroll-behavior:auto}
 .tv-cta .btn{width:100%;justify-content:center}
 }
 
+/* judul kotak berupa headline kapital */
+.xv-title{text-transform:uppercase;letter-spacing:.01em;font-weight:700;text-shadow:0 2px 12px rgba(0,0,0,.55)}
 /* label jenis video disembunyikan; hanya kotak kosong yang tetap menampilkan "Segera hadir" */
 .xv-pill{display:none}
 .xv-card.is-empty .xv-pill{display:inline-flex}
@@ -845,35 +847,36 @@ html.lenis{scroll-behavior:auto}
                  jadi bisa tambahkan sampul sendiri: data-cover="assets/images/nama-sampul.jpg".
      · Sampul  → semua kotak bisa diberi gambar sampul sendiri: data-cover="assets/images/nama-sampul.jpg".
                  Tanpa itu: MP4 menampilkan frame pertama videonya, YouTube menampilkan thumbnail videonya.
+     · Posisi sampul → tambahkan data-pos="50% 82%" di kotak (angka kedua lebih kecil = gambar bergeser ke atas).
      · Judul   → ubah teks di <span class="xv-title">.
      Kotak yang file/link-nya belum diisi tampil sebagai "Segera hadir"; begitu diisi, videonya muncul sendiri. -->
 <div class="xv-wrap reveal-on-scroll">
 <div class="xv-head"><h3>Tonton Videonya</h3></div>
 <div class="xv-grid" id="xv-grid">
-<button type="button" class="xv-card xv-mp4 xv-big" data-type="mp4" data-src="assets/vidio/HONDA.mp4" aria-label="Putar video: Video Hurricane XCS #1">
+<button type="button" class="xv-card xv-mp4 xv-big" data-type="mp4" data-src="assets/vidio/HONDA.mp4" data-pos="50% 82%" aria-label="Putar video: Video Hurricane XCS #1">
 <video class="xv-media" muted playsinline preload="metadata" src="assets/vidio/HONDA.mp4#t=0.1" aria-hidden="true" tabindex="-1"></video>
 <span class="xv-shade" aria-hidden="true"></span><span class="xv-pill">Video</span><span class="xv-play"><svg width="22" height="22" fill="currentColor" aria-hidden="true"><use href="#play"/></svg></span><span class="xv-soon">Segera hadir</span>
-<span class="xv-title">Honda</span>
+<span class="xv-title">TERBUKTI DI HONDA</span>
 </button>
-<button type="button" class="xv-card xv-mp4" data-type="mp4" data-src="assets/vidio/wuling.mp4" aria-label="Putar video: Video Hurricane XCS #2">
-<video class="xv-media" muted playsinline preload="metadata" src="assets/vidio/wuling.mp4#t=0.1" aria-hidden="true" tabindex="-1"></video>
+<button type="button" class="xv-card xv-mp4" data-type="mp4" data-src="assets/vidio/Wuling.mp4" aria-label="Putar video: Video Hurricane XCS #2">
+<video class="xv-media" muted playsinline preload="metadata" src="assets/vidio/Wuling.mp4#t=0.1" aria-hidden="true" tabindex="-1"></video>
 <span class="xv-shade" aria-hidden="true"></span><span class="xv-pill">Video</span><span class="xv-play"><svg width="22" height="22" fill="currentColor" aria-hidden="true"><use href="#play"/></svg></span><span class="xv-soon">Segera hadir</span>
-<span class="xv-title">Wuling</span>
+<span class="xv-title">TERBUKTI DI WULING</span>
 </button>
 <a class="xv-card xv-yt" data-type="youtube" data-yt="https://youtu.be/7VlMKFcP1SY?si=Hn8if3URQoZJ69QY" href="https://youtu.be/7VlMKFcP1SY?si=Hn8if3URQoZJ69QY" target="_blank" rel="noopener" aria-label="Putar video YouTube: Video YouTube #1">
 <img class="xv-media" alt="" loading="lazy" decoding="async" width="480" height="360">
 <span class="xv-shade" aria-hidden="true"></span><span class="xv-pill yt"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.8 15.1V8.9l5.6 3.1z"/></svg>YouTube</span><span class="xv-play"><svg width="22" height="22" fill="currentColor" aria-hidden="true"><use href="#play"/></svg></span><span class="xv-soon">Segera hadir</span>
-<span class="xv-title">Fitra Eri</span>
+<span class="xv-title">TERBUKTI SAMA FITRA ERI</span>
 </a>
 <a class="xv-card xv-yt" data-type="instagram" data-yt="https://www.instagram.com/p/DdYo6uEtaxv/" href="https://www.instagram.com/p/DdYo6uEtaxv/" target="_blank" rel="noopener" aria-label="Putar video instagram: Video instagram #2">
 <img class="xv-media" alt="" loading="lazy" decoding="async" width="480" height="360">
 <span class="xv-shade" aria-hidden="true"></span><span class="xv-pill yt"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.8 15.1V8.9l5.6 3.1z"/></svg>YouTube</span><span class="xv-play"><svg width="22" height="22" fill="currentColor" aria-hidden="true"><use href="#play"/></svg></span><span class="xv-soon">Segera hadir</span>
-<span class="xv-title">Samuelchrist</span>
+<span class="xv-title">TERBUKTI SAMA INFLUENCER BESAR</span>
 </a>
 <a class="xv-card xv-yt" data-type="youtube" data-yt="https://www.instagram.com/reel/DZ14QGEzygM/?obrf=aG1sOHVpZTBiaGdm" href="https://www.instagram.com/reel/DZ14QGEzygM/?obrf=aG1sOHVpZTBiaGdm" target="_blank" rel="noopener" aria-label="Putar video YouTube: Video YouTube #3">
 <img class="xv-media" alt="" loading="lazy" decoding="async" width="480" height="360">
 <span class="xv-shade" aria-hidden="true"></span><span class="xv-pill yt"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.8 15.1V8.9l5.6 3.1z"/></svg>YouTube</span><span class="xv-play"><svg width="22" height="22" fill="currentColor" aria-hidden="true"><use href="#play"/></svg></span><span class="xv-soon">Segera hadir</span>
-<span class="xv-title">Jejouw</span>
+<span class="xv-title">TERBUKTI SAMA INFLUENCER BESAR</span>
 </a>
 </div>
 </div>
@@ -1471,6 +1474,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (c.tagName === 'A') c.removeAttribute('href');
   };
   var cards = [].slice.call(grid.querySelectorAll('.xv-card'));
+  /* titik fokus sampul per kotak: data-pos="kiri-kanan atas-bawah", mis. "50% 18%" = tengah, agak ke atas */
+  cards.forEach(function (c) { if (c.dataset.pos) { var m = c.querySelector('.xv-media'); if (m) m.style.objectPosition = c.dataset.pos; } });
   cards.forEach(function (c) {
     if (c.dataset.type !== 'mp4') {
       var ig = igLink(c.dataset.ig) || igLink(c.dataset.yt) || igLink(c.getAttribute('href'));
