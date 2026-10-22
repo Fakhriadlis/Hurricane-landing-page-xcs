@@ -710,6 +710,104 @@ html.lenis{scroll-behavior:auto}
 .tv-frame.fit-contain .tv-video{object-fit:contain}
 .tv-section .tv-frame + .container .wa-end{margin-top:clamp(1.5rem,3vw,2.5rem)}
 @media(max-width:768px){.tv-frame{border-radius:0 !important}}
+
+/* ===== VIDEO SINGKAT DI KARTU MANFAAT ===== */
+.bc-media{position:relative;width:100%;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#0b0b0d;box-shadow:inset 0 0 0 1px rgba(255,255,255,.06)}
+.bc-video{display:block;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.benefit-check-item.has-media{flex-direction:column;gap:1rem}
+.benefit-check-item.has-media .benefit-icon-badge{display:none}
+@media(min-width:993px){
+.benefit-checklist{grid-template-columns:repeat(3,minmax(0,1fr))}
+.benefit-check-item:not(.has-media){grid-column:1/-1;flex-direction:row;align-items:center;gap:1.25rem}
+}
+@media(max-width:992px){.bc-media{border-radius:12px}}
+
+/* video memenuhi kartu dari tepi ke tepi; teks singkat di bawahnya */
+.benefit-check-item.has-media{padding:0 !important;gap:0 !important;overflow:hidden}
+.benefit-check-item.has-media .bc-media{border-radius:0;box-shadow:none;aspect-ratio:16/9}
+.benefit-check-item.has-media .benefit-text-wrap{padding:1rem 1.25rem 1.25rem}
+.benefit-text-wrap strong{font-size:clamp(1.25rem,2vw,1.5rem) !important;line-height:1.15;letter-spacing:-.02em;margin-bottom:.3rem}
+.benefit-text-wrap em{font-size:.95rem !important;line-height:1.45}
+@media(max-width:992px){.benefit-check-item.has-media .benefit-text-wrap{padding:.9rem 1.1rem 1.1rem}}
+
+/* ===== TONTON VIDEONYA · desain baru: Honda besar + kotak tegak 4:5, caption bertingkat, pelat logo ===== */
+.xv-grid{grid-template-columns:repeat(3,minmax(0,1fr)) !important;gap:1rem}
+.xv-grid .xv-card{aspect-ratio:4/5;border-radius:26px}
+.xv-grid .xv-card.xv-big{grid-column:span 2;grid-row:auto;aspect-ratio:auto;min-height:0}
+.xv-shade{background:linear-gradient(180deg,rgba(0,0,0,0) 40%,rgba(0,0,0,.88) 100%)}
+/* caption: ✓ TERBUKTI DI (kecil, oranye) · NAMA (besar, putih) · info (abu) */
+.xv-cap{position:absolute;left:24px;right:24px;bottom:22px;z-index:2;display:flex;flex-direction:column;gap:5px}
+.xv-kick{display:inline-flex;align-items:center;gap:7px;font-size:.75rem;font-weight:700;letter-spacing:.16em;color:#ff9f0a}
+.xv-ck{flex:none;width:18px;height:18px;border-radius:50%;display:grid;place-items:center;background:#ff9f0a;color:#000}
+.xv-cap .xv-title{position:static;font-size:1.9rem;line-height:1;font-weight:900;letter-spacing:-.01em;color:#fff;text-shadow:none;text-transform:uppercase;-webkit-line-clamp:2}
+.xv-meta{font-size:.88rem;font-weight:500;color:#c7c7cc}
+.xv-big .xv-cap{left:32px;right:32px;bottom:30px;gap:6px}
+.xv-big .xv-kick{font-size:.82rem;letter-spacing:.18em}
+.xv-big .xv-ck{width:20px;height:20px}
+.xv-big .xv-cap .xv-title{font-size:clamp(2.4rem,4vw,3.4rem);line-height:.95;letter-spacing:-.02em}
+.xv-big .xv-meta{font-size:1rem}
+/* play: tengah di kotak besar, pojok kanan atas di kotak kecil (tidak menutupi wajah/mobil) */
+.xv-card:not(.xv-big) .xv-play{left:auto;top:16px;right:16px;margin:0;width:46px;height:46px;background:rgba(0,0,0,.5)}
+.xv-card:not(.xv-big) .xv-play svg{width:18px;height:18px}
+.xv-big .xv-play{width:84px;height:84px;margin:-42px 0 0 -42px}
+/* pelat logo merek (pojok kiri atas) */
+.xv-logo{position:absolute;top:18px;left:18px;z-index:2;height:38px;padding:0 13px;border-radius:12px;background:#fff;display:flex;align-items:center;box-shadow:0 6px 18px rgba(0,0,0,.35)}
+.xv-logo img{display:block;height:22px;width:auto;max-width:110px;object-fit:contain}
+.xv-big .xv-logo{top:24px;left:24px;height:46px;padding:0 16px;border-radius:14px}
+.xv-big .xv-logo img{height:28px;max-width:140px}
+.xv-logo[hidden],.xv-card.is-empty .xv-logo{display:none}
+@media(max-width:768px){
+.xv-grid{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:.75rem}
+.xv-grid .xv-card{aspect-ratio:4/5;border-radius:18px}
+.xv-grid .xv-card.xv-big{grid-column:span 2;aspect-ratio:16/9;border-radius:22px}
+.xv-cap{left:12px;right:12px;bottom:12px;gap:3px}
+.xv-kick{font-size:.62rem;letter-spacing:.13em;gap:5px}
+.xv-ck{width:14px;height:14px}
+.xv-ck svg{width:9px;height:9px}
+.xv-cap .xv-title{font-size:1.15rem;line-height:1.02}
+.xv-meta{font-size:.7rem}
+.xv-big .xv-cap{left:16px;right:16px;bottom:14px}
+.xv-big .xv-kick{font-size:.7rem}
+.xv-big .xv-ck{width:16px;height:16px}
+.xv-big .xv-cap .xv-title{font-size:1.65rem}
+.xv-big .xv-meta{font-size:.78rem}
+.xv-card:not(.xv-big) .xv-play{top:10px;right:10px;width:36px;height:36px}
+.xv-card:not(.xv-big) .xv-play svg{width:14px;height:14px}
+.xv-big .xv-play{width:60px;height:60px;margin:-30px 0 0 -30px}
+.xv-logo{top:10px;left:10px;height:26px;padding:0 9px;border-radius:8px}
+.xv-logo img{height:15px;max-width:74px}
+.xv-big .xv-logo{top:14px;left:14px;height:32px;padding:0 11px;border-radius:10px}
+.xv-big .xv-logo img{height:19px;max-width:96px}
+}
+
+/* thumbnail Honda & Wuling = logo besar di tengah, frame video diredupkan di belakangnya */
+.xv-card.has-logo .xv-media{filter:brightness(.36) saturate(.85)}
+.xv-card.has-logo .xv-logo{top:42%;left:50%;transform:translate(-50%,-50%);height:auto;padding:16px 26px;border-radius:18px;box-shadow:0 18px 50px rgba(0,0,0,.55)}
+.xv-card.has-logo .xv-logo img{height:auto;width:auto;max-height:64px;max-width:200px}
+.xv-big.has-logo .xv-logo{padding:22px 40px;border-radius:24px}
+.xv-big.has-logo .xv-logo img{max-height:96px;max-width:320px}
+.xv-big.has-logo .xv-play{left:auto;top:24px;right:24px;margin:0;width:56px;height:56px;background:rgba(0,0,0,.5)}
+.xv-big.has-logo .xv-play svg{width:20px;height:20px}
+@media(max-width:768px){
+.xv-card.has-logo .xv-logo{top:40%;padding:10px 14px;border-radius:12px}
+.xv-card.has-logo .xv-logo img{max-height:34px;max-width:112px}
+.xv-big.has-logo .xv-logo{top:33%;padding:10px 18px;border-radius:14px}
+.xv-big.has-logo .xv-logo img{max-height:40px;max-width:150px}
+.xv-big.has-logo .xv-play{top:12px;right:12px;width:40px;height:40px}
+.xv-big.has-logo .xv-play svg{width:15px;height:15px}
+}
+
+/* ===== logo memenuhi seluruh thumbnail (Honda & Wuling) ===== */
+.xv-grid .xv-card.has-logo{background:#fff}
+.xv-grid .xv-card.has-logo .xv-media{display:none}
+.xv-grid .xv-card.has-logo .xv-logo{position:absolute;inset:0;top:0;left:0;transform:none;width:auto;height:auto;padding:0;border-radius:0;background:#fff;box-shadow:none;display:block;z-index:0}
+.xv-grid .xv-card.has-logo .xv-logo img{width:100%;height:100%;max-width:none;max-height:none;object-fit:cover;object-position:50% 80%}   /* logo naik ke sepertiga atas, caption di bawah */
+.xv-grid .xv-card.has-logo .xv-shade{z-index:1;background:linear-gradient(180deg,rgba(0,0,0,0) 48%,rgba(0,0,0,.6) 72%,rgba(0,0,0,.92) 100%)}   /* gradasi gelap di atas logo, di bawah caption → teks putih tetap terbaca */
+/* ===== TERBUKTI: cap oranye padat → terbaca di atas gambar apa pun (tidak bentrok warna) ===== */
+.xv-grid .xv-kick{align-self:flex-start;padding:4px 10px 4px 4px;border-radius:999px;background:#ff9f0a;color:#000;letter-spacing:.12em;box-shadow:0 4px 14px rgba(0,0,0,.35)}
+.xv-grid .xv-ck{background:#000;color:#ff9f0a}
+.xv-grid .xv-shade{background:linear-gradient(180deg,rgba(0,0,0,0) 28%,rgba(0,0,0,.55) 58%,rgba(0,0,0,.92) 100%)}
+@media(max-width:768px){.xv-grid .xv-kick{padding:3px 8px 3px 3px;letter-spacing:.1em}}
 /* ===== KALKULATOR DI HP: angka tidak pernah terpotong ===== */
 .savings-annual-number,.sub-saving-item strong,.calc-budget-display{font-variant-numeric:tabular-nums;white-space:nowrap}
 .sub-saving-item strong{word-break:normal;overflow-wrap:normal}
@@ -807,7 +905,27 @@ html.lenis{scroll-behavior:auto}
 </div>
 </section>
 
-<!-- 2. SOLUSI: TEKNOLOGI JERMAN -->
+<!-- 2. VIDEO TESTIMONI 30 TAHUN -->
+<section class="section tv-section" id="video-testimoni">
+<div class="container">
+<header class="section-header reveal-on-scroll">
+<span class="eyebrow">Testimoni Asli Pelanggan</span>
+<h2>30 Tahun Dipercaya Pemilik Mobil Indonesia</h2>
+</header>
+</div>
+<!-- Video layar penuh. assets/vidio/testimoni.mp4 = versi landscape (desktop).
+     Opsional: assets/vidio/testimoni-hp.mp4 = versi vertikal, otomatis dipakai di HP (kalau tidak ada, HP memakai testimoni.mp4). -->
+<div class="tv-frame" id="tv-frame">
+<video class="tv-video" id="tv-video" data-src="assets/vidio/testimoni.mp4" data-src-hp="assets/vidio/testimoni-hp.mp4" muted loop playsinline autoplay preload="metadata" disablepictureinpicture disableremoteplayback controlslist="nodownload nofullscreen noremoteplayback" aria-label="Video testimoni pelanggan Hurricane XCS"></video>
+</div>
+<div class="container">
+<div class="wa-end reveal-on-scroll">
+<a href="https://hurricane.co.id/whatsapp-xcs.html" target="_blank" rel="noopener" class="btn btn-wa btn-lg wa-end-btn" data-wa-section="video-testimoni"><svg width="22" height="22" fill="currentColor" aria-hidden="true"><use href="#wa"/></svg><span>Jadwalkan Test Drive via WhatsApp</span></a>
+</div>
+</div>
+</section>
+
+<!-- 3. SOLUSI: TEKNOLOGI JERMAN -->
 <section class="section solusi-section" id="solusi">
 <div class="container solusi-grid">
 <header class="section-header solusi-header reveal-on-scroll">
@@ -830,7 +948,7 @@ html.lenis{scroll-behavior:auto}
 </div>
 </section>
 
-<!-- 3. BUKTI UJI: FITRA ERI + 5 VIDEO -->
+<!-- 4. BUKTI UJI: FITRA ERI + 5 VIDEO -->
 <section class="section video-section" id="uji-fitra-eri">
 <div class="container">
 <header class="section-header reveal-on-scroll">
@@ -849,35 +967,37 @@ html.lenis{scroll-behavior:auto}
      · Sampul  → semua kotak bisa diberi gambar sampul sendiri: data-cover="assets/images/nama-sampul.jpg".
                  Tanpa itu: MP4 menampilkan frame pertama videonya, YouTube menampilkan thumbnail videonya.
      · Posisi sampul → tambahkan data-pos="50% 82%" di kotak (angka kedua lebih kecil = gambar bergeser ke atas).
-     · Judul   → ubah teks di <span class="xv-title">.
+     · Judul   → caption 3 tingkat: <span class="xv-kick"> (TERBUKTI DI/SAMA), <span class="xv-title"> (nama), <span class="xv-meta"> (info).
+                 Kalimat lengkapnya untuk pembaca layar ada di data-label pada kotak.
+     · Logo    → pelat putih memakai assets/images/logohonda dan logowuling (png/webp/svg/jpg otomatis dicoba).
      Kotak yang file/link-nya belum diisi tampil sebagai "Segera hadir"; begitu diisi, videonya muncul sendiri. -->
 <div class="xv-wrap reveal-on-scroll">
 <div class="xv-head"><h3>Tonton Videonya</h3></div>
 <div class="xv-grid" id="xv-grid">
-<button type="button" class="xv-card xv-mp4 xv-big" data-type="mp4" data-src="assets/vidio/HONDA.mp4" data-pos="50% 82%" aria-label="Putar video: Video Hurricane XCS #1">
+<button type="button" class="xv-card xv-mp4 xv-big" data-type="mp4" data-src="assets/vidio/HONDA.mp4" data-pos="50% 82%" aria-label="Putar video: Video Hurricane XCS #1" data-label="TERBUKTI DI HONDA">
 <video class="xv-media" muted playsinline preload="metadata" src="assets/vidio/HONDA.mp4#t=0.1" aria-hidden="true" tabindex="-1"></video>
 <span class="xv-shade" aria-hidden="true"></span><span class="xv-pill">Video</span><span class="xv-play"><svg width="22" height="22" fill="currentColor" aria-hidden="true"><use href="#play"/></svg></span><span class="xv-soon">Segera hadir</span>
-<span class="xv-title">TERBUKTI DI HONDA</span>
+<span class="xv-logo"><img data-logo="assets/images/logohonda" alt="Logo Honda" decoding="async"></span><span class="xv-cap"><span class="xv-kick"><i class="xv-ck" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i>TERBUKTI DI</span><span class="xv-title">HONDA</span><span class="xv-meta">CR-V Turbo</span></span>
 </button>
-<button type="button" class="xv-card xv-mp4" data-type="mp4" data-src="assets/vidio/Wuling.mp4" aria-label="Putar video: Video Hurricane XCS #2">
+<button type="button" class="xv-card xv-mp4" data-type="mp4" data-src="assets/vidio/Wuling.mp4" aria-label="Putar video: Video Hurricane XCS #2" data-label="TERBUKTI DI WULING">
 <video class="xv-media" muted playsinline preload="metadata" src="assets/vidio/Wuling.mp4#t=0.1" aria-hidden="true" tabindex="-1"></video>
 <span class="xv-shade" aria-hidden="true"></span><span class="xv-pill">Video</span><span class="xv-play"><svg width="22" height="22" fill="currentColor" aria-hidden="true"><use href="#play"/></svg></span><span class="xv-soon">Segera hadir</span>
-<span class="xv-title">TERBUKTI DI WULING</span>
+<span class="xv-logo"><img data-logo="assets/images/logowuling" alt="Logo Wuling" decoding="async"></span><span class="xv-cap"><span class="xv-kick"><i class="xv-ck" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i>TERBUKTI DI</span><span class="xv-title">WULING</span><span class="xv-meta">Nugroho Suharlim</span></span>
 </button>
-<a class="xv-card xv-yt" data-type="youtube" data-yt="https://youtu.be/7VlMKFcP1SY?si=Hn8if3URQoZJ69QY" href="https://youtu.be/7VlMKFcP1SY?si=Hn8if3URQoZJ69QY" target="_blank" rel="noopener" aria-label="Putar video YouTube: Video YouTube #1">
+<a class="xv-card xv-yt" data-type="youtube" data-yt="https://youtu.be/7VlMKFcP1SY?si=Hn8if3URQoZJ69QY" href="https://youtu.be/7VlMKFcP1SY?si=Hn8if3URQoZJ69QY" target="_blank" rel="noopener" aria-label="Putar video YouTube: Video YouTube #1" data-label="TERBUKTI SAMA FITRA ERI">
 <img class="xv-media" alt="" loading="lazy" decoding="async" width="480" height="360">
 <span class="xv-shade" aria-hidden="true"></span><span class="xv-pill yt"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.8 15.1V8.9l5.6 3.1z"/></svg>YouTube</span><span class="xv-play"><svg width="22" height="22" fill="currentColor" aria-hidden="true"><use href="#play"/></svg></span><span class="xv-soon">Segera hadir</span>
-<span class="xv-title">TERBUKTI SAMA FITRA ERI</span>
+<span class="xv-cap"><span class="xv-kick"><i class="xv-ck" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i>TERBUKTI SAMA</span><span class="xv-title">FITRA ERI</span><span class="xv-meta">Jurnalis otomotif</span></span>
 </a>
-<a class="xv-card xv-yt" data-type="instagram" data-yt="https://www.instagram.com/p/DdYo6uEtaxv/" href="https://www.instagram.com/p/DdYo6uEtaxv/" target="_blank" rel="noopener" aria-label="Putar video instagram: Video instagram #2">
+<a class="xv-card xv-yt" data-type="instagram" data-yt="https://www.instagram.com/p/DdYo6uEtaxv/" href="https://www.instagram.com/p/DdYo6uEtaxv/" target="_blank" rel="noopener" aria-label="Putar video instagram: Video instagram #2" data-label="TERBUKTI SAMA INFLUENCER BESAR">
 <img class="xv-media" alt="" loading="lazy" decoding="async" width="480" height="360">
 <span class="xv-shade" aria-hidden="true"></span><span class="xv-pill yt"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.8 15.1V8.9l5.6 3.1z"/></svg>YouTube</span><span class="xv-play"><svg width="22" height="22" fill="currentColor" aria-hidden="true"><use href="#play"/></svg></span><span class="xv-soon">Segera hadir</span>
-<span class="xv-title">TERBUKTI SAMA INFLUENCER BESAR</span>
+<span class="xv-cap"><span class="xv-kick"><i class="xv-ck" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i>TERBUKTI SAMA</span><span class="xv-title">INFLUENCER BESAR</span><span class="xv-meta">Samuelchrist</span></span>
 </a>
-<a class="xv-card xv-yt" data-type="youtube" data-yt="https://www.instagram.com/reel/DZ14QGEzygM/?obrf=aG1sOHVpZTBiaGdm" href="https://www.instagram.com/reel/DZ14QGEzygM/?obrf=aG1sOHVpZTBiaGdm" target="_blank" rel="noopener" aria-label="Putar video YouTube: Video YouTube #3">
+<a class="xv-card xv-yt" data-type="youtube" data-yt="https://www.instagram.com/reel/DZ14QGEzygM/?obrf=aG1sOHVpZTBiaGdm" href="https://www.instagram.com/reel/DZ14QGEzygM/?obrf=aG1sOHVpZTBiaGdm" target="_blank" rel="noopener" aria-label="Putar video YouTube: Video YouTube #3" data-label="TERBUKTI SAMA INFLUENCER BESAR">
 <img class="xv-media" alt="" loading="lazy" decoding="async" width="480" height="360">
 <span class="xv-shade" aria-hidden="true"></span><span class="xv-pill yt"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.8 15.1V8.9l5.6 3.1z"/></svg>YouTube</span><span class="xv-play"><svg width="22" height="22" fill="currentColor" aria-hidden="true"><use href="#play"/></svg></span><span class="xv-soon">Segera hadir</span>
-<span class="xv-title">TERBUKTI SAMA INFLUENCER BESAR</span>
+<span class="xv-cap"><span class="xv-kick"><i class="xv-ck" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i>TERBUKTI SAMA</span><span class="xv-title">INFLUENCER BESAR</span><span class="xv-meta">Jejouw</span></span>
 </a>
 </div>
 </div>
@@ -887,13 +1007,13 @@ html.lenis{scroll-behavior:auto}
 </div>
 </section>
 
-<!-- 4. PITA KLAIM -->
+<!-- 5. PITA KLAIM -->
 <section class="kinetic-strip" aria-label="Hemat BBM s.d 30%, pasang cuma 5 menit, garansi s.d 15 tahun, 100% uang kembali, tarikan lebih enteng, aki lebih awet, teknologi Jerman, approved ATPM, 30 tahun di Indonesia">
 <div class="kin-row" aria-hidden="true"><div class="kin-track"><span class="hot">Hemat BBM s.d 30%</span><i>✦</i><span>Pasang Cuma 5 Menit</span><i>✦</i><span class="hot">Garansi s.d 15 Tahun</span><i>✦</i><span>100% Uang Kembali</span><i>✦</i></div></div>
 <div class="kin-row outline" aria-hidden="true"><div class="kin-track"><span>Tarikan Lebih Enteng</span><i>✦</i><span class="hot">Aki Lebih Awet</span><i>✦</i><span>Teknologi Jerman</span><i>✦</i><span>Approved ATPM</span><i>✦</i><span class="hot">30 Tahun di Indonesia</span><i>✦</i></div></div>
 </section>
 
-<!-- 4b. TANYA VARIAN YANG COCOK -->
+<!-- 5b. TANYA VARIAN YANG COCOK -->
 <aside class="cta-break-banner">
 <div class="container cta-break-inner">
 <p>Mau tahu varian Hurricane XCS yang paling cocok untuk tipe &amp; kapasitas mesin mobil Anda?</p>
@@ -901,7 +1021,7 @@ html.lenis{scroll-behavior:auto}
 </div>
 </aside>
 
-<!-- 5. MANFAAT -->
+<!-- 6. MANFAAT -->
 <section class="section credibility-section" id="keunggulan">
 <div class="container">
 <header class="section-header reveal-on-scroll">
@@ -912,22 +1032,22 @@ html.lenis{scroll-behavior:auto}
 <div class="no1-showcase-grid">
 <div>
 <ul class="benefit-checklist">
-<li class="benefit-check-item">
+<li class="benefit-check-item has-media">
+<div class="bc-media"><video class="bc-video" data-src="assets/vidio/HEMAT%20BBM.MP4" muted loop playsinline preload="none" disablepictureinpicture disableremoteplayback aria-label="Video: hemat konsumsi BBM"></video></div>
 <div class="benefit-icon-badge"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"/></svg></div>
-<div class="benefit-text-wrap"><strong>Hemat Konsumsi BBM Hingga 30%</strong><em>Arus listrik stabil membuat percikan api busi membesar sempurna. Seluruh butiran bahan bakar terbakar tuntas tanpa ada yang keluar sebagai asap knalpot berlebih.</em></div>
+<div class="benefit-text-wrap"><strong>Hemat BBM s.d 30%</strong><em>Pembakaran sempurna, bensin lebih awet.</em></div>
 </li>
-<li class="benefit-check-item">
+<li class="benefit-check-item has-media">
+<div class="bc-media"><video class="bc-video" data-src="assets/vidio/Ekspresi_Tenaga.mp4" muted loop playsinline preload="none" disablepictureinpicture disableremoteplayback aria-label="Video: ekspresi tenaga saat akselerasi"></video></div>
 <div class="benefit-icon-badge"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#bolt"/></svg></div>
-<div class="benefit-text-wrap"><strong>Akselerasi Spontan &amp; Tarikan Ringan</strong><em>Tidak ada lagi jeda (lag) pedal gas saat menyalip atau tanjakan. Pasokan arus listrik ke sensor injeksi dan ECU selalu presisi di setiap putaran RPM.</em></div>
+<div class="benefit-text-wrap"><strong>Tarikan Lebih Enteng</strong><em>Injak gas, langsung respon.</em></div>
 </li>
-<li class="benefit-check-item">
+<li class="benefit-check-item has-media">
+<div class="bc-media"><video class="bc-video" data-src="assets/vidio/BATTERY%20ANALIZER.mp4" muted loop playsinline preload="none" disablepictureinpicture disableremoteplayback aria-label="Video: analisa aki"></video></div>
 <div class="benefit-icon-badge"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
-<div class="benefit-text-wrap"><strong>Aki &amp; Komponen Elektronik Lebih Awet</strong><em>Melindungi alternator, koil, sensor-sensor canggih mobil modern dari spike tegangan. Usia aki mobil bisa bertahan 3 hingga 5 tahun tanpa cepat soak.</em></div>
+<div class="benefit-text-wrap"><strong>Aki Lebih Awet</strong><em>Kelistrikan stabil, aki tahan 3&ndash;5 tahun.</em></div>
 </li>
-<li class="benefit-check-item">
-<div class="benefit-icon-badge"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
-<div class="benefit-text-wrap"><strong>Pemasangan Cepat Cuma 5 Menit</strong><em>Sistem Plug &amp; Play langsung ke kutub aki (+ dan -). Tidak memotong kabel original, tidak mengotak-atik mesin, dan 100% aman untuk garansi mobil baru Anda.</em></div>
-</li>
+
 </ul>
 </div>
 </div>
@@ -937,7 +1057,7 @@ html.lenis{scroll-behavior:auto}
 </div>
 </section>
 
-<!-- 6. PENAWARAN: FREE TEST DRIVE + UANG KEMBALI -->
+<!-- 7. PENAWARAN: FREE TEST DRIVE + UANG KEMBALI -->
 <section class="section testdrive-section" id="testdrive">
 <div class="container testdrive-layout">
 <div class="testdrive-poster-frame reveal-on-scroll"><img src="assets/images/img_8_free_test_drive_hurricane.webp" alt="Free Test Drive Hurricane XCS Coba Dulu Baru Bayar Jaminan Uang Kembali" width="760" height="760" loading="lazy"></div>
@@ -956,7 +1076,7 @@ html.lenis{scroll-behavior:auto}
 </div>
 </section>
 
-<!-- 7. SEBELUM vs SESUDAH -->
+<!-- 8. SEBELUM vs SESUDAH -->
 <section class="section comparison-section">
 <div class="container">
 <header class="section-header reveal-on-scroll">
@@ -986,26 +1106,6 @@ html.lenis{scroll-behavior:auto}
 </div>
 <div class="wa-end reveal-on-scroll">
 <a href="https://hurricane.co.id/whatsapp-xcs.html" target="_blank" rel="noopener" class="btn btn-wa btn-lg wa-end-btn" data-wa-section="perbandingan"><svg width="22" height="22" fill="currentColor" aria-hidden="true"><use href="#wa"/></svg><span>Mau Lebih Hemat? Chat WhatsApp</span></a>
-</div>
-</div>
-</section>
-
-<!-- 8. VIDEO TESTIMONI 30 TAHUN -->
-<section class="section tv-section" id="video-testimoni">
-<div class="container">
-<header class="section-header reveal-on-scroll">
-<span class="eyebrow">Testimoni Asli Pelanggan</span>
-<h2>30 Tahun Dipercaya Pemilik Mobil Indonesia</h2>
-</header>
-</div>
-<!-- Video layar penuh. assets/vidio/testimoni.mp4 = versi landscape (desktop).
-     Opsional: assets/vidio/testimoni-hp.mp4 = versi vertikal, otomatis dipakai di HP (kalau tidak ada, HP memakai testimoni.mp4). -->
-<div class="tv-frame" id="tv-frame">
-<video class="tv-video" id="tv-video" data-src="assets/vidio/testimoni.mp4" data-src-hp="assets/vidio/testimoni-hp.mp4" muted loop playsinline autoplay preload="metadata" disablepictureinpicture disableremoteplayback controlslist="nodownload nofullscreen noremoteplayback" aria-label="Video testimoni pelanggan Hurricane XCS"></video>
-</div>
-<div class="container">
-<div class="wa-end reveal-on-scroll">
-<a href="https://hurricane.co.id/whatsapp-xcs.html" target="_blank" rel="noopener" class="btn btn-wa btn-lg wa-end-btn" data-wa-section="video-testimoni"><svg width="22" height="22" fill="currentColor" aria-hidden="true"><use href="#wa"/></svg><span>Jadwalkan Test Drive via WhatsApp</span></a>
 </div>
 </div>
 </section>
@@ -1079,10 +1179,10 @@ html.lenis{scroll-behavior:auto}
 <div class="footer-brand"><img src="assets/images/img_1_hurricane_xcs.webp" alt="Hurricane XCS" height="28"><p>&copy; 2026 Hurricane Indonesia. Hak cipta dilindungi undang-undang.</p></div>
 <ul class="footer-links">
 <li><a href="#hero">Beranda</a></li>
+<li><a href="#video-testimoni">Video Testimoni</a></li>
 <li><a href="#solusi">Solusi</a></li>
 <li><a href="#uji-fitra-eri">Uji Fitra Eri</a></li>
 <li><a href="#keunggulan">Manfaat</a></li>
-<li><a href="#video-testimoni">Video Testimoni</a></li>
 <li><a href="https://hurricane.co.id/whatsapp-xcs.html" target="_blank" rel="noopener">Hubungi WhatsApp</a></li>
 </ul>
 </div>
@@ -1487,12 +1587,12 @@ document.addEventListener('DOMContentLoaded', () => {
         c.querySelector('.xv-pill').innerHTML = IG_ICON + 'Instagram';
         var cover = c.dataset.cover, im = c.querySelector('img');
         if (cover) im.src = cover; else { c.classList.add('no-cover'); c.dataset.igPreview = '1'; }   /* sampul otomatis dari pratinjau resmi Instagram */
-        c.setAttribute('aria-label', 'Putar video Instagram: ' + c.querySelector('.xv-title').textContent.trim());
+        c.setAttribute('aria-label', 'Putar video Instagram: ' + (c.dataset.label || c.querySelector('.xv-title').textContent).trim());
         return;
       }
       var id = ytId(c.dataset.yt) || ytId(c.getAttribute('href') || '');   /* link boleh ditaruh di data-yt atau href */
       if (!id) { empty(c); return; }
-      c.setAttribute('aria-label', 'Putar video YouTube: ' + c.querySelector('.xv-title').textContent.trim());
+      c.setAttribute('aria-label', 'Putar video YouTube: ' + (c.dataset.label || c.querySelector('.xv-title').textContent).trim());
       c.dataset.id = id;
       c.href = 'https://www.youtube.com/watch?v=' + id;
       var th = c.querySelector('img');
@@ -1508,7 +1608,7 @@ document.addEventListener('DOMContentLoaded', () => {
         th.src = 'https://i.ytimg.com/vi/' + id + '/' + tries[0] + '.jpg';
       }
     } else {
-      c.setAttribute('aria-label', 'Putar video: ' + c.querySelector('.xv-title').textContent.trim());
+      c.setAttribute('aria-label', 'Putar video: ' + (c.dataset.label || c.querySelector('.xv-title').textContent).trim());
       var mv = c.querySelector('video');
       if (c.dataset.cover) mv.poster = c.dataset.cover;                 /* sampul pilihan sendiri (opsional) */
       mv.preload = 'metadata'; mv.autoplay = false;
@@ -1522,7 +1622,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (c.dataset.type === 'instagram') {
       var g = document.createElement('iframe');
       g.src = 'https://www.instagram.com/' + c.dataset.igKind + '/' + c.dataset.igCode + '/embed/';
-      g.title = c.querySelector('.xv-title').textContent;
+      g.title = c.dataset.label || c.querySelector('.xv-title').textContent;
       g.allow = 'autoplay; encrypted-media; picture-in-picture; clipboard-write';
       g.setAttribute('allowtransparency', 'true'); g.setAttribute('scrolling', 'no');
       var go = document.createElement('a');
@@ -1532,7 +1632,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (c.dataset.type === 'youtube') {
       var f = document.createElement('iframe');
       f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.id + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
-      f.title = c.querySelector('.xv-title').textContent;
+      f.title = c.dataset.label || c.querySelector('.xv-title').textContent;
       f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
       f.allowFullscreen = true;
       stage.appendChild(f);
@@ -1625,6 +1725,56 @@ document.addEventListener('DOMContentLoaded', () => {
   /* beberapa HP (mis. iPhone mode hemat daya) menahan autoplay → coba lagi pada sentuhan/scroll berikutnya */
   var retry = function () { if (!blocked || !v.paused) return; var r = frame.getBoundingClientRect(); if (r.bottom > 0 && r.top < innerHeight) play(); };
   ['touchstart', 'pointerdown', 'scroll'].forEach(function (ev) { addEventListener(ev, retry, { passive: true }); });
+})();
+</script>
+
+<script>
+/* ===== VIDEO SINGKAT DI KARTU MANFAAT: berputar tanpa suara selama terlihat ===== */
+(function () {
+  'use strict';
+  var vids = [].slice.call(document.querySelectorAll('.bc-video')); if (!vids.length) return;
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var saveData = !!(navigator.connection && navigator.connection.saveData);
+  var card = function (v) { return v.closest('.benefit-check-item'); };
+  var fail = function (v) {                                   /* file belum ada / salah nama → kartu kembali pakai ikon */
+    var c = card(v), m = v.closest('.bc-media'); if (m) m.remove(); if (c) c.classList.remove('has-media');
+    vids = vids.filter(function (x) { return x !== v; });
+  };
+  var load = function (v) { if (v.getAttribute('src')) return; v.preload = 'metadata'; v.src = v.dataset.src + (reduce || saveData ? '#t=0.1' : ''); };
+  var sync = function () {                                    /* putar hanya yang terlihat & tidak sedang tertutup kartu berikutnya */
+    vids.forEach(function (v) {
+      var dim = parseFloat(card(v).style.getPropertyValue('--dim')) || 0;
+      var on = v._in && dim < 0.36 && !reduce && !saveData;
+      if (on && v.paused) { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+      else if (!on && !v.paused) v.pause();
+    });
+  };
+  vids.forEach(function (v) { v.muted = true; v.addEventListener('error', function () { fail(v); }); v.addEventListener('loadeddata', function () { sync(); }); });
+  if ('IntersectionObserver' in window) {
+    var near = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { load(e.target); near.unobserve(e.target); } }); }, { rootMargin: '300px 0px' });
+    var seen = new IntersectionObserver(function (es) { es.forEach(function (e) { e.target._in = e.isIntersecting; }); sync(); }, { threshold: 0.35 });
+    vids.forEach(function (v) { near.observe(v); seen.observe(v); });
+  } else vids.forEach(function (v) { load(v); v._in = true; });
+  var t = false; addEventListener('scroll', function () { if (!t) { t = true; requestAnimationFrame(function () { t = false; sync(); }); } }, { passive: true });
+  sync();
+})();
+</script>
+
+<script>
+/* ===== Pelat logo merek di kotak video (assets/images/logohonda, logowuling) ===== */
+(function () {
+  'use strict';
+  var EXT = ['png', 'webp', 'svg', 'jpg', 'jpeg', 'PNG', 'WEBP', 'SVG', 'JPG', 'JPEG'];
+  document.querySelectorAll('.xv-logo img[data-logo]').forEach(function (img) {
+    var plate = img.closest('.xv-logo'), base = img.dataset.logo, k = 0;
+    plate.hidden = true;
+    img.addEventListener('load', function () { plate.hidden = false; var c = img.closest('.xv-card'); if (c) c.classList.add('has-logo'); });
+    img.addEventListener('error', function () {
+      if (++k < EXT.length) { img.src = base + '.' + EXT[k]; return; }
+      if (window.console) console.warn('Logo tidak ditemukan: ' + base + '.(' + EXT.join('|') + ')');
+    });
+    img.src = base + '.' + EXT[0];
+  });
 })();
 </script>
 </body>
