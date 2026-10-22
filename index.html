@@ -979,8 +979,8 @@ html.lenis{scroll-behavior:auto}
 <span class="xv-shade" aria-hidden="true"></span><span class="xv-pill">Video</span><span class="xv-play"><svg width="22" height="22" fill="currentColor" aria-hidden="true"><use href="#play"/></svg></span><span class="xv-soon">Segera hadir</span>
 <span class="xv-logo"><img data-logo="assets/images/logohonda" alt="Logo Honda" decoding="async"></span><span class="xv-cap"><span class="xv-kick"><i class="xv-ck" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i>TERBUKTI DI</span><span class="xv-title">HONDA</span><span class="xv-meta">CR-V Turbo</span></span>
 </button>
-<button type="button" class="xv-card xv-mp4" data-type="mp4" data-src="assets/vidio/Wuling.mp4" aria-label="Putar video: Video Hurricane XCS #2" data-label="TERBUKTI DI WULING">
-<video class="xv-media" muted playsinline preload="metadata" src="assets/vidio/Wuling.mp4#t=0.1" aria-hidden="true" tabindex="-1"></video>
+<button type="button" class="xv-card xv-mp4" data-type="mp4" data-src="assets/vidio/wuling.mp4" aria-label="Putar video: Video Hurricane XCS #2" data-label="TERBUKTI DI WULING">
+<video class="xv-media" muted playsinline preload="metadata" src="assets/vidio/wuling.mp4#t=0.1" aria-hidden="true" tabindex="-1"></video>
 <span class="xv-shade" aria-hidden="true"></span><span class="xv-pill">Video</span><span class="xv-play"><svg width="22" height="22" fill="currentColor" aria-hidden="true"><use href="#play"/></svg></span><span class="xv-soon">Segera hadir</span>
 <span class="xv-logo"><img data-logo="assets/images/logowuling" alt="Logo Wuling" decoding="async"></span><span class="xv-cap"><span class="xv-kick"><i class="xv-ck" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i>TERBUKTI DI</span><span class="xv-title">WULING</span><span class="xv-meta">Nugroho Suharlim</span></span>
 </button>
@@ -1033,7 +1033,7 @@ html.lenis{scroll-behavior:auto}
 <div>
 <ul class="benefit-checklist">
 <li class="benefit-check-item has-media">
-<div class="bc-media"><video class="bc-video" data-src="assets/vidio/HEMAT%20BBM.MP4" muted loop playsinline preload="none" disablepictureinpicture disableremoteplayback aria-label="Video: hemat konsumsi BBM"></video></div>
+<div class="bc-media"><video class="bc-video" data-src="assets/vidio/HEMAT%20BBM.mp4" muted loop playsinline preload="none" disablepictureinpicture disableremoteplayback aria-label="Video: hemat konsumsi BBM"></video></div>
 <div class="benefit-icon-badge"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"/></svg></div>
 <div class="benefit-text-wrap"><strong>Hemat BBM s.d 30%</strong><em>Pembakaran sempurna, bensin lebih awet.</em></div>
 </li>
@@ -1047,7 +1047,6 @@ html.lenis{scroll-behavior:auto}
 <div class="benefit-icon-badge"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
 <div class="benefit-text-wrap"><strong>Aki Lebih Awet</strong><em>Kelistrikan stabil, aki tahan 3&ndash;5 tahun.</em></div>
 </li>
-
 </ul>
 </div>
 </div>
@@ -1553,6 +1552,19 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 
 <script>
+/* ===== Nama file video beda huruf besar/kecil? coba ejaan lain dulu (Vercel membedakan huruf besar/kecil) ===== */
+window.__vidVariants = function (url) {
+  var hash = '', i = url.indexOf('#'); if (i > -1) { hash = url.slice(i); url = url.slice(0, i); }
+  var cut = url.lastIndexOf('/') + 1, dir = url.slice(0, cut), file = url.slice(cut), dot = file.lastIndexOf('.');
+  var name = dot > -1 ? file.slice(0, dot) : file, ext = dot > -1 ? file.slice(dot + 1) : '';
+  var seen = {}, out = [];
+  [[name, ext], [name, ext.toLowerCase()], [name, ext.toUpperCase()], [name.toLowerCase(), ext.toLowerCase()],
+   [name.toUpperCase(), ext.toLowerCase()], [name.charAt(0).toUpperCase() + name.slice(1).toLowerCase(), ext.toLowerCase()]]
+    .forEach(function (v) { var u = dir + v[0] + (v[1] ? '.' + v[1] : ''); if (!seen[u]) { seen[u] = 1; out.push(u); } });
+  return out.map(function (u) { return u + hash; });
+};
+</script>
+<script>
 /* ===== VIDEO LAINNYA: kotak MP4 & YouTube + pemutar ===== */
 (function () {
   'use strict';
@@ -1612,7 +1624,12 @@ document.addEventListener('DOMContentLoaded', () => {
       var mv = c.querySelector('video');
       if (c.dataset.cover) mv.poster = c.dataset.cover;                 /* sampul pilihan sendiri (opsional) */
       mv.preload = 'metadata'; mv.autoplay = false;
-      mv.addEventListener('error', function () { empty(c); });
+      var alts = window.__vidVariants ? window.__vidVariants(mv.getAttribute('src') || '') : [], ai = 0;
+      mv.addEventListener('error', function () {
+        if (++ai < alts.length) { mv.src = alts[ai]; return; }                  /* ejaan lain dulu */
+        empty(c);
+      });
+      mv.addEventListener('loadeddata', function () { c.dataset.src = (mv.getAttribute('src') || '').split('#')[0]; });
     }
   });
 
@@ -1740,7 +1757,7 @@ document.addEventListener('DOMContentLoaded', () => {
     var c = card(v), m = v.closest('.bc-media'); if (m) m.remove(); if (c) c.classList.remove('has-media');
     vids = vids.filter(function (x) { return x !== v; });
   };
-  var load = function (v) { if (v.getAttribute('src')) return; v.preload = 'metadata'; v.src = v.dataset.src + (reduce || saveData ? '#t=0.1' : ''); };
+  var load = function (v) { if (v.getAttribute('src')) return; v.preload = 'metadata'; v._alts = window.__vidVariants ? window.__vidVariants(v.dataset.src) : [v.dataset.src]; v._ai = 0; v.src = v._alts[0] + (reduce || saveData ? '#t=0.1' : ''); };
   var sync = function () {                                    /* putar hanya yang terlihat & tidak sedang tertutup kartu berikutnya */
     vids.forEach(function (v) {
       var dim = parseFloat(card(v).style.getPropertyValue('--dim')) || 0;
@@ -1749,7 +1766,14 @@ document.addEventListener('DOMContentLoaded', () => {
       else if (!on && !v.paused) v.pause();
     });
   };
-  vids.forEach(function (v) { v.muted = true; v.addEventListener('error', function () { fail(v); }); v.addEventListener('loadeddata', function () { sync(); }); });
+  vids.forEach(function (v) {
+    v.muted = true;
+    v.addEventListener('error', function () {
+      if (v._alts && ++v._ai < v._alts.length) { v.src = v._alts[v._ai] + (reduce || saveData ? '#t=0.1' : ''); return; }   /* ejaan lain dulu */
+      fail(v);
+    });
+    v.addEventListener('loadeddata', function () { sync(); });
+  });
   if ('IntersectionObserver' in window) {
     var near = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { load(e.target); near.unobserve(e.target); } }); }, { rootMargin: '300px 0px' });
     var seen = new IntersectionObserver(function (es) { es.forEach(function (e) { e.target._in = e.isIntersecting; }); sync(); }, { threshold: 0.35 });
