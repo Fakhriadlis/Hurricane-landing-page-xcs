@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hurricane XCS — Hemat BBM Hingga 30% & Akselerasi Responsif</title>
 <meta name="title" content="Hurricane XCS — Hemat BBM Hingga 30% & Akselerasi Responsif">
-<meta name="description" content="Alat penghemat BBM No.1 di Indonesia berteknologi Jerman. Hurricane XCS menstabilkan kelistrikan kendaraan: BBM lebih hemat s.d 30%, tarikan responsif, aki awet. Coba Free Test Drive sekarang!">
+<meta name="description" content="Alat penghemat BBM No.1 di Indonesia berteknologi Jerman. Hurricane XCS mengoptimalkan kelistrikan kendaraan: BBM lebih hemat s.d 30%, tarikan responsif, aki awet. Coba Free Test Drive sekarang!">
 <meta name="keywords" content="hurricane xcs, penghemat bbm, voltage stabilizer mobil, penghemat bensin, stabilisator aki, akselerasi mobil, hurricane indonesia">
 <meta name="author" content="Hurricane Indonesia">
 <meta name="robots" content="index, follow">
@@ -612,6 +612,13 @@ html.lenis{scroll-behavior:auto}
 .xv-stage iframe,.xv-stage video{display:block;width:100%;height:100%;border:0;background:#000}
 .xv-stage.vert{width:auto;height:min(86vh,calc(94vw * 16 / 9));aspect-ratio:9/16}
 .xv-close{position:fixed;top:calc(14px + env(safe-area-inset-top,0px));right:14px;z-index:2;width:44px;height:44px;border-radius:50%;border:0;background:rgba(232,232,237,.95);color:#1d1d1f;font-size:26px;line-height:1;cursor:pointer}
+/* YouTube tanpa thumbnail (link tidak tersedia untuk umum) */
+.xv-card.xv-yt.no-thumb{background:radial-gradient(120% 100% at 0% 100%,rgba(255,59,48,.38),transparent 55%),radial-gradient(110% 100% at 100% 0%,rgba(255,159,10,.22),transparent 58%),linear-gradient(135deg,#2a0f0f,#120a0a)}
+.xv-card.xv-yt.no-thumb .xv-media{display:none}
+/* sampul Instagram otomatis (embed resmi, dipotong ke area gambar; klik tetap ke pemutar) */
+.xv-igcover{position:absolute;left:0;top:0;width:400px;height:1000px;border:0;background:transparent;pointer-events:none;transform-origin:0 0;opacity:0;transition:opacity .6s ease}
+.xv-card.ig-ready .xv-igcover{opacity:1}
+.xv-card.xv-ig.ig-ready::before{display:none}
 /* kotak Instagram */
 .xv-card.xv-ig .xv-pill{background:linear-gradient(90deg,#f58529,#dd2a7b 55%,#8134af);color:#fff}
 .xv-card.xv-ig.no-cover{background:radial-gradient(120% 100% at 0% 100%,rgba(245,133,41,.5),transparent 55%),radial-gradient(110% 100% at 100% 0%,rgba(129,52,175,.55),transparent 58%),linear-gradient(135deg,#2a1230,#16101f)}
@@ -635,6 +642,64 @@ html.lenis{scroll-behavior:auto}
 .xv-stage{border-radius:12px}
 }
 @media(prefers-reduced-motion:reduce){.xv-card.is-empty::after{animation:none}}
+
+/* ===== VIDEO TESTIMONI (pengganti kalkulator) ===== */
+.tv-section[hidden]{display:none}
+.tv-frame{position:relative;margin:0 auto;width:100%;max-width:1100px;aspect-ratio:16/9;border-radius:28px;overflow:hidden;background:#000;box-shadow:0 40px 90px -40px rgba(255,140,10,.45),0 0 0 1px rgba(255,255,255,.08);transition:max-width .4s ease}
+.tv-frame.is-vertical{max-width:420px}
+.tv-video{display:block;width:100%;height:100%;object-fit:cover;cursor:pointer;background:#000}
+.tv-full{position:absolute;right:14px;bottom:14px;z-index:2;width:44px;height:44px;border-radius:50%;border:0;display:grid;place-items:center;background:rgba(0,0,0,.55);color:#fff;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);cursor:pointer;transition:background .2s}
+.tv-full:hover{background:rgba(0,0,0,.75)}
+.tv-cta{display:flex;justify-content:center;margin-top:2rem}
+@media(max-width:768px){
+.tv-frame{border-radius:20px}
+.tv-frame.is-vertical{max-width:100%}
+.tv-cta .btn{width:100%;justify-content:center}
+}
+
+/* label jenis video disembunyikan; hanya kotak kosong yang tetap menampilkan "Segera hadir" */
+.xv-pill{display:none}
+.xv-card.is-empty .xv-pill{display:inline-flex}
+/* ===== TOMBOL WHATSAPP DI AKHIR SETIAP SECTION ===== */
+.wa-end{display:flex;justify-content:center;margin-top:clamp(2.2rem,4.5vw,3.25rem)}
+.wa-end-btn{min-height:56px;gap:.7rem;padding:1rem 2rem;font-size:1.02rem}
+.wa-end-btn svg{flex-shrink:0}
+.testdrive-content .wa-end-btn{margin-top:.5rem}
+@media(max-width:768px){
+.wa-end .wa-end-btn,.testdrive-content .wa-end-btn{width:100%;max-width:440px}
+.wa-end-btn{font-size:.98rem;padding:.95rem 1.25rem}
+}
+
+/* ===== SOLUSI: TEKNOLOGI JERMAN ===== */
+.solusi-section{position:relative;overflow:hidden}
+.solusi-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);grid-template-areas:"vis head" "vis lead" "vis checks" "vis cta";column-gap:clamp(2rem,5vw,4.5rem);align-items:center;align-content:center}
+.solusi-header{grid-area:head;text-align:left;margin:0 0 1.25rem;max-width:none;align-self:end}
+.solusi-header h2{font-size:clamp(2rem,4.2vw,3.4rem);line-height:1.06;letter-spacing:-.04em;text-transform:none}
+.solusi-header .no1{position:relative;display:inline-block;isolation:isolate}
+.solusi-header .no1::after{content:"";position:absolute;left:-.06em;right:-.06em;bottom:.08em;height:.26em;border-radius:6px;background:rgba(255,159,10,.32);z-index:-1}
+.solusi-header .no1 .wi{background:linear-gradient(90deg,#ff9f0a,#ff453a);-webkit-background-clip:text;background-clip:text;color:transparent}
+.de-badge{display:inline-flex;align-items:center;gap:.65rem;margin-top:1.1rem;padding:.5rem 1rem .5rem .6rem;border-radius:999px;background:rgba(255,255,255,.06);box-shadow:inset 0 0 0 1px rgba(255,255,255,.12);font-size:.85rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#f5f5f7}
+.de-flag{display:grid;grid-template-rows:repeat(3,1fr);width:28px;height:18px;border-radius:3px;overflow:hidden;box-shadow:0 0 0 1px rgba(255,255,255,.28)}
+.de-flag i:nth-child(1){background:#000}.de-flag i:nth-child(2){background:#dd0000}.de-flag i:nth-child(3){background:#ffce00}
+.solusi-visual{grid-area:vis;position:relative;display:flex;justify-content:center}
+.solusi-visual img{position:relative;z-index:1;width:100%;max-width:520px;height:auto;filter:drop-shadow(0 30px 50px rgba(0,0,0,.65));animation:float-gentle 5s ease-in-out infinite alternate}
+.solusi-glow{position:absolute;inset:8% 4%;border-radius:50%;background:radial-gradient(closest-side,rgba(255,159,10,.32),rgba(255,69,58,.12) 55%,transparent 75%);filter:blur(8px)}
+.solusi-lead{grid-area:lead;margin:0 0 1.5rem;font-size:clamp(1.05rem,1.4vw,1.2rem);line-height:1.6;color:#a1a1a6;max-width:34rem}
+.solusi-lead strong{color:#f5f5f7;font-weight:700}
+.solusi-checks{grid-area:checks;list-style:none;margin:0;padding:0;display:grid;gap:.8rem;align-self:start}
+.solusi-checks li{display:flex;align-items:center;gap:.8rem;font-size:1.05rem;font-weight:700;color:#f5f5f7}
+.sc-ic{flex-shrink:0;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:#34c759;color:#fff;box-shadow:0 6px 16px -6px rgba(52,199,89,.7)}
+@media(max-width:768px){
+.solusi-grid{grid-template-columns:minmax(0,1fr);grid-template-areas:"head" "vis" "lead" "checks" "cta";text-align:center}
+.solusi-header{text-align:center;margin-bottom:1.5rem}
+.solusi-header h2{font-size:clamp(1.9rem,8.4vw,2.5rem)}
+.solusi-visual img{max-width:min(420px,88vw)}
+.solusi-lead{margin:1.25rem auto 1.5rem}
+.solusi-checks{justify-self:center;text-align:left}
+}
+.solusi-cta{grid-area:cta;justify-content:flex-start;margin-top:2rem}
+@media(max-width:768px){.solusi-cta{justify-content:center}}
+@media(prefers-reduced-motion:reduce){.solusi-visual img{animation:none}}
 /* ===== KALKULATOR DI HP: angka tidak pernah terpotong ===== */
 .savings-annual-number,.sub-saving-item strong,.calc-budget-display{font-variant-numeric:tabular-nums;white-space:nowrap}
 .sub-saving-item strong{word-break:normal;overflow-wrap:normal}
@@ -689,7 +754,7 @@ html.lenis{scroll-behavior:auto}
 </header>
 
 <main id="main-content">
-<!-- HERO -->
+<!-- 1. KELUHAN BBM (HERO) -->
 <section class="hero-section" id="hero">
 <div class="hero-bg-media" style="background-image:url('assets/images/hero_bg.webp')" aria-hidden="true"></div>
 <div class="hero-bg-overlay" aria-hidden="true"></div>
@@ -698,7 +763,7 @@ html.lenis{scroll-behavior:auto}
 <div class="hero-content reveal-on-scroll">
 <div class="hero-badge-pill"><span class="pulse-dot"></span><span>Solusi Hemat BBM</span></div>
 <h1 class="hero-title"><span class="ln"><span>BBM Makin Mahal?</span></span><span class="ln"><span class="gradient-text-gold">Stop Buang Uang.</span></span></h1>
-<p class="hero-lead">Setiap liter yang terbakar sia-sia adalah uang yang keluar dari kantong Anda. <strong>Hurricane XCS</strong> menstabilkan kelistrikan mobil supaya pembakaran lebih sempurna — konsumsi BBM turun, tarikan lebih enteng. Pasang cuma 5 menit.</p>
+<p class="hero-lead">Setiap liter yang terbakar sia-sia adalah uang yang keluar dari kantong Anda. <strong>Hurricane XCS</strong> mengoptimalkan kelistrikan mobil supaya pembakaran lebih sempurna — konsumsi BBM turun, tarikan lebih enteng. Pasang cuma 5 menit.</p>
 <ul class="hero-chips">
 <li class="hero-chip-item"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#ck"/></svg><span>Hemat BBM s.d 30%</span></li>
 <li class="hero-chip-item"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#ck"/></svg><span>Pasang Cuma 5 Menit</span></li>
@@ -706,7 +771,7 @@ html.lenis{scroll-behavior:auto}
 <li class="hero-chip-item"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#ck"/></svg><span>Garansi s.d 15 Tahun</span></li>
 </ul>
 <div class="hero-actions-group">
-<a href="https://hurricane.co.id/whatsapp-xcs.html" target="_blank" rel="noopener" class="btn btn-primary btn-lg"><span>Ambil Free Test Drive</span><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#ar"/></svg></a>
+<a href="https://hurricane.co.id/whatsapp-xcs.html" target="_blank" rel="noopener" class="btn btn-primary btn-lg"><span>Jadwalkan Test Drive</span><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#ar"/></svg></a>
 <a href="https://hurricane.co.id/whatsapp-xcs.html" target="_blank" rel="noopener" class="btn btn-wa btn-lg"><svg width="20" height="20" fill="currentColor"><use href="#wa"/></svg><span>Konsultasi Gratis</span></a>
 </div>
 <div class="hero-guarantee-note">
@@ -732,28 +797,41 @@ html.lenis{scroll-behavior:auto}
 </div>
 </section>
 
-<aside class="cta-break-banner">
-<div class="container cta-break-inner">
-<p>Mau tahu varian Hurricane XCS yang paling cocok untuk tipe &amp; kapasitas mesin mobil Anda?</p>
-<a href="https://hurricane.co.id/whatsapp-xcs.html" target="_blank" rel="noopener" class="btn btn-wa btn-sm"><span>Tanya Teknisi Kami Langsung</span><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><use href="#ar"/></svg></a>
+<!-- 2. SOLUSI: TEKNOLOGI JERMAN -->
+<section class="section solusi-section" id="solusi">
+<div class="container solusi-grid">
+<header class="section-header solusi-header reveal-on-scroll">
+<h2>Alat Penghemat BBM <span class="no1">No.1 di Indonesia</span></h2>
+<span class="de-badge"><span class="de-flag" aria-hidden="true"><i></i><i></i><i></i></span>Teknologi Jerman</span>
+</header>
+<div class="solusi-visual reveal-on-scroll">
+<div class="solusi-glow" aria-hidden="true"></div>
+<img src="assets/images/img_7_unit_hurricane_xcs.webp" alt="Unit Hurricane XCS7 Electronic Voltage Stabilizer dengan kabel grounding" width="600" height="600" loading="lazy" decoding="async">
 </div>
-</aside>
-
-<!-- PITA KLAIM KINETIK -->
-<section class="kinetic-strip" aria-label="Hemat BBM s.d 30%, pasang cuma 5 menit, garansi s.d 15 tahun, 100% uang kembali, tarikan lebih enteng, aki lebih awet, teknologi Jerman, approved ATPM, 30 tahun di Indonesia">
-<div class="kin-row" aria-hidden="true"><div class="kin-track"><span class="hot">Hemat BBM s.d 30%</span><i>✦</i><span>Pasang Cuma 5 Menit</span><i>✦</i><span class="hot">Garansi s.d 15 Tahun</span><i>✦</i><span>100% Uang Kembali</span><i>✦</i></div></div>
-<div class="kin-row outline" aria-hidden="true"><div class="kin-track"><span>Tarikan Lebih Enteng</span><i>✦</i><span class="hot">Aki Lebih Awet</span><i>✦</i><span>Teknologi Jerman</span><i>✦</i><span>Approved ATPM</span><i>✦</i><span class="hot">30 Tahun di Indonesia</span><i>✦</i></div></div>
+<p class="solusi-lead reveal-on-scroll">Hurricane XCS adalah <strong>voltage stabilizer</strong> yang bikin kelistrikan mobil stabil. Pembakaran jadi sempurna &rarr; <strong>BBM irit</strong>, <strong>tarikan enteng</strong>, <strong>aki awet</strong>.</p>
+<ul class="solusi-checks reveal-on-scroll">
+<li><span class="sc-ic"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="3.2" aria-hidden="true"><use href="#ck"/></svg></span>Pasang cuma 5 menit</li>
+<li><span class="sc-ic"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="3.2" aria-hidden="true"><use href="#ck"/></svg></span>Tanpa bongkar mesin</li>
+<li><span class="sc-ic"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="3.2" aria-hidden="true"><use href="#ck"/></svg></span>Tanpa ganti part apa pun</li>
+</ul>
+<div class="wa-end solusi-cta reveal-on-scroll">
+<a href="https://hurricane.co.id/whatsapp-xcs.html" target="_blank" rel="noopener" class="btn btn-wa btn-lg wa-end-btn" data-wa-section="solusi"><svg width="22" height="22" fill="currentColor" aria-hidden="true"><use href="#wa"/></svg><span>Konsultasi Gratis via WhatsApp</span></a>
+</div>
+</div>
 </section>
 
-<!-- VIDEO -->
+<!-- 3. BUKTI UJI: FITRA ERI + 5 VIDEO -->
 <section class="section video-section" id="uji-fitra-eri">
 <div class="container">
 <header class="section-header reveal-on-scroll">
 <span class="eyebrow">Diuji Langsung &amp; Terverifikasi</span>
-
+<h2>Fitra Eri Coba Hurricane XCS</h2>
 <p>Bukan sekadar testimoni berbayar — lihat bagaimana pembalap &amp; jurnalis otomotif nomor 1 Indonesia menguji langsung dampaknya pada efisiensi dan tenaga mobil.</p>
 </header>
-
+<figure class="fitra-quote-card reveal-on-scroll">
+<blockquote>&ldquo;Pasang Hurricane XCS dalam 5 menit untuk akselerasi lebih baik, mesin lebih enteng, dan hemat bahan bakar hingga 10% lebih.&rdquo;</blockquote>
+<figcaption class="quote-author-info"><strong>Fitra Eri</strong><span>Jurnalis Otomotif &amp; Juara Balap Nasional</span></figcaption>
+</figure>
 <!-- ===== VIDEO (5 kotak: MP4 / YouTube / Instagram) =====
      Cara mengisi:
      · MP4     → taruh file di folder assets/videos/, lalu samakan nama file di data-src DAN src (2 tempat per kartu).
@@ -762,22 +840,24 @@ html.lenis{scroll-behavior:auto}
      · Instagram → tempel link Reels/post Instagram di tempat link YouTube (data-yt atau href);
                  kotaknya otomatis jadi kotak Instagram. Thumbnail Instagram tidak bisa diambil otomatis,
                  jadi bisa tambahkan sampul sendiri: data-cover="assets/images/nama-sampul.jpg".
+     · Sampul  → semua kotak bisa diberi gambar sampul sendiri: data-cover="assets/images/nama-sampul.jpg".
+                 Tanpa itu: MP4 menampilkan frame pertama videonya, YouTube menampilkan thumbnail videonya.
      · Judul   → ubah teks di <span class="xv-title">.
      Kotak yang file/link-nya belum diisi tampil sebagai "Segera hadir"; begitu diisi, videonya muncul sendiri. -->
 <div class="xv-wrap reveal-on-scroll">
 <div class="xv-head"><h3>Tonton Videonya</h3></div>
 <div class="xv-grid" id="xv-grid">
 <button type="button" class="xv-card xv-mp4 xv-big" data-type="mp4" data-src="assets/vidio/HONDA.mp4" aria-label="Putar video: Video Hurricane XCS #1">
-<video class="xv-media" muted playsinline preload="metadata" src="assets/vidio/HONDA.mp4#t=0.5" aria-hidden="true" tabindex="-1"></video>
+<video class="xv-media" muted playsinline preload="metadata" src="assets/vidio/HONDA.mp4#t=0.1" aria-hidden="true" tabindex="-1"></video>
 <span class="xv-shade" aria-hidden="true"></span><span class="xv-pill">Video</span><span class="xv-play"><svg width="22" height="22" fill="currentColor" aria-hidden="true"><use href="#play"/></svg></span><span class="xv-soon">Segera hadir</span>
 <span class="xv-title">Honda</span>
 </button>
 <button type="button" class="xv-card xv-mp4" data-type="mp4" data-src="assets/vidio/Wuling.mp4" aria-label="Putar video: Video Hurricane XCS #2">
-<video class="xv-media" muted playsinline preload="metadata" src="assets/vidio/Wuling.mp4#t=0.5" aria-hidden="true" tabindex="-1"></video>
+<video class="xv-media" muted playsinline preload="metadata" src="assets/vidio/Wuling.mp4#t=0.1" aria-hidden="true" tabindex="-1"></video>
 <span class="xv-shade" aria-hidden="true"></span><span class="xv-pill">Video</span><span class="xv-play"><svg width="22" height="22" fill="currentColor" aria-hidden="true"><use href="#play"/></svg></span><span class="xv-soon">Segera hadir</span>
 <span class="xv-title">Wuling</span>
 </button>
-<a class="xv-card xv-yt" data-type="youtube" data-yt="https://www.youtube.com/watch?v=u1n9uH7l33U" href="https://www.youtube.com/watch?v=u1n9uH7l33U" target="_blank" rel="noopener" aria-label="Putar video YouTube: Video YouTube #1">
+<a class="xv-card xv-yt" data-type="youtube" data-yt="https://youtu.be/7VlMKFcP1SY?si=Hn8if3URQoZJ69QY" href="https://youtu.be/7VlMKFcP1SY?si=Hn8if3URQoZJ69QY" target="_blank" rel="noopener" aria-label="Putar video YouTube: Video YouTube #1">
 <img class="xv-media" alt="" loading="lazy" decoding="async" width="480" height="360">
 <span class="xv-shade" aria-hidden="true"></span><span class="xv-pill yt"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.8 15.1V8.9l5.6 3.1z"/></svg>YouTube</span><span class="xv-play"><svg width="22" height="22" fill="currentColor" aria-hidden="true"><use href="#play"/></svg></span><span class="xv-soon">Segera hadir</span>
 <span class="xv-title">Fitra Eri</span>
@@ -794,68 +874,35 @@ html.lenis{scroll-behavior:auto}
 </a>
 </div>
 </div>
-</div>
-</section>
-
-<!-- CALCULATOR -->
-<section class="section calculator-section" id="kalkulator-hemat">
-<div class="container">
-<header class="section-header reveal-on-scroll">
-<span class="eyebrow">Simulasi Penghematan Anda</span>
-<h2>Hitung Uang Bensin Yang Bisa Anda Simpan</h2>
-<p>Geser nilai pengeluaran BBM mobil Anda per bulan. Lihat berapa juta rupiah yang bisa Anda hemat setiap tahunnya!</p>
-</header>
-<div class="calc-card-wrapper reveal-on-scroll">
-<div class="calc-grid">
-<div class="calc-controls">
-<h3>Berapa Pengeluaran Bensin Mobil Anda Per Bulan?</h3>
-<p>Perhitungan di bawah didasarkan pada rata-rata efisiensi hemat BBM 25% setelah pemasangan Hurricane XCS.</p>
-<div class="calc-input-group">
-<div class="calc-label-row"><span>Anggaran BBM Bulanan:</span><div class="calc-budget-display" id="calc-budget-val">Rp 1.500.000</div></div>
-<input type="range" id="fuel-budget-slider" class="custom-range-slider" min="500000" max="10000000" step="250000" value="1500000" aria-label="Slider Pengeluaran Bensin Bulanan">
-<div class="budget-presets">
-<button type="button" class="preset-btn" data-val="1000000">Rp 1 Juta</button>
-<button type="button" class="preset-btn is-active" data-val="1500000">Rp 1.5 Juta</button>
-<button type="button" class="preset-btn" data-val="2500000">Rp 2.5 Juta</button>
-<button type="button" class="preset-btn" data-val="4000000">Rp 4 Juta</button>
-<button type="button" class="preset-btn" data-val="6000000">Rp 6 Juta</button>
-</div>
-</div>
-<a href="https://hurricane.co.id/whatsapp-xcs.html" target="_blank" rel="noopener" class="btn btn-primary btn-block"><span>Klaim Penghematan Ini Sekarang</span><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#ar"/></svg></a>
-</div>
-<div class="calc-results-box">
-<div class="savings-card-lead">
-<span>Total Penghematan 1 Tahun:</span>
-<div class="savings-annual-number" id="calc-annual-savings">Rp 4.500.000</div>
-<small style="color:var(--c-gold);font-weight:600">*Sudah balik modal dalam 3-5 bulan!</small>
-</div>
-<div class="savings-sub-grid">
-<div class="sub-saving-item"><small>Hemat Per Bulan</small><strong id="calc-monthly-savings">Rp 375.000</strong></div>
-<div class="sub-saving-item"><small>Hemat 3 Tahun</small><strong id="calc-3yr-savings">Rp 13.500.000</strong></div>
-</div>
-<div class="calc-note">
-<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-<span>Bukan biaya, melainkan <strong>investasi</strong> yang langsung menghasilkan uang kembali ke dompet Anda setiap hari.</span>
-</div>
-</div>
-</div>
+<div class="wa-end reveal-on-scroll">
+<a href="https://hurricane.co.id/whatsapp-xcs.html" target="_blank" rel="noopener" class="btn btn-wa btn-lg wa-end-btn" data-wa-section="uji-fitra-eri"><svg width="22" height="22" fill="currentColor" aria-hidden="true"><use href="#wa"/></svg><span>Tanya Hasil Uji Ini via WhatsApp</span></a>
 </div>
 </div>
 </section>
 
-<!-- KEUNGGULAN -->
+<!-- 4. PITA KLAIM -->
+<section class="kinetic-strip" aria-label="Hemat BBM s.d 30%, pasang cuma 5 menit, garansi s.d 15 tahun, 100% uang kembali, tarikan lebih enteng, aki lebih awet, teknologi Jerman, approved ATPM, 30 tahun di Indonesia">
+<div class="kin-row" aria-hidden="true"><div class="kin-track"><span class="hot">Hemat BBM s.d 30%</span><i>✦</i><span>Pasang Cuma 5 Menit</span><i>✦</i><span class="hot">Garansi s.d 15 Tahun</span><i>✦</i><span>100% Uang Kembali</span><i>✦</i></div></div>
+<div class="kin-row outline" aria-hidden="true"><div class="kin-track"><span>Tarikan Lebih Enteng</span><i>✦</i><span class="hot">Aki Lebih Awet</span><i>✦</i><span>Teknologi Jerman</span><i>✦</i><span>Approved ATPM</span><i>✦</i><span class="hot">30 Tahun di Indonesia</span><i>✦</i></div></div>
+</section>
+
+<!-- 4b. TANYA VARIAN YANG COCOK -->
+<aside class="cta-break-banner">
+<div class="container cta-break-inner">
+<p>Mau tahu varian Hurricane XCS yang paling cocok untuk tipe &amp; kapasitas mesin mobil Anda?</p>
+<a href="https://hurricane.co.id/whatsapp-xcs.html" target="_blank" rel="noopener" class="btn btn-wa btn-sm" data-wa-section="varian"><svg width="18" height="18" fill="currentColor" aria-hidden="true"><use href="#wa"/></svg><span>Tanya Teknisi Kami Langsung</span></a>
+</div>
+</aside>
+
+<!-- 5. MANFAAT -->
 <section class="section credibility-section" id="keunggulan">
 <div class="container">
 <header class="section-header reveal-on-scroll">
-<span class="eyebrow">Xtreme Charging System</span>
-<h2>Alat Penghemat BBM No.1 di Indonesia</h2>
+<span class="eyebrow">Manfaat yang Langsung Terasa</span>
+<h2>Ini yang Anda Rasakan Setelah Pasang XCS</h2>
 <p>Hurricane XCS adalah <em>voltage stabilizer</em> berteknologi Jerman yang teruji lebih dari 30 tahun menjaga kestabilan voltase jutaan kendaraan bermotor.</p>
 </header>
 <div class="no1-showcase-grid">
-<div class="no1-device-visual reveal-on-scroll">
-<div class="no1-glow-ring"></div>
-<img src="assets/images/img_7_unit_hurricane_xcs.webp" alt="Unit Hurricane XCS dengan Kabel Grounding Tembaga Murni" width="600" height="600" loading="lazy">
-</div>
 <div>
 <ul class="benefit-checklist">
 <li class="benefit-check-item">
@@ -877,21 +924,13 @@ html.lenis{scroll-behavior:auto}
 </ul>
 </div>
 </div>
-<div class="legacy-monument-card reveal-on-scroll">
-<span class="legacy-num-hero"><span data-count="30">30</span><em>TAHUN</em></span>
-<h3 class="legacy-label">Di Pasar Otomotif Indonesia</h3>
-<p class="legacy-desc">Tiga dekade menjaga kelistrikan kendaraan di Indonesia — terbukti sukses melintasi berbagai generasi mesin, mulai dari era karburator, injeksi, turbocharger hingga sistem hybrid modern.</p>
-</div>
-<div class="trust-stats-grid reveal-on-scroll">
-<div class="trust-stat-box"><div class="trust-stat-value" data-count="9999" data-suffix="+">9.999+</div><div class="trust-stat-label">Unit Terpasang</div></div>
-<div class="trust-stat-box"><div class="trust-stat-value" data-count="999" data-suffix="+">999+</div><div class="trust-stat-label">Ulasan Pelanggan Puas</div></div>
-<div class="trust-stat-box"><div class="trust-stat-value" data-count="30" data-suffix="%">30%</div><div class="trust-stat-label">Maksimal Hemat BBM</div></div>
-<div class="trust-stat-box"><div class="trust-stat-value" data-count="15" data-suffix=" Thn">15 Thn</div><div class="trust-stat-label">Garansi Resmi Terpanjang</div></div>
+<div class="wa-end reveal-on-scroll">
+<a href="https://hurricane.co.id/whatsapp-xcs.html" target="_blank" rel="noopener" class="btn btn-wa btn-lg wa-end-btn" data-wa-section="manfaat"><svg width="22" height="22" fill="currentColor" aria-hidden="true"><use href="#wa"/></svg><span>Mau Rasakan Langsung? Chat WhatsApp</span></a>
 </div>
 </div>
 </section>
 
-<!-- TEST DRIVE -->
+<!-- 6. PENAWARAN: FREE TEST DRIVE + UANG KEMBALI -->
 <section class="section testdrive-section" id="testdrive">
 <div class="container testdrive-layout">
 <div class="testdrive-poster-frame reveal-on-scroll"><img src="assets/images/img_8_free_test_drive_hurricane.webp" alt="Free Test Drive Hurricane XCS Coba Dulu Baru Bayar Jaminan Uang Kembali" width="760" height="760" loading="lazy"></div>
@@ -904,13 +943,13 @@ html.lenis{scroll-behavior:auto}
 <li class="testdrive-perk-item"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="3"><use href="#ck"/></svg><span>Jaminan 100% Uang Kembali Tanpa Debat</span></li>
 <li class="testdrive-perk-item"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="3"><use href="#ck"/></svg><span>Teknisi Kami Siap Bantu Pasang di Lokasi</span></li>
 </ul>
-<a href="https://hurricane.co.id/whatsapp-xcs.html" target="_blank" rel="noopener" class="btn btn-primary btn-lg"><span>Daftar Free Test Drive Sekarang</span><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#ar"/></svg></a>
+<a href="https://hurricane.co.id/whatsapp-xcs.html" target="_blank" rel="noopener" class="btn btn-wa btn-lg wa-end-btn" data-wa-section="testdrive"><svg width="22" height="22" fill="currentColor" aria-hidden="true"><use href="#wa"/></svg><span>Daftar Free Test Drive via WhatsApp</span></a>
 <p class="testdrive-terms-note">*Syarat dan ketentuan berlaku. Kuota test drive terbatas setiap harinya.</p>
 </div>
 </div>
 </section>
 
-<!-- COMPARISON -->
+<!-- 7. SEBELUM vs SESUDAH -->
 <section class="section comparison-section">
 <div class="container">
 <header class="section-header reveal-on-scroll">
@@ -938,10 +977,31 @@ html.lenis{scroll-behavior:auto}
 </ul>
 </div>
 </div>
+<div class="wa-end reveal-on-scroll">
+<a href="https://hurricane.co.id/whatsapp-xcs.html" target="_blank" rel="noopener" class="btn btn-wa btn-lg wa-end-btn" data-wa-section="perbandingan"><svg width="22" height="22" fill="currentColor" aria-hidden="true"><use href="#wa"/></svg><span>Mau Lebih Hemat? Chat WhatsApp</span></a>
+</div>
 </div>
 </section>
 
-<!-- TESTIMONI (marquee) -->
+<!-- 8. VIDEO TESTIMONI 30 TAHUN -->
+<section class="section tv-section" id="video-testimoni">
+<div class="container">
+<header class="section-header reveal-on-scroll">
+<span class="eyebrow">Testimoni Asli Pelanggan</span>
+<h2>30 Tahun Dipercaya Pemilik Mobil Indonesia</h2>
+</header>
+<!-- Video: assets/vidio/testimoni.mp4 (boleh versi vertikal atau landscape — bingkainya menyesuaikan sendiri) -->
+<div class="tv-frame reveal-on-scroll" id="tv-frame">
+<video class="tv-video" id="tv-video" src="assets/vidio/testimoni.mp4" muted loop playsinline preload="metadata" aria-label="Video testimoni pelanggan Hurricane XCS"></video>
+<button type="button" class="tv-full" id="tv-full" aria-label="Putar video testimoni layar penuh"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
+</div>
+<div class="wa-end reveal-on-scroll">
+<a href="https://hurricane.co.id/whatsapp-xcs.html" target="_blank" rel="noopener" class="btn btn-wa btn-lg wa-end-btn" data-wa-section="video-testimoni"><svg width="22" height="22" fill="currentColor" aria-hidden="true"><use href="#wa"/></svg><span>Jadwalkan Test Drive via WhatsApp</span></a>
+</div>
+</div>
+</section>
+
+<!-- 9. TESTIMONI SCREENSHOT -->
 <section class="section testimoni-section" id="testimoni">
 <div class="container">
 <header class="section-header reveal-on-scroll">
@@ -956,12 +1016,12 @@ html.lenis{scroll-behavior:auto}
 </div>
 </div>
 <div style="text-align:center;margin-top:2.5rem">
-<a href="https://hurricane.co.id/whatsapp-xcs.html" target="_blank" rel="noopener" class="btn btn-wa btn-lg"><span>Ingin Mobil Anda Lebih Hemat &amp; Bertenaga Seperti Mereka?</span><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><use href="#ar"/></svg></a>
+<a href="https://hurricane.co.id/whatsapp-xcs.html" target="_blank" rel="noopener" class="btn btn-wa btn-lg wa-end-btn" data-wa-section="testimoni"><svg width="22" height="22" fill="currentColor" aria-hidden="true"><use href="#wa"/></svg><span>Ingin Mobil Anda Lebih Hemat &amp; Bertenaga Seperti Mereka?</span></a>
 </div>
 </div>
 </section>
 
-<!-- FAQ -->
+<!-- 10. FAQ -->
 <section class="section faq-section" id="faq">
 <div class="container">
 <header class="section-header reveal-on-scroll">
@@ -976,10 +1036,13 @@ html.lenis{scroll-behavior:auto}
 <div class="faq-item"><button class="faq-trigger" aria-expanded="false"><span>Bagaimana cara klaim Jaminan Uang Kembali jika tidak terasa perubahannya?</span><svg class="faq-chevron" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-answer-panel"><p>Kami memberikan garansi kepuasan penuh. Jika dalam masa uji coba Anda merasa tidak ada perubahan performa atau efisiensi BBM di mobil Anda, cukup kembalikan unitnya dalam kondisi baik dan <strong>uang Anda akan kami kembalikan 100%</strong> tanpa dipersulit.</p></div></div>
 <div class="faq-item"><button class="faq-trigger" aria-expanded="false"><span>Jika nanti saya ganti mobil, apakah unit XCS bisa dipindahkan?</span><svg class="faq-chevron" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-answer-panel"><p><strong>Bisa sekali!</strong> Hurricane XCS adalah investasi jangka panjang seumur pakai kendaraan Anda. Kapan pun Anda menjual atau berganti mobil baru, unit XCS tinggal dilepas dalam 5 menit dan dipasang kembali ke mobil baru Anda.</p></div></div>
 </div>
+<div class="wa-end reveal-on-scroll">
+<a href="https://hurricane.co.id/whatsapp-xcs.html" target="_blank" rel="noopener" class="btn btn-wa btn-lg wa-end-btn" data-wa-section="faq"><svg width="22" height="22" fill="currentColor" aria-hidden="true"><use href="#wa"/></svg><span>Ada Pertanyaan? Chat WhatsApp</span></a>
+</div>
 </div>
 </section>
 
-<!-- FINAL CTA -->
+<!-- 11. AJAKAN PENUTUP -->
 <section class="section cta-closing-section" id="pesan">
 <div class="container">
 <div class="cta-mega-panel reveal-on-scroll">
@@ -988,7 +1051,7 @@ html.lenis{scroll-behavior:auto}
 <p class="cta-lead-text">Jangan biarkan bensin Anda terus menguap sia-sia. Hubungi tim konsultan kami sekarang, sebutkan tipe mobil Anda, dan nikmati promo Free Test Drive serta penawaran spesial hari ini!</p>
 <div class="cta-btn-cluster">
 <a href="https://hurricane.co.id/whatsapp-xcs.html" target="_blank" rel="noopener" class="btn btn-wa btn-lg"><svg width="22" height="22" fill="currentColor"><use href="#wa"/></svg><span>Chat WhatsApp Kami Sekarang</span></a>
-<a href="#testdrive" class="btn btn-outline btn-lg"><span>Ambil Free Test Drive</span></a>
+<a href="#testdrive" class="btn btn-outline btn-lg"><span>Jadwalkan Test Drive</span></a>
 </div>
 <ul class="cta-safety-points">
 <li class="cta-safety-item"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="3"><use href="#ck"/></svg><span>Coba Dulu, Baru Bayar</span></li>
@@ -999,6 +1062,7 @@ html.lenis{scroll-behavior:auto}
 </div>
 </div>
 </section>
+
 </main>
 
 <footer class="site-footer">
@@ -1006,9 +1070,10 @@ html.lenis{scroll-behavior:auto}
 <div class="footer-brand"><img src="assets/images/img_1_hurricane_xcs.webp" alt="Hurricane XCS" height="28"><p>&copy; 2026 Hurricane Indonesia. Hak cipta dilindungi undang-undang.</p></div>
 <ul class="footer-links">
 <li><a href="#hero">Beranda</a></li>
-<li><a href="#keunggulan">Keunggulan</a></li>
+<li><a href="#solusi">Solusi</a></li>
 <li><a href="#uji-fitra-eri">Uji Fitra Eri</a></li>
-<li><a href="#kalkulator-hemat">Kalkulator</a></li>
+<li><a href="#keunggulan">Manfaat</a></li>
+<li><a href="#video-testimoni">Video Testimoni</a></li>
 <li><a href="https://hurricane.co.id/whatsapp-xcs.html" target="_blank" rel="noopener">Hubungi WhatsApp</a></li>
 </ul>
 </div>
@@ -1410,7 +1475,7 @@ document.addEventListener('DOMContentLoaded', () => {
         c.classList.add('xv-ig');
         c.querySelector('.xv-pill').innerHTML = IG_ICON + 'Instagram';
         var cover = c.dataset.cover, im = c.querySelector('img');
-        if (cover) im.src = cover; else c.classList.add('no-cover');   /* Instagram tidak memberi thumbnail otomatis */
+        if (cover) im.src = cover; else { c.classList.add('no-cover'); c.dataset.igPreview = '1'; }   /* sampul otomatis dari pratinjau resmi Instagram */
         c.setAttribute('aria-label', 'Putar video Instagram: ' + c.querySelector('.xv-title').textContent.trim());
         return;
       }
@@ -1419,10 +1484,24 @@ document.addEventListener('DOMContentLoaded', () => {
       c.setAttribute('aria-label', 'Putar video YouTube: ' + c.querySelector('.xv-title').textContent.trim());
       c.dataset.id = id;
       c.href = 'https://www.youtube.com/watch?v=' + id;
-      c.querySelector('img').src = 'https://i.ytimg.com/vi/' + id + '/hqdefault.jpg';
+      var th = c.querySelector('img');
+      if (c.dataset.cover) th.src = c.dataset.cover;      /* sampul pilihan sendiri (mis. screenshot awal video) */
+      else {
+        var tries = ['maxresdefault', 'hqdefault'], k = 0;  /* gambar paling tajam dulu, lalu cadangan */
+        th.addEventListener('load', function () {
+          if (th.naturalWidth > 120) return;                /* 120px = gambar abu-abu "tidak ada" dari YouTube */
+          if (++k < tries.length) { th.src = 'https://i.ytimg.com/vi/' + id + '/' + tries[k] + '.jpg'; return; }
+          c.classList.add('no-thumb');                      /* link salah / video privat / dihapus */
+          if (window.console) console.warn('Video YouTube tidak tersedia untuk umum:', c.dataset.yt);
+        });
+        th.src = 'https://i.ytimg.com/vi/' + id + '/' + tries[0] + '.jpg';
+      }
     } else {
       c.setAttribute('aria-label', 'Putar video: ' + c.querySelector('.xv-title').textContent.trim());
-      c.querySelector('video').addEventListener('error', function () { empty(c); });
+      var mv = c.querySelector('video');
+      if (c.dataset.cover) mv.poster = c.dataset.cover;                 /* sampul pilihan sendiri (opsional) */
+      mv.preload = 'metadata'; mv.autoplay = false;
+      mv.addEventListener('error', function () { empty(c); });
     }
   });
 
@@ -1459,14 +1538,74 @@ document.addEventListener('DOMContentLoaded', () => {
   modal.addEventListener('click', function (e) { if (e.target === modal || e.target.classList.contains('xv-close')) modal.close(); });
   cards.forEach(function (c) { c.addEventListener('click', function (e) { e.preventDefault(); if (!c.classList.contains('is-empty')) open(c); }); });
 
-  /* pratinjau MP4 bergerak saat kursor di atas kotak (desktop) */
-  if (matchMedia('(hover: hover)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    grid.querySelectorAll('.xv-mp4').forEach(function (c) {
-      var v = c.querySelector('video');
-      c.addEventListener('mouseenter', function () { if (c.classList.contains('is-empty')) return; var p = v.play(); if (p && p.catch) p.catch(function () {}); });
-      c.addEventListener('mouseleave', function () { v.pause(); });
-    });
+  /* Sampul Instagram otomatis: halaman embed resmi Instagram menampilkan gambar sampul postingan
+     (diam, tidak diputar). Kita tampilkan hanya bagian gambarnya, dipotong pas di kotak. */
+  var IGW = 400, IG_HEAD = 56, IG_ZOOM = 1.4;        /* lebar render embed, tinggi header-nya (px), sedikit zoom ke gambar */
+  var fitIG = function (c) {
+    var f = c._igf; if (!f) return;
+    var W = c.clientWidth, H = c.clientHeight, sc = (W / IGW) * IG_ZOOM;
+    var band = H / sc;                                   /* tinggi area yang terlihat, dalam ukuran embed */
+    var top = IG_HEAD + IGW / 2 - band / 2;              /* pusatkan pada tengah gambar (aman untuk post kotak maupun tegak) */
+    var x = -(IGW * sc - W) / 2;                          /* pusatkan mendatar */
+    f.style.transform = 'translate3d(' + x.toFixed(1) + 'px,' + (-top * sc).toFixed(1) + 'px,0) scale(' + sc.toFixed(4) + ')';
+  };
+  var loadIG = function (c) {
+    if (c._igf) return;
+    var f = document.createElement('iframe');
+    f.className = 'xv-igcover'; f.tabIndex = -1; f.setAttribute('aria-hidden', 'true'); f.setAttribute('scrolling', 'no');
+    f.loading = 'lazy';
+    f.src = 'https://www.instagram.com/p/' + c.dataset.igCode + '/embed/';
+    f.addEventListener('load', function () { setTimeout(function () { c.classList.add('ig-ready'); }, 700); });
+    c.querySelector('.xv-media').insertAdjacentElement('afterend', f);
+    c._igf = f; fitIG(c);
+  };
+  var igCards = cards.filter(function (c) { return c.dataset.igPreview === '1'; });
+  if (igCards.length) {
+    if ('IntersectionObserver' in window) {
+      var igio = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { loadIG(e.target); igio.unobserve(e.target); } }); }, { rootMargin: '300px 0px' });
+      igCards.forEach(function (c) { igio.observe(c); });
+    } else igCards.forEach(loadIG);
+    var igT = 0; addEventListener('resize', function () { clearTimeout(igT); igT = setTimeout(function () { igCards.forEach(fitIG); }, 120); });
   }
+
+  /* Kotak tidak memutar apa pun sebelum diklik: yang tampil hanya gambar awal video.
+     MP4 → frame pertama video · YouTube → thumbnail video · data-cover="…" → gambar pilihan sendiri (semua jenis). */
+})();
+</script>
+
+<script>
+/* ===== VIDEO TESTIMONI ===== */
+(function () {
+  'use strict';
+  var v = document.getElementById('tv-video'); if (!v) return;
+  var frame = document.getElementById('tv-frame'), sec = document.getElementById('video-testimoni');
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var saveData = !!(navigator.connection && navigator.connection.saveData);
+  v.addEventListener('error', function () { if (sec) sec.hidden = true; });          /* file belum ada → bagian ini disembunyikan */
+  v.addEventListener('loadedmetadata', function () {                                   /* bingkai ikut bentuk video: tegak atau mendatar */
+    if (!v.videoWidth) return;
+    frame.style.aspectRatio = v.videoWidth + ' / ' + v.videoHeight;
+    frame.classList.toggle('is-vertical', v.videoHeight > v.videoWidth);
+  });
+  if (!reduce && !saveData && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (e.isIntersecting) { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+        else if (!v.paused) v.pause();
+      });
+    }, { threshold: 0.35 }).observe(frame);
+  } else { v.controls = true; }
+  var full = function () {
+    v.controls = true;
+    try {
+      if (frame.requestFullscreen) frame.requestFullscreen().catch(function () {});
+      else if (v.webkitEnterFullscreen) v.webkitEnterFullscreen();                    /* iPhone */
+    } catch (err) {}
+    var p = v.play(); if (p && p.catch) p.catch(function () {});
+  };
+  document.getElementById('tv-full').addEventListener('click', full);
+  v.addEventListener('click', full);
+  document.addEventListener('fullscreenchange', function () { if (!document.fullscreenElement && !reduce && !saveData) v.controls = false; });
 })();
 </script>
 </body>
