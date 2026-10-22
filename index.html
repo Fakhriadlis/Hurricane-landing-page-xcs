@@ -645,11 +645,9 @@ html.lenis{scroll-behavior:auto}
 
 /* ===== VIDEO TESTIMONI (pengganti kalkulator) ===== */
 .tv-section[hidden]{display:none}
-.tv-frame{position:relative;margin:0 auto;width:100%;max-width:1100px;aspect-ratio:16/9;border-radius:28px;overflow:hidden;background:#000;box-shadow:0 40px 90px -40px rgba(255,140,10,.45),0 0 0 1px rgba(255,255,255,.08);transition:max-width .4s ease}
+.tv-frame{position:relative;margin:clamp(1.5rem,3vw,2.5rem) 0 0;width:100%;height:100vh;height:100svh;min-height:420px;border-radius:0;box-shadow:none !important;max-width:none !important;aspect-ratio:auto !important;overflow:hidden;background:#000;box-shadow:0 40px 90px -40px rgba(255,140,10,.45),0 0 0 1px rgba(255,255,255,.08);transition:max-width .4s ease}
 .tv-frame.is-vertical{max-width:420px}
-.tv-video{display:block;width:100%;height:100%;object-fit:cover;cursor:pointer;background:#000}
-.tv-full{position:absolute;right:14px;bottom:14px;z-index:2;width:44px;height:44px;border-radius:50%;border:0;display:grid;place-items:center;background:rgba(0,0,0,.55);color:#fff;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);cursor:pointer;transition:background .2s}
-.tv-full:hover{background:rgba(0,0,0,.75)}
+.tv-video{display:block;width:100%;height:100%;object-fit:cover;background:#000;pointer-events:none}   /* tidak bisa diklik: diputar terus saja */
 .tv-cta{display:flex;justify-content:center;margin-top:2rem}
 @media(max-width:768px){
 .tv-frame{border-radius:20px}
@@ -700,6 +698,15 @@ html.lenis{scroll-behavior:auto}
 .solusi-cta{grid-area:cta;justify-content:flex-start;margin-top:2rem}
 @media(max-width:768px){.solusi-cta{justify-content:center}}
 @media(prefers-reduced-motion:reduce){.solusi-visual img{animation:none}}
+
+/* video testimoni layar penuh: tepi ke tepi; tidak pernah memotong teks di video */
+.tv-frame{overflow:hidden;background:#000}
+.tv-frame::before,.tv-frame::after{content:"";position:absolute;left:0;right:0;z-index:1;height:12%;pointer-events:none}
+.tv-frame::before{top:0;background:linear-gradient(180deg,#000,rgba(0,0,0,0))}
+.tv-frame::after{bottom:0;background:linear-gradient(0deg,#000,rgba(0,0,0,0))}
+.tv-frame.fit-contain .tv-video{object-fit:contain}
+.tv-section .tv-frame + .container .wa-end{margin-top:clamp(1.5rem,3vw,2.5rem)}
+@media(max-width:768px){.tv-frame{border-radius:0 !important}}
 /* ===== KALKULATOR DI HP: angka tidak pernah terpotong ===== */
 .savings-annual-number,.sub-saving-item strong,.calc-budget-display{font-variant-numeric:tabular-nums;white-space:nowrap}
 .sub-saving-item strong{word-break:normal;overflow-wrap:normal}
@@ -986,11 +993,13 @@ html.lenis{scroll-behavior:auto}
 <span class="eyebrow">Testimoni Asli Pelanggan</span>
 <h2>30 Tahun Dipercaya Pemilik Mobil Indonesia</h2>
 </header>
-<!-- Video: assets/vidio/testimoni.mp4 (boleh versi vertikal atau landscape — bingkainya menyesuaikan sendiri) -->
-<div class="tv-frame reveal-on-scroll" id="tv-frame">
-<video class="tv-video" id="tv-video" src="assets/vidio/testimoni.mp4" muted loop playsinline preload="metadata" aria-label="Video testimoni pelanggan Hurricane XCS"></video>
-<button type="button" class="tv-full" id="tv-full" aria-label="Putar video testimoni layar penuh"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
 </div>
+<!-- Video layar penuh. assets/vidio/testimoni.mp4 = versi landscape (desktop).
+     Opsional: assets/vidio/testimoni-hp.mp4 = versi vertikal, otomatis dipakai di HP (kalau tidak ada, HP memakai testimoni.mp4). -->
+<div class="tv-frame" id="tv-frame">
+<video class="tv-video" id="tv-video" data-src="assets/vidio/testimoni.mp4" data-src-hp="assets/vidio/testimoni-hp.mp4" muted loop playsinline autoplay preload="metadata" disablepictureinpicture disableremoteplayback controlslist="nodownload nofullscreen noremoteplayback" aria-label="Video testimoni pelanggan Hurricane XCS"></video>
+</div>
+<div class="container">
 <div class="wa-end reveal-on-scroll">
 <a href="https://hurricane.co.id/whatsapp-xcs.html" target="_blank" rel="noopener" class="btn btn-wa btn-lg wa-end-btn" data-wa-section="video-testimoni"><svg width="22" height="22" fill="currentColor" aria-hidden="true"><use href="#wa"/></svg><span>Jadwalkan Test Drive via WhatsApp</span></a>
 </div>
@@ -1570,38 +1579,46 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 
 <script>
-/* ===== VIDEO TESTIMONI ===== */
+/* ===== VIDEO TESTIMONI: layar penuh, diputar terus-menerus tanpa suara, tidak bisa diklik ===== */
 (function () {
   'use strict';
   var v = document.getElementById('tv-video'); if (!v) return;
   var frame = document.getElementById('tv-frame'), sec = document.getElementById('video-testimoni');
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var saveData = !!(navigator.connection && navigator.connection.saveData);
-  v.addEventListener('error', function () { if (sec) sec.hidden = true; });          /* file belum ada → bagian ini disembunyikan */
-  v.addEventListener('loadedmetadata', function () {                                   /* bingkai ikut bentuk video: tegak atau mendatar */
-    if (!v.videoWidth) return;
-    frame.style.aspectRatio = v.videoWidth + ' / ' + v.videoHeight;
-    frame.classList.toggle('is-vertical', v.videoHeight > v.videoWidth);
+  var portrait = matchMedia('(max-aspect-ratio: 1/1)');
+  var SRC = v.dataset.src, SRC_HP = v.dataset.srcHp, hpMissing = !SRC_HP;
+  v.muted = true; v.loop = true;
+  var want = function () { return portrait.matches && !hpMissing ? SRC_HP : SRC; };
+  var load = function () { var src = want(); if (v.getAttribute('src') !== src) { v.setAttribute('src', src); if (!reduce) play(); } };
+  v.addEventListener('error', function () {
+    if (v.getAttribute('src') === SRC_HP) { hpMissing = true; load(); return; }   /* versi HP belum ada → pakai versi utama */
+    if (sec) sec.hidden = true;                                                   /* file belum ada → bagian ini disembunyikan */
   });
-  if (!reduce && !saveData && 'IntersectionObserver' in window) {
-    new IntersectionObserver(function (es) {
-      es.forEach(function (e) {
-        if (e.isIntersecting) { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
-        else if (!v.paused) v.pause();
-      });
-    }, { threshold: 0.35 }).observe(frame);
-  } else { v.controls = true; }
-  var full = function () {
-    v.controls = true;
-    try {
-      if (frame.requestFullscreen) frame.requestFullscreen().catch(function () {});
-      else if (v.webkitEnterFullscreen) v.webkitEnterFullscreen();                    /* iPhone */
-    } catch (err) {}
-    var p = v.play(); if (p && p.catch) p.catch(function () {});
+  /* isi layar penuh (cover); kalau itu akan memotong lebih dari ~8% tiap sisi, tampilkan utuh (contain) supaya teks video tidak terpotong */
+  var fit = function () {
+    if (!v.videoWidth) return;
+    frame.style.height = ''; frame.style.minHeight = '';                           /* mulai dari tinggi layar penuh */
+    var va = v.videoWidth / v.videoHeight, fa = frame.clientWidth / Math.max(1, frame.clientHeight);
+    var crop = va > fa ? 1 - fa / va : 1 - va / fa;
+    var contain = crop > 0.17;
+    /* video jauh lebih lebar dari layar (mis. landscape di HP): selebar layar dengan tinggi aslinya, tanpa ruang hitam besar */
+    if (contain && va > fa && crop > 0.35) { frame.style.minHeight = '0'; frame.style.height = Math.round(frame.clientWidth / va) + 'px'; contain = false; }
+    frame.classList.toggle('fit-contain', contain);
   };
-  document.getElementById('tv-full').addEventListener('click', full);
-  v.addEventListener('click', full);
-  document.addEventListener('fullscreenchange', function () { if (!document.fullscreenElement && !reduce && !saveData) v.controls = false; });
+  v.addEventListener('loadedmetadata', fit);
+  var rt = 0; addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(function () { load(); fit(); }, 150); });
+
+  var blocked = false;
+  var play = function () { var p = v.play(); if (p && p.then) p.then(function () { blocked = false; }, function () { blocked = true; }); };
+  load();
+  if (reduce) { v.removeAttribute('autoplay'); v.pause(); return; }                 /* pengguna "kurangi gerakan": diam di frame awal */
+  /* hemat baterai: berhenti hanya saat tidak terlihat, lanjut lagi begitu terlihat */
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) play(); else v.pause(); }); }, { threshold: 0.2 }).observe(frame);
+  } else play();
+  /* beberapa HP (mis. iPhone mode hemat daya) menahan autoplay → coba lagi pada sentuhan/scroll berikutnya */
+  var retry = function () { if (!blocked || !v.paused) return; var r = frame.getBoundingClientRect(); if (r.bottom > 0 && r.top < innerHeight) play(); };
+  ['touchstart', 'pointerdown', 'scroll'].forEach(function (ev) { addEventListener(ev, retry, { passive: true }); });
 })();
 </script>
 </body>
