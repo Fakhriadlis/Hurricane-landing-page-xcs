@@ -14,7 +14,7 @@
 <meta property="og:url" content="https://hurricane.co.id/landing-page.html">
 <meta property="og:title" content="Hurricane XCS — Hemat BBM Hingga 30% & Akselerasi Responsif">
 <meta property="og:description" content="Stabilkan kelistrikan mobil Anda: Hemat BBM hingga 30%, tarikan lebih enteng, aki awet. Pasang 5 menit, Free Test Drive & garansi uang kembali.">
-<meta property="og:image" content="assets/images/img_4_konsumsi_bbm_toyota_innov.webp">
+<meta property="og:image" content="assets/images/Produk%20XCS7%20Xtreme%20Charging%20System%20301123%20-%20H.png">
 <link rel="icon" type="image/webp" href="assets/images/img_1_hurricane_xcs.webp">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=Sora:wght@600;700;800&display=swap');
@@ -808,6 +808,13 @@ html.lenis{scroll-behavior:auto}
 .xv-grid .xv-ck{background:#000;color:#ff9f0a}
 .xv-grid .xv-shade{background:linear-gradient(180deg,rgba(0,0,0,0) 28%,rgba(0,0,0,.55) 58%,rgba(0,0,0,.92) 100%)}
 @media(max-width:768px){.xv-grid .xv-kick{padding:3px 8px 3px 3px;letter-spacing:.1em}}
+
+/* ===== HERO tanpa poster: kanan = tabel harga BBM + ATPM (desktop); di HP tetap di bawah teks ===== */
+.hero-side{display:flex;flex-direction:column;gap:1.5rem;min-width:0}
+.hero-side .hero-fuel-price{margin-top:0;max-width:520px;width:100%}
+.hero-side .atpm-strip{margin-top:0;padding-top:0}
+@media(min-width:993px){.hero-side{align-self:center;justify-self:end;width:100%;max-width:520px}}
+@media(max-width:992px){.hero-grid{row-gap:1.75rem}.hero-side .hero-fuel-price,.hero-side .atpm-logo-frame{max-width:460px}}
 /* ===== KALKULATOR DI HP: angka tidak pernah terpotong ===== */
 .savings-annual-number,.sub-saving-item strong,.calc-budget-display{font-variant-numeric:tabular-nums;white-space:nowrap}
 .sub-saving-item strong{word-break:normal;overflow-wrap:normal}
@@ -886,6 +893,8 @@ html.lenis{scroll-behavior:auto}
 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-3zm-2 16l-4-4 1.41-1.41L10 15.17l6.59-6.59L18 10l-8 8z"/></svg>
 <span>Garansi resmi &middot; Jaminan 100% uang kembali &middot; Kirim ke seluruh Indonesia</span>
 </div>
+</div>
+<div class="hero-side reveal-on-scroll">
 <div class="hero-fuel-price">
 <div class="hero-badge-pill fuel-pill"><span class="pulse-dot"></span><span>Harga BBM resmi naik &middot; 1 Sept 2026</span></div>
 <div class="fuel-price-card"><img src="assets/images/harga-bbm-naik.png" alt="Harga BBM Pertamina per 1 September 2026: Pertamax Turbo naik dari Rp 18.300 ke Rp 19.600, Dexlite dari Rp 19.700 ke Rp 23.700, Pertamina Dex dari Rp 21.150 ke Rp 25.200 per liter" width="422" height="196"></div>
@@ -895,17 +904,45 @@ html.lenis{scroll-behavior:auto}
 <div class="atpm-logo-frame"><img src="assets/images/img_3_hurricane_telah_disetujui.webp" alt="ATPM Partners: Wuling, Suzuki, Honda, Hyundai, Mitsubishi, Toyota, BYD, Chery" width="460" height="176" loading="lazy"></div>
 </div>
 </div>
-<div class="hero-poster-wrapper reveal-on-scroll">
-<div class="hero-poster-card"><img src="assets/images/img_4_konsumsi_bbm_toyota_innov.webp" alt="Konsumsi BBM Toyota Innova Zenix sebelum dan sesudah pasang Hurricane XCS dari 21.2 ke 23.4 km/L" width="560" height="700"></div>
-<div class="hero-floating-stat">
-<div class="stat-icon-glow"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#bolt"/></svg></div>
-<div class="stat-label-wrap"><small>Uji Nyata Innova Zenix</small><strong>21.2 &rarr; 23.4 km/L</strong></div>
 </div>
+</section>
+
+<!-- 2. MANFAAT -->
+<section class="section credibility-section" id="keunggulan">
+<div class="container">
+<header class="section-header reveal-on-scroll">
+<span class="eyebrow">Manfaat yang Langsung Terasa</span>
+<h2>Ini yang Anda Rasakan Setelah Pasang XCS</h2>
+<p>Hurricane XCS adalah <em>voltage stabilizer</em> berteknologi Jerman yang teruji lebih dari 30 tahun menjaga kestabilan voltase jutaan kendaraan bermotor.</p>
+</header>
+<div class="no1-showcase-grid">
+<div>
+<ul class="benefit-checklist">
+<li class="benefit-check-item has-media">
+<div class="bc-media"><video class="bc-video" data-src="assets/vidio/HEMAT%20BBM.mp4" muted loop playsinline preload="none" disablepictureinpicture disableremoteplayback aria-label="Video: hemat konsumsi BBM"></video></div>
+<div class="benefit-icon-badge"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"/></svg></div>
+<div class="benefit-text-wrap"><strong>Hemat BBM s.d 30%</strong><em>Pembakaran sempurna, bensin lebih awet.</em></div>
+</li>
+<li class="benefit-check-item has-media">
+<div class="bc-media"><video class="bc-video" data-src="assets/vidio/Ekspresi_Tenaga.mp4" muted loop playsinline preload="none" disablepictureinpicture disableremoteplayback aria-label="Video: ekspresi tenaga saat akselerasi"></video></div>
+<div class="benefit-icon-badge"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#bolt"/></svg></div>
+<div class="benefit-text-wrap"><strong>Tarikan Lebih Enteng</strong><em>Injak gas, langsung respon.</em></div>
+</li>
+<li class="benefit-check-item has-media">
+<div class="bc-media"><video class="bc-video" data-src="assets/vidio/BATTERY%20ANALIZER.mp4" muted loop playsinline preload="none" disablepictureinpicture disableremoteplayback aria-label="Video: analisa aki"></video></div>
+<div class="benefit-icon-badge"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+<div class="benefit-text-wrap"><strong>Aki Lebih Awet</strong><em>Kelistrikan stabil, aki tahan 3&ndash;5 tahun.</em></div>
+</li>
+</ul>
+</div>
+</div>
+<div class="wa-end reveal-on-scroll">
+<a href="https://hurricane.co.id/whatsapp-xcs.html" target="_blank" rel="noopener" class="btn btn-wa btn-lg wa-end-btn" data-wa-section="manfaat"><svg width="22" height="22" fill="currentColor" aria-hidden="true"><use href="#wa"/></svg><span>Mau Rasakan Langsung? Chat WhatsApp</span></a>
 </div>
 </div>
 </section>
 
-<!-- 2. VIDEO TESTIMONI 30 TAHUN -->
+<!-- 3. VIDEO TESTIMONI 30 TAHUN -->
 <section class="section tv-section" id="video-testimoni">
 <div class="container">
 <header class="section-header reveal-on-scroll">
@@ -925,7 +962,7 @@ html.lenis{scroll-behavior:auto}
 </div>
 </section>
 
-<!-- 3. SOLUSI: TEKNOLOGI JERMAN -->
+<!-- 4. SOLUSI: TEKNOLOGI JERMAN -->
 <section class="section solusi-section" id="solusi">
 <div class="container solusi-grid">
 <header class="section-header solusi-header reveal-on-scroll">
@@ -948,7 +985,7 @@ html.lenis{scroll-behavior:auto}
 </div>
 </section>
 
-<!-- 4. BUKTI UJI: FITRA ERI + 5 VIDEO -->
+<!-- 5. BUKTI UJI: FITRA ERI + 5 VIDEO -->
 <section class="section video-section" id="uji-fitra-eri">
 <div class="container">
 <header class="section-header reveal-on-scroll">
@@ -1007,54 +1044,19 @@ html.lenis{scroll-behavior:auto}
 </div>
 </section>
 
-<!-- 5. PITA KLAIM -->
+<!-- 6. PITA KLAIM -->
 <section class="kinetic-strip" aria-label="Hemat BBM s.d 30%, pasang cuma 5 menit, garansi s.d 15 tahun, 100% uang kembali, tarikan lebih enteng, aki lebih awet, teknologi Jerman, approved ATPM, 30 tahun di Indonesia">
 <div class="kin-row" aria-hidden="true"><div class="kin-track"><span class="hot">Hemat BBM s.d 30%</span><i>✦</i><span>Pasang Cuma 5 Menit</span><i>✦</i><span class="hot">Garansi s.d 15 Tahun</span><i>✦</i><span>100% Uang Kembali</span><i>✦</i></div></div>
 <div class="kin-row outline" aria-hidden="true"><div class="kin-track"><span>Tarikan Lebih Enteng</span><i>✦</i><span class="hot">Aki Lebih Awet</span><i>✦</i><span>Teknologi Jerman</span><i>✦</i><span>Approved ATPM</span><i>✦</i><span class="hot">30 Tahun di Indonesia</span><i>✦</i></div></div>
 </section>
 
-<!-- 5b. TANYA VARIAN YANG COCOK -->
+<!-- 6b. TANYA VARIAN YANG COCOK -->
 <aside class="cta-break-banner">
 <div class="container cta-break-inner">
 <p>Mau tahu varian Hurricane XCS yang paling cocok untuk tipe &amp; kapasitas mesin mobil Anda?</p>
 <a href="https://hurricane.co.id/whatsapp-xcs.html" target="_blank" rel="noopener" class="btn btn-wa btn-sm" data-wa-section="varian"><svg width="18" height="18" fill="currentColor" aria-hidden="true"><use href="#wa"/></svg><span>Tanya Teknisi Kami Langsung</span></a>
 </div>
 </aside>
-
-<!-- 6. MANFAAT -->
-<section class="section credibility-section" id="keunggulan">
-<div class="container">
-<header class="section-header reveal-on-scroll">
-<span class="eyebrow">Manfaat yang Langsung Terasa</span>
-<h2>Ini yang Anda Rasakan Setelah Pasang XCS</h2>
-<p>Hurricane XCS adalah <em>voltage stabilizer</em> berteknologi Jerman yang teruji lebih dari 30 tahun menjaga kestabilan voltase jutaan kendaraan bermotor.</p>
-</header>
-<div class="no1-showcase-grid">
-<div>
-<ul class="benefit-checklist">
-<li class="benefit-check-item has-media">
-<div class="bc-media"><video class="bc-video" data-src="assets/vidio/HEMAT%20BBM.mp4" muted loop playsinline preload="none" disablepictureinpicture disableremoteplayback aria-label="Video: hemat konsumsi BBM"></video></div>
-<div class="benefit-icon-badge"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"/></svg></div>
-<div class="benefit-text-wrap"><strong>Hemat BBM s.d 30%</strong><em>Pembakaran sempurna, bensin lebih awet.</em></div>
-</li>
-<li class="benefit-check-item has-media">
-<div class="bc-media"><video class="bc-video" data-src="assets/vidio/Ekspresi_Tenaga.mp4" muted loop playsinline preload="none" disablepictureinpicture disableremoteplayback aria-label="Video: ekspresi tenaga saat akselerasi"></video></div>
-<div class="benefit-icon-badge"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#bolt"/></svg></div>
-<div class="benefit-text-wrap"><strong>Tarikan Lebih Enteng</strong><em>Injak gas, langsung respon.</em></div>
-</li>
-<li class="benefit-check-item has-media">
-<div class="bc-media"><video class="bc-video" data-src="assets/vidio/BATTERY%20ANALIZER.mp4" muted loop playsinline preload="none" disablepictureinpicture disableremoteplayback aria-label="Video: analisa aki"></video></div>
-<div class="benefit-icon-badge"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
-<div class="benefit-text-wrap"><strong>Aki Lebih Awet</strong><em>Kelistrikan stabil, aki tahan 3&ndash;5 tahun.</em></div>
-</li>
-</ul>
-</div>
-</div>
-<div class="wa-end reveal-on-scroll">
-<a href="https://hurricane.co.id/whatsapp-xcs.html" target="_blank" rel="noopener" class="btn btn-wa btn-lg wa-end-btn" data-wa-section="manfaat"><svg width="22" height="22" fill="currentColor" aria-hidden="true"><use href="#wa"/></svg><span>Mau Rasakan Langsung? Chat WhatsApp</span></a>
-</div>
-</div>
-</section>
 
 <!-- 7. PENAWARAN: FREE TEST DRIVE + UANG KEMBALI -->
 <section class="section testdrive-section" id="testdrive">
@@ -1178,10 +1180,10 @@ html.lenis{scroll-behavior:auto}
 <div class="footer-brand"><img src="assets/images/img_1_hurricane_xcs.webp" alt="Hurricane XCS" height="28"><p>&copy; 2026 Hurricane Indonesia. Hak cipta dilindungi undang-undang.</p></div>
 <ul class="footer-links">
 <li><a href="#hero">Beranda</a></li>
+<li><a href="#keunggulan">Manfaat</a></li>
 <li><a href="#video-testimoni">Video Testimoni</a></li>
 <li><a href="#solusi">Solusi</a></li>
 <li><a href="#uji-fitra-eri">Uji Fitra Eri</a></li>
-<li><a href="#keunggulan">Manfaat</a></li>
 <li><a href="https://hurricane.co.id/whatsapp-xcs.html" target="_blank" rel="noopener">Hubungi WhatsApp</a></li>
 </ul>
 </div>
