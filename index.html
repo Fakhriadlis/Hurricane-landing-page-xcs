@@ -647,8 +647,7 @@ html.lenis{scroll-behavior:auto}
 @media(prefers-reduced-motion:reduce){.xv-card.is-empty::after{animation:none}}
 
 /* ===== VIDEO TESTIMONI (pengganti kalkulator) ===== */
-.tv-section[hidden]{display:none}
-.tv-frame{position:relative;margin:clamp(1.5rem,3vw,2.5rem) 0 0;width:100%;height:100vh;height:100svh;min-height:420px;border-radius:0;box-shadow:none !important;max-width:none !important;aspect-ratio:auto !important;overflow:hidden;background:#000;box-shadow:0 40px 90px -40px rgba(255,140,10,.45),0 0 0 1px rgba(255,255,255,.08);transition:max-width .4s ease}
+.tv-frame{position:relative;margin:clamp(1.2rem,2.5vw,2rem) 0 0;width:100%;height:auto;max-height:85vh;aspect-ratio:16/9;min-height:0;border-radius:0;overflow:hidden;background:#000;box-shadow:0 40px 90px -40px rgba(255,140,10,.45),0 0 0 1px rgba(255,255,255,.08);transition:max-width .4s ease}
 .tv-frame.is-vertical{max-width:420px}
 .tv-video{display:block;width:100%;height:100%;object-fit:cover;background:#000;pointer-events:none}   /* tidak bisa diklik: diputar terus saja */
 .tv-cta{display:flex;justify-content:center;margin-top:2rem}
@@ -711,8 +710,16 @@ html.lenis{scroll-behavior:auto}
 .tv-frame::before{top:0;background:linear-gradient(180deg,#000,rgba(0,0,0,0))}
 .tv-frame::after{bottom:0;background:linear-gradient(0deg,#000,rgba(0,0,0,0))}
 .tv-frame.fit-contain .tv-video{object-fit:contain}
-.tv-section .tv-frame + .container .wa-end{margin-top:clamp(1.5rem,3vw,2.5rem)}
-@media(max-width:768px){.tv-frame{border-radius:0 !important}}
+.tv-section .tv-frame + .container .wa-end{margin-top:clamp(1.2rem,2.5vw,2rem)}
+@media(max-width:768px){
+.tv-frame{border-radius:0 !important;height:auto !important;min-height:0 !important;aspect-ratio:16/9 !important;margin-top:.75rem !important}
+.tv-section{padding:1.5rem 0 2rem !important}
+.credibility-section{padding-bottom:1.5rem !important}
+.credibility-section .wa-end{margin-top:1.5rem !important}
+.section{padding:clamp(2.4rem,5.5vw,3.5rem) 0}
+.wa-end{margin-top:1.4rem !important}
+.section-header{margin-bottom:1.4rem !important}
+}
 
 /* ===== ANIMASI SINGKAT DI KARTU MANFAAT ===== */
 .bc-media{position:relative;width:100%;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#0b0b0d;box-shadow:inset 0 0 0 1px rgba(255,255,255,.06)}
@@ -955,7 +962,7 @@ html.lenis{scroll-behavior:auto}
 </div>
 <!-- Video layar penuh: assets/vidio/testimoni.mp4 dipakai di semua layar (HP & desktop). -->
 <div class="tv-frame" id="tv-frame">
-<video class="tv-video" id="tv-video" data-src="assets/vidio/testimoni.mp4" muted loop playsinline autoplay preload="metadata" disablepictureinpicture disableremoteplayback controlslist="nodownload nofullscreen noremoteplayback" aria-label="Video testimoni pelanggan Hurricane XCS"></video>
+<video class="tv-video" id="tv-video" poster="assets/images/testimoni-cover.webp" data-src="assets/vidio/testimoni.mp4" muted loop playsinline autoplay preload="metadata" disablepictureinpicture disableremoteplayback controlslist="nodownload nofullscreen noremoteplayback" aria-label="Video testimoni pelanggan Hurricane XCS"></video>
 </div>
 <div class="container">
 <div class="wa-end reveal-on-scroll">
@@ -1013,30 +1020,30 @@ html.lenis{scroll-behavior:auto}
 <div class="xv-wrap reveal-on-scroll">
 <div class="xv-head"><h3>Tonton Videonya</h3></div>
 <div class="xv-grid" id="xv-grid">
-<button type="button" class="xv-card xv-mp4 xv-big" data-type="mp4" data-src="assets/vidio/HONDA.mp4" data-cover="assets/images/cover-honda.webp" data-pos="50% 82%" aria-label="Putar video: Video Hurricane XCS #1" data-label="TERBUKTI DI HONDA">
-<img class="xv-media" src="assets/images/cover-honda.webp" alt="Video: Terbukti di Honda CR-V Turbo" loading="lazy" decoding="async" width="720" height="405">
+<button type="button" class="xv-card xv-mp4 xv-big" data-type="mp4" data-src="assets/vidio/HONDA.mp4" data-cover="assets/images/cover-honda.webp" data-pos="50% 82%" aria-label="Putar video: Purwanto, Service Manager Honda" data-label="TERBUKTI SAMA PURWANTO">
+<img class="xv-media" src="assets/images/cover-honda.webp" alt="Video: Terbukti sama Purwanto, Service Manager Honda" loading="lazy" decoding="async" width="720" height="405">
 <span class="xv-shade" aria-hidden="true"></span><span class="xv-pill">Video</span><span class="xv-play"><svg width="22" height="22" fill="currentColor" aria-hidden="true"><use href="#play"/></svg></span><span class="xv-soon">Segera hadir</span>
-<span class="xv-logo"><img data-logo="assets/images/logohonda" alt="Logo Honda" decoding="async"></span><span class="xv-cap"><span class="xv-kick"><i class="xv-ck" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i>TERBUKTI DI</span><span class="xv-title">HONDA</span><span class="xv-meta">CR-V Turbo</span></span>
+<span class="xv-logo"><img data-logo="assets/images/logohonda" alt="Logo Honda" decoding="async"></span><span class="xv-cap"><span class="xv-kick"><i class="xv-ck" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i>TERBUKTI SAMA</span><span class="xv-title">PURWANTO</span><span class="xv-meta">Service Manager Honda</span></span>
 </button>
-<button type="button" class="xv-card xv-mp4" data-type="mp4" data-src="assets/vidio/wuling.mp4" data-cover="assets/images/cover-wuling.webp" aria-label="Putar video: Video Hurricane XCS #2" data-label="TERBUKTI DI WULING">
-<img class="xv-media" src="assets/images/cover-wuling.webp" alt="Video: Terbukti di Wuling" loading="lazy" decoding="async" width="480" height="480">
+<button type="button" class="xv-card xv-mp4" data-type="mp4" data-src="assets/vidio/wuling.mp4" data-cover="assets/images/cover-wuling.webp" aria-label="Putar video: Nugroho Suharlim, Presiden Marketing Wuling" data-label="TERBUKTI SAMA NUGROHO SUHARLIM">
+<img class="xv-media" src="assets/images/cover-wuling.webp" alt="Video: Terbukti sama Nugroho Suharlim, Presiden Marketing Wuling" loading="lazy" decoding="async" width="480" height="480">
 <span class="xv-shade" aria-hidden="true"></span><span class="xv-pill">Video</span><span class="xv-play"><svg width="22" height="22" fill="currentColor" aria-hidden="true"><use href="#play"/></svg></span><span class="xv-soon">Segera hadir</span>
-<span class="xv-logo"><img data-logo="assets/images/logowuling" alt="Logo Wuling" decoding="async"></span><span class="xv-cap"><span class="xv-kick"><i class="xv-ck" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i>TERBUKTI DI</span><span class="xv-title">WULING</span><span class="xv-meta">Nugroho Suharlim</span></span>
+<span class="xv-logo"><img data-logo="assets/images/logowuling" alt="Logo Wuling" decoding="async"></span><span class="xv-cap"><span class="xv-kick"><i class="xv-ck" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i>TERBUKTI SAMA</span><span class="xv-title">NUGROHO SUHARLIM</span><span class="xv-meta">Presiden Marketing Wuling</span></span>
 </button>
 <a class="xv-card xv-yt" data-type="youtube" data-yt="https://youtu.be/7VlMKFcP1SY?si=Hn8if3URQoZJ69QY" data-cover="assets/images/cover-fitra-eri.webp" href="https://youtu.be/7VlMKFcP1SY?si=Hn8if3URQoZJ69QY" target="_blank" rel="noopener" aria-label="Putar video YouTube: Video YouTube #1" data-label="TERBUKTI SAMA FITRA ERI">
 <img class="xv-media" src="assets/images/cover-fitra-eri.webp" alt="Fitra Eri" loading="lazy" decoding="async" width="480" height="360">
 <span class="xv-shade" aria-hidden="true"></span><span class="xv-pill yt"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.8 15.1V8.9l5.6 3.1z"/></svg>YouTube</span><span class="xv-play"><svg width="22" height="22" fill="currentColor" aria-hidden="true"><use href="#play"/></svg></span><span class="xv-soon">Segera hadir</span>
 <span class="xv-cap"><span class="xv-kick"><i class="xv-ck" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i>TERBUKTI SAMA</span><span class="xv-title">FITRA ERI</span><span class="xv-meta">Jurnalis otomotif</span></span>
 </a>
-<a class="xv-card xv-yt" data-type="instagram" data-yt="https://www.instagram.com/p/DdYo6uEtaxv/" data-cover="assets/images/cover-samuel.webp" href="https://www.instagram.com/p/DdYo6uEtaxv/" target="_blank" rel="noopener" aria-label="Putar video Instagram: Video Instagram #2" data-label="TERBUKTI SAMA INFLUENCER BESAR">
+<a class="xv-card xv-yt" data-type="instagram" data-yt="https://www.instagram.com/p/DdYo6uEtaxv/" data-cover="assets/images/cover-samuel.webp" href="https://www.instagram.com/p/DdYo6uEtaxv/" target="_blank" rel="noopener" aria-label="Putar video Instagram: Samuelchrist" data-label="TERBUKTI SAMA SAMUELCHRIST">
 <img class="xv-media" src="assets/images/cover-samuel.webp" alt="Samuelchrist" loading="lazy" decoding="async" width="480" height="852">
 <span class="xv-shade" aria-hidden="true"></span><span class="xv-pill yt"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.8 15.1V8.9l5.6 3.1z"/></svg>YouTube</span><span class="xv-play"><svg width="22" height="22" fill="currentColor" aria-hidden="true"><use href="#play"/></svg></span><span class="xv-soon">Segera hadir</span>
-<span class="xv-cap"><span class="xv-kick"><i class="xv-ck" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i>TERBUKTI SAMA</span><span class="xv-title">INFLUENCER BESAR</span><span class="xv-meta">Samuelchrist</span></span>
+<span class="xv-cap"><span class="xv-kick"><i class="xv-ck" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i>TERBUKTI SAMA</span><span class="xv-title">SAMUELCHRIST</span><span class="xv-meta">Influencer</span></span>
 </a>
-<a class="xv-card xv-yt" data-type="instagram" data-yt="https://www.instagram.com/reel/DZ14QGEzygM/?obrf=aG1sOHVpZTBiaGdm" data-cover="assets/images/cover-jejouw.webp" href="https://www.instagram.com/reel/DZ14QGEzygM/?obrf=aG1sOHVpZTBiaGdm" target="_blank" rel="noopener" aria-label="Putar video Instagram: Video Instagram #3" data-label="TERBUKTI SAMA INFLUENCER BESAR">
+<a class="xv-card xv-yt" data-type="instagram" data-yt="https://www.instagram.com/reel/DZ14QGEzygM/?obrf=aG1sOHVpZTBiaGdm" data-cover="assets/images/cover-jejouw.webp" href="https://www.instagram.com/reel/DZ14QGEzygM/?obrf=aG1sOHVpZTBiaGdm" target="_blank" rel="noopener" aria-label="Putar video Instagram: Jejouw" data-label="TERBUKTI SAMA JEJOUW">
 <img class="xv-media" src="assets/images/cover-jejouw.webp" alt="Jejouw" loading="lazy" decoding="async" width="480" height="853">
-<span class="xv-shade" aria-hidden="true"></span><span class="xv-pill yt"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0-.5-4.8 31 31 0 0 0-.5-4.8zM9.8 15.1V8.9l5.6 3.1z"/></svg>YouTube</span><span class="xv-play"><svg width="22" height="22" fill="currentColor" aria-hidden="true"><use href="#play"/></svg></span><span class="xv-soon">Segera hadir</span>
-<span class="xv-cap"><span class="xv-kick"><i class="xv-ck" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i>TERBUKTI SAMA</span><span class="xv-title">INFLUENCER BESAR</span><span class="xv-meta">Jejouw</span></span>
+<span class="xv-shade" aria-hidden="true"></span><span class="xv-pill yt"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.8 15.1V8.9l5.6 3.1z"/></svg>YouTube</span><span class="xv-play"><svg width="22" height="22" fill="currentColor" aria-hidden="true"><use href="#play"/></svg></span><span class="xv-soon">Segera hadir</span>
+<span class="xv-cap"><span class="xv-kick"><i class="xv-ck" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i>TERBUKTI SAMA</span><span class="xv-title">JEJOUW</span><span class="xv-meta">Influencer</span></span>
 </a>
 </div>
 </div>
