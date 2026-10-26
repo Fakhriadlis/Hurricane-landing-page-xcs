@@ -714,9 +714,9 @@ html.lenis{scroll-behavior:auto}
 .tv-section .tv-frame + .container .wa-end{margin-top:clamp(1.5rem,3vw,2.5rem)}
 @media(max-width:768px){.tv-frame{border-radius:0 !important}}
 
-/* ===== VIDEO SINGKAT DI KARTU MANFAAT ===== */
+/* ===== ANIMASI SINGKAT DI KARTU MANFAAT ===== */
 .bc-media{position:relative;width:100%;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#0b0b0d;box-shadow:inset 0 0 0 1px rgba(255,255,255,.06)}
-.bc-video{display:block;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.bc-media picture,.bc-media img,.bc-video{display:block;width:100%;height:100%;object-fit:cover;pointer-events:none}
 .benefit-check-item.has-media{flex-direction:column;gap:1rem}
 .benefit-check-item.has-media .benefit-icon-badge{display:none}
 @media(min-width:993px){
@@ -922,17 +922,17 @@ html.lenis{scroll-behavior:auto}
 <div>
 <ul class="benefit-checklist">
 <li class="benefit-check-item has-media">
-<div class="bc-media"><video class="bc-video" data-src="assets/vidio/HEMAT%20BBM.mp4" muted loop playsinline preload="none" disablepictureinpicture disableremoteplayback aria-label="Video: hemat konsumsi BBM"></video></div>
+<div class="bc-media"><img class="bc-video" src="assets/vidio/HEMAT_BBM.webp" alt="Animasi: hemat konsumsi BBM" width="480" height="270" loading="lazy" decoding="async"></div>
 <div class="benefit-icon-badge"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"/></svg></div>
 <div class="benefit-text-wrap"><strong>Hemat BBM s.d 30%</strong><em>Pembakaran sempurna, bensin lebih awet.</em></div>
 </li>
 <li class="benefit-check-item has-media">
-<div class="bc-media"><video class="bc-video" data-src="assets/vidio/Ekspresi_Tenaga.mp4" muted loop playsinline preload="none" disablepictureinpicture disableremoteplayback aria-label="Video: ekspresi tenaga saat akselerasi"></video></div>
+<div class="bc-media"><img class="bc-video" src="assets/vidio/Ekspresi_Tenaga.webp" alt="Animasi: ekspresi tenaga saat akselerasi" width="480" height="270" loading="lazy" decoding="async"></div>
 <div class="benefit-icon-badge"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#bolt"/></svg></div>
 <div class="benefit-text-wrap"><strong>Tarikan Lebih Enteng</strong><em>Injak gas, langsung respon.</em></div>
 </li>
 <li class="benefit-check-item has-media">
-<div class="bc-media"><video class="bc-video" data-src="assets/vidio/BATTERY%20ANALIZER.mp4" muted loop playsinline preload="none" disablepictureinpicture disableremoteplayback aria-label="Video: analisa aki"></video></div>
+<div class="bc-media"><img class="bc-video" src="assets/vidio/BATTERY_ANALIZER.webp" alt="Animasi: analisa aki" width="480" height="270" loading="lazy" decoding="async"></div>
 <div class="benefit-icon-badge"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
 <div class="benefit-text-wrap"><strong>Aki Lebih Awet</strong><em>Kelistrikan stabil, aki tahan 3&ndash;5 tahun.</em></div>
 </li>
@@ -1787,41 +1787,17 @@ window.__vidVariants = function (url) {
 </script>
 
 <script>
-/* ===== VIDEO SINGKAT DI KARTU MANFAAT: berputar tanpa suara selama terlihat ===== */
+/* ===== ANIMASI BERGERAK DI KARTU MANFAAT ===== */
 (function () {
   'use strict';
-  var vids = [].slice.call(document.querySelectorAll('.bc-video')); if (!vids.length) return;
-  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var saveData = !!(navigator.connection && navigator.connection.saveData);
-  var card = function (v) { return v.closest('.benefit-check-item'); };
-  var fail = function (v) {                                   /* file belum ada / salah nama → kartu kembali pakai ikon */
-    var c = card(v), m = v.closest('.bc-media'); if (m) m.remove(); if (c) c.classList.remove('has-media');
-    vids = vids.filter(function (x) { return x !== v; });
-  };
-  var load = function (v) { if (v.getAttribute('src')) return; v.preload = 'metadata'; v._alts = window.__vidVariants ? window.__vidVariants(v.dataset.src) : [v.dataset.src]; v._ai = 0; v.src = v._alts[0] + (reduce || saveData ? '#t=0.1' : ''); };
-  var sync = function () {                                    /* putar hanya yang terlihat & tidak sedang tertutup kartu berikutnya */
-    vids.forEach(function (v) {
-      var dim = parseFloat(card(v).style.getPropertyValue('--dim')) || 0;
-      var on = v._in && dim < 0.36 && !reduce && !saveData;
-      if (on && v.paused) { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
-      else if (!on && !v.paused) v.pause();
+  var imgs = [].slice.call(document.querySelectorAll('.bc-media img')); if (!imgs.length) return;
+  imgs.forEach(function (img) {
+    img.addEventListener('error', function () {
+      var c = img.closest('.benefit-check-item'), m = img.closest('.bc-media');
+      if (m) m.remove();
+      if (c) c.classList.remove('has-media');
     });
-  };
-  vids.forEach(function (v) {
-    v.muted = true;
-    v.addEventListener('error', function () {
-      if (v._alts && ++v._ai < v._alts.length) { v.src = v._alts[v._ai] + (reduce || saveData ? '#t=0.1' : ''); return; }   /* ejaan lain dulu */
-      fail(v);
-    });
-    v.addEventListener('loadeddata', function () { sync(); });
   });
-  if ('IntersectionObserver' in window) {
-    var near = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { load(e.target); near.unobserve(e.target); } }); }, { rootMargin: '300px 0px' });
-    var seen = new IntersectionObserver(function (es) { es.forEach(function (e) { e.target._in = e.isIntersecting; }); sync(); }, { threshold: 0.35 });
-    vids.forEach(function (v) { near.observe(v); seen.observe(v); });
-  } else vids.forEach(function (v) { load(v); v._in = true; });
-  var t = false; addEventListener('scroll', function () { if (!t) { t = true; requestAnimationFrame(function () { t = false; sync(); }); } }, { passive: true });
-  sync();
 })();
 </script>
 
