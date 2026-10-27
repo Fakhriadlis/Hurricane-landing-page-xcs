@@ -959,6 +959,15 @@ html.lenis{scroll-behavior:auto}
 .hero-bg-overlay{background:linear-gradient(180deg,rgba(0,0,0,.5) 0%,rgba(0,0,0,.32) 22%,rgba(0,0,0,.5) 48%,rgba(0,0,0,.85) 70%,#000 88%)}
 }
 @media(prefers-reduced-motion:reduce){.hero-bg-media{animation:none}}
+
+/* ===== HERO HP: paragraf "Setiap liter … 5 menit" diganti foto unit XCS Twin Turbo ===== */
+.hero-unit-pic{display:none}
+@media(max-width:768px){
+.hero-content .hero-lead{display:none}
+.hero-unit-pic{display:block;position:relative;width:min(100vw,560px);max-width:none;margin:0 0 .9rem calc(50% - min(50vw,280px))}   /* selebar layar: unit besar & dekat, cahaya oranye sampai ke tepi */
+.hero-unit-pic img{display:block;width:100%;height:auto}
+.hero-bg-media{background-image:none !important;animation:none}   /* unit sudah tampil sebagai foto, latar cukup gelap polos */
+}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org/","@type":"Product","name":"Hurricane XCS Voltage Stabilizer","image":"assets/images/Produk%20XCS7%20Xtreme%20Charging%20System%20301123%20-%20H.png","description":"Alat penghemat bahan bakar dan stabilisator kelistrikan kendaraan berteknologi Jerman dengan garansi resmi dan jaminan uang kembali.","brand":{"@type":"Brand","name":"Hurricane XCS"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"999"},"offers":{"@type":"Offer","priceCurrency":"IDR","availability":"https://schema.org/InStock","seller":{"@type":"Organization","name":"Hurricane Indonesia"}}}
@@ -1000,6 +1009,7 @@ html.lenis{scroll-behavior:auto}
 <div class="hero-content reveal-on-scroll">
 <div class="hero-badge-pill"><span class="pulse-dot"></span><span>Solusi Hemat BBM</span></div>
 <h1 class="hero-title"><span class="ln"><span>BBM Makin Mahal?</span></span><span class="ln"><span class="gradient-text-gold">Stop Buang Uang.</span></span></h1>
+<picture class="hero-unit-pic"><source media="(max-width:768px)" srcset="assets/images/hero-xcs-unit.webp" type="image/webp"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Hurricane XCS Twin Turbo" width="1000" height="857" decoding="async" fetchpriority="high"></picture>
 <p class="hero-lead">Setiap liter yang terbakar sia-sia adalah uang yang keluar dari kantong Anda. <strong>Hurricane XCS</strong> mengoptimalkan kelistrikan mobil supaya pembakaran lebih sempurna — konsumsi BBM turun, tarikan lebih enteng. Pasang cuma 5 menit.</p>
 <ul class="hero-chips">
 <li class="hero-chip-item"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#ck"/></svg><span>Hemat BBM s.d 30%</span></li>
