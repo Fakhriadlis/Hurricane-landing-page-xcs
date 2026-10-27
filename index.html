@@ -847,17 +847,16 @@ html.lenis{scroll-behavior:auto}
 .lit .q{opacity:1}
 .kin-track{transform:none!important}
 }
-/* ===== CAPTION VIDEO: font & ukuran baru (lebih rapi, tidak kebesaran, tidak terpotong) ===== */
-.xv-grid .xv-shade{background:linear-gradient(180deg,rgba(0,0,0,0) 20%,rgba(0,0,0,.45) 42%,rgba(0,0,0,.85) 62%,rgba(0,0,0,.98) 100%)}
+/* ===== CAPTION VIDEO: font & ukuran baru (lebih rapi, tidak kebesaran) ===== */
 .xv-grid .xv-cap{left:18px;right:18px;bottom:16px;gap:6px}
 .xv-grid .xv-kick{font-family:var(--font-main);font-size:.66rem;font-weight:700;letter-spacing:.14em;padding:4px 10px 4px 4px}
 .xv-grid .xv-ck{width:16px;height:16px}
-.xv-grid .xv-cap .xv-title{font-family:'Outfit',var(--font-heading);font-weight:800;font-size:1.15rem;line-height:1.12;letter-spacing:.01em;text-transform:uppercase;text-shadow:0 2px 10px rgba(0,0,0,.75);display:-webkit-box;-webkit-line-clamp:3;line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;word-break:normal;overflow-wrap:break-word}
+.xv-grid .xv-cap .xv-title{font-family:'Outfit',var(--font-heading);font-weight:800;font-size:1.3rem;line-height:1.06;letter-spacing:.01em;text-transform:uppercase;text-shadow:0 2px 10px rgba(0,0,0,.35)}
 .xv-grid .xv-meta{font-family:var(--font-main);font-size:.8rem;font-weight:500;letter-spacing:0;color:#d1d1d6}
-.xv-grid .xv-big .xv-cap{left:26px;right:26px;bottom:22px;max-width:70%}
+.xv-grid .xv-big .xv-cap{left:28px;right:28px;bottom:24px;max-width:62%}
 .xv-grid .xv-big .xv-kick{font-size:.72rem}
-.xv-grid .xv-big .xv-cap .xv-title{font-size:clamp(1.25rem,2vw,1.65rem);line-height:1.12;letter-spacing:.01em}
-.xv-grid .xv-big .xv-meta{font-size:.92rem}
+.xv-grid .xv-big .xv-cap .xv-title{font-size:clamp(1.6rem,2.4vw,2.2rem);letter-spacing:.005em}
+.xv-grid .xv-big .xv-meta{font-size:.95rem}
 /* kotak Honda & Wuling: logo utuh di bagian putih atas, keterangan di panel gelap bawah (tidak saling menumpuk) */
 .xv-grid .xv-card.has-logo .xv-logo{inset:0 0 108px 0;height:auto;padding:6% 12%;background:transparent}   /* logo di area atas, di atas panel keterangan */
 .xv-grid .xv-big.has-logo .xv-logo{bottom:132px}
@@ -866,15 +865,15 @@ html.lenis{scroll-behavior:auto}
 .xv-grid .xv-card.has-logo .xv-cap{left:0;right:0;bottom:0;max-width:none;padding:14px 18px 16px;background:#111;text-shadow:none}
 .xv-grid .xv-big.has-logo .xv-cap{padding:20px 28px 22px}
 @media(max-width:768px){
-.xv-grid .xv-cap{left:10px;right:10px;bottom:10px;gap:4px}
-.xv-grid .xv-kick{font-size:.54rem;letter-spacing:.08em;padding:3px 7px 3px 3px}
+.xv-grid .xv-cap{left:11px;right:11px;bottom:11px;gap:4px}
+.xv-grid .xv-kick{font-size:.56rem;letter-spacing:.1em;padding:3px 7px 3px 3px}
 .xv-grid .xv-ck{width:13px;height:13px}
-.xv-grid .xv-cap .xv-title{font-size:.82rem;line-height:1.14;-webkit-line-clamp:3;line-clamp:3}
+.xv-grid .xv-cap .xv-title{font-size:.95rem;line-height:1.08}
 .xv-grid .xv-meta{font-size:.66rem;line-height:1.3}
-.xv-grid .xv-big .xv-cap{left:14px;right:14px;bottom:12px;max-width:none}
-.xv-grid .xv-big .xv-kick{font-size:.58rem}
-.xv-grid .xv-big .xv-cap .xv-title{font-size:1.02rem;line-height:1.16}
-.xv-grid .xv-big .xv-meta{font-size:.72rem}
+.xv-grid .xv-big .xv-cap{left:16px;right:16px;bottom:13px;max-width:none}
+.xv-grid .xv-big .xv-kick{font-size:.6rem}
+.xv-grid .xv-big .xv-cap .xv-title{font-size:1.25rem}
+.xv-grid .xv-big .xv-meta{font-size:.74rem}
 .xv-grid .xv-card.has-logo .xv-logo{bottom:86px;padding:8% 10%}
 .xv-grid .xv-big.has-logo .xv-logo{bottom:80px;padding:4% 12%}
 .xv-grid .xv-card.has-logo .xv-cap{padding:9px 11px 11px}
@@ -949,6 +948,17 @@ html.lenis{scroll-behavior:auto}
 .sv-float,.solusi-visual .sv-refl,.sv-rays,.sv-podium::after,.sv-shine,.sv-prod,.sv-prod::before{animation:none !important}
 .sv-shine,.sv-zap,.sv-flash{display:none}
 }
+
+/* ===== HERO: latar foto unit XCS Twin Turbo (pengganti lingkaran SPBU blur) ===== */
+.hero-content::before{display:none !important}
+.hero-bg-media{background-size:cover;background-position:62% 50%;background-repeat:no-repeat;filter:none;transform:scale(1.02);animation:hero-kb 24s ease-in-out infinite alternate;will-change:transform}
+@keyframes hero-kb{from{transform:scale(1.02) translate3d(0,0,0)}to{transform:scale(1.09) translate3d(-1.4%,-1.2%,0)}}
+.hero-bg-overlay{background:linear-gradient(90deg,rgba(0,0,0,.9) 0%,rgba(0,0,0,.72) 30%,rgba(0,0,0,.22) 60%,rgba(0,0,0,.18) 100%),linear-gradient(180deg,rgba(0,0,0,.5) 0%,rgba(0,0,0,0) 20%,rgba(0,0,0,0) 74%,#000 100%)}
+@media(max-width:768px){
+.hero-bg-media{background-image:url("assets/images/hero-xcs-bg-hp.webp") !important;background-size:100% auto;background-position:50% 0}
+.hero-bg-overlay{background:linear-gradient(180deg,rgba(0,0,0,.5) 0%,rgba(0,0,0,.32) 22%,rgba(0,0,0,.5) 48%,rgba(0,0,0,.85) 70%,#000 88%)}
+}
+@media(prefers-reduced-motion:reduce){.hero-bg-media{animation:none}}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org/","@type":"Product","name":"Hurricane XCS Voltage Stabilizer","image":"assets/images/Produk%20XCS7%20Xtreme%20Charging%20System%20301123%20-%20H.png","description":"Alat penghemat bahan bakar dan stabilisator kelistrikan kendaraan berteknologi Jerman dengan garansi resmi dan jaminan uang kembali.","brand":{"@type":"Brand","name":"Hurricane XCS"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"999"},"offers":{"@type":"Offer","priceCurrency":"IDR","availability":"https://schema.org/InStock","seller":{"@type":"Organization","name":"Hurricane Indonesia"}}}
@@ -983,7 +993,7 @@ html.lenis{scroll-behavior:auto}
 <main id="main-content">
 <!-- 1. KELUHAN BBM (HERO) -->
 <section class="hero-section" id="hero">
-<div class="hero-bg-media" style="background-image:url('assets/images/hero_bg.webp')" aria-hidden="true"></div>
+<div class="hero-bg-media" style="background-image:url('assets/images/hero-xcs-bg.webp')" aria-hidden="true"></div>
 <div class="hero-bg-overlay" aria-hidden="true"></div>
 <canvas id="hero-particle-canvas" aria-hidden="true"></canvas>
 <div class="container hero-grid">
@@ -1043,7 +1053,7 @@ html.lenis{scroll-behavior:auto}
 <li class="benefit-check-item has-media">
 <div class="bc-media"><img class="bc-video" src="assets/vidio/BATTERY_ANALIZER.webp" alt="Animasi: analisa aki" width="480" height="270" loading="lazy" decoding="async"></div>
 <div class="benefit-icon-badge"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
-<div class="benefit-text-wrap"><strong>Performa Aki Maksimal & Tahan Lama</strong><em>Kelistrikan stabil, aki tahan 3&ndash;5 tahun.</em></div>
+<div class="benefit-text-wrap"><strong>Aki Lebih Awet</strong><em>Kelistrikan stabil, aki tahan 3&ndash;5 tahun.</em></div>
 </li>
 </ul>
 </div>
@@ -1129,15 +1139,15 @@ html.lenis{scroll-behavior:auto}
 <div class="xv-wrap reveal-on-scroll">
 <div class="xv-head"><h3>Bukti Nyata dari Para Ahli & Tokoh Otomotif</h3></div>
 <div class="xv-grid" id="xv-grid">
-<button type="button" class="xv-card xv-mp4 xv-big" data-type="mp4" data-src="assets/vidio/HONDA.mp4" data-pos="50% 30%" aria-label="Putar video: Service Manager Honda" data-label="TERBUKTI SAMA SERVICE MANAGER HONDA">
+<button type="button" class="xv-card xv-mp4 xv-big" data-type="mp4" data-src="assets/vidio/HONDA.mp4" data-pos="50% 30%" aria-label="Putar video: Purwanto, Service Manager Honda" data-label="TERBUKTI SAMA PURWANTO">
 <video class="xv-media" muted playsinline preload="none" data-lazy-src="assets/vidio/HONDA.mp4#t=0.1" aria-hidden="true" tabindex="-1"></video>
 <span class="xv-shade" aria-hidden="true"></span><span class="xv-pill">Video</span><span class="xv-play"><svg width="22" height="22" fill="currentColor" aria-hidden="true"><use href="#play"/></svg></span><span class="xv-soon">Segera hadir</span>
-<span class="xv-cap"><span class="xv-kick"><i class="xv-ck" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i>TERBUKTI SAMA</span><span class="xv-title">KEPALA CABANG HONDA</span></span>
+<span class="xv-cap"><span class="xv-kick"><i class="xv-ck" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i>TERBUKTI SAMA</span><span class="xv-title">PURWANTO</span><span class="xv-meta">Service Manager Honda</span></span>
 </button>
-<button type="button" class="xv-card xv-mp4" data-type="mp4" data-src="assets/vidio/wuling.mp4" aria-label="Putar video: Presiden Marketing Wuling" data-label="TERBUKTI SAMA PRESIDEN MARKETING WULING">
+<button type="button" class="xv-card xv-mp4" data-type="mp4" data-src="assets/vidio/wuling.mp4" aria-label="Putar video: Nugroho Suharlim, Presiden Marketing Wuling" data-label="TERBUKTI SAMA NUGROHO SUHARLIM">
 <video class="xv-media" muted playsinline preload="none" data-lazy-src="assets/vidio/wuling.mp4#t=0.1" aria-hidden="true" tabindex="-1"></video>
 <span class="xv-shade" aria-hidden="true"></span><span class="xv-pill">Video</span><span class="xv-play"><svg width="22" height="22" fill="currentColor" aria-hidden="true"><use href="#play"/></svg></span><span class="xv-soon">Segera hadir</span>
-<span class="xv-cap"><span class="xv-kick"><i class="xv-ck" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i>TERBUKTI SAMA</span><span class="xv-title">PRESIDEN MARKETING WULING</span></span>
+<span class="xv-cap"><span class="xv-kick"><i class="xv-ck" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i>TERBUKTI SAMA</span><span class="xv-title">NUGROHO SUHARLIM</span><span class="xv-meta">Presiden Marketing Wuling</span></span>
 </button>
 <a class="xv-card xv-yt" data-type="youtube" data-yt="https://youtu.be/7VlMKFcP1SY?si=Hn8if3URQoZJ69QY" data-cover="assets/images/cover-fitra-eri.webp" href="https://youtu.be/7VlMKFcP1SY?si=Hn8if3URQoZJ69QY" target="_blank" rel="noopener" aria-label="Putar video YouTube: Video YouTube #1" data-label="TERBUKTI SAMA FITRA ERI">
 <img class="xv-media" src="assets/images/cover-fitra-eri.webp" alt="Fitra Eri" loading="lazy" decoding="async" width="480" height="360">
