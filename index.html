@@ -825,6 +825,15 @@ html.lenis{scroll-behavior:auto}
 .hero-side .atpm-strip{margin-top:0;padding-top:0}
 @media(min-width:993px){.hero-side{align-self:center;justify-self:end;width:100%;max-width:520px}}
 @media(max-width:992px){.hero-grid{row-gap:1.75rem}.hero-side .hero-fuel-price,.hero-side .atpm-logo-frame{max-width:460px}}
+.xv-grid .xv-cap .xv-title{-webkit-line-clamp:3}
+
+/* ===== jabatan (Honda & Wuling) lebih kecil & ramping dari nama — tidak menutupi videonya ===== */
+.xv-grid .xv-cap .xv-title.xv-role{font-size:1.02rem;font-weight:700;line-height:1.15;letter-spacing:.015em}
+.xv-grid .xv-big .xv-cap .xv-title.xv-role{font-size:clamp(1.15rem,1.7vw,1.5rem)}
+@media(max-width:768px){
+.xv-grid .xv-cap .xv-title.xv-role{font-size:.76rem;line-height:1.18}
+.xv-grid .xv-big .xv-cap .xv-title.xv-role{font-size:.98rem}
+}
 /* ===== KALKULATOR DI HP: angka tidak pernah terpotong ===== */
 .savings-annual-number,.sub-saving-item strong,.calc-budget-display{font-variant-numeric:tabular-nums;white-space:nowrap}
 .sub-saving-item strong{word-break:normal;overflow-wrap:normal}
@@ -1216,15 +1225,15 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 <div class="xv-wrap reveal-on-scroll">
 <div class="xv-head"><h3>Bukti Nyata dari Para Ahli & Tokoh Otomotif</h3></div>
 <div class="xv-grid" id="xv-grid">
-<button type="button" class="xv-card xv-mp4 xv-big" data-type="mp4" data-src="assets/vidio/HONDA.mp4" data-pos="50% 30%" aria-label="Putar video: Purwanto, Service Manager Honda" data-label="TERBUKTI SAMA PURWANTO">
+<button type="button" class="xv-card xv-mp4 xv-big" data-type="mp4" data-src="assets/vidio/HONDA.mp4" data-pos="50% 30%" aria-label="Putar video: Terbukti sama Kepala Cabang Honda" data-label="TERBUKTI SAMA KEPALA CABANG HONDA">
 <video class="xv-media" muted playsinline preload="none" data-lazy-src="assets/vidio/HONDA.mp4#t=0.1" aria-hidden="true" tabindex="-1"></video>
 <span class="xv-shade" aria-hidden="true"></span><span class="xv-pill">Video</span><span class="xv-play"><svg width="22" height="22" fill="currentColor" aria-hidden="true"><use href="#play"/></svg></span><span class="xv-soon">Segera hadir</span>
-<span class="xv-cap"><span class="xv-kick"><i class="xv-ck" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i>TERBUKTI SAMA</span><span class="xv-title">PURWANTO</span><span class="xv-meta">Service Manager Honda</span></span>
+<span class="xv-cap"><span class="xv-kick"><i class="xv-ck" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i>TERBUKTI SAMA</span><span class="xv-title xv-role">KEPALA CABANG HONDA</span></span>
 </button>
-<button type="button" class="xv-card xv-mp4" data-type="mp4" data-src="assets/vidio/wuling.mp4" aria-label="Putar video: Nugroho Suharlim, Presiden Marketing Wuling" data-label="TERBUKTI SAMA NUGROHO SUHARLIM">
+<button type="button" class="xv-card xv-mp4" data-type="mp4" data-src="assets/vidio/wuling.mp4" aria-label="Putar video: Terbukti sama Vice President Marketing Wuling" data-label="TERBUKTI SAMA VICE PRESIDENT MARKETING WULING">
 <video class="xv-media" muted playsinline preload="none" data-lazy-src="assets/vidio/wuling.mp4#t=0.1" aria-hidden="true" tabindex="-1"></video>
 <span class="xv-shade" aria-hidden="true"></span><span class="xv-pill">Video</span><span class="xv-play"><svg width="22" height="22" fill="currentColor" aria-hidden="true"><use href="#play"/></svg></span><span class="xv-soon">Segera hadir</span>
-<span class="xv-cap"><span class="xv-kick"><i class="xv-ck" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i>TERBUKTI SAMA</span><span class="xv-title">NUGROHO SUHARLIM</span><span class="xv-meta">Presiden Marketing Wuling</span></span>
+<span class="xv-cap"><span class="xv-kick"><i class="xv-ck" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i>TERBUKTI SAMA</span><span class="xv-title xv-role">VICE PRESIDENT MARKETING WULING</span></span>
 </button>
 <a class="xv-card xv-yt" data-type="youtube" data-yt="https://youtu.be/7VlMKFcP1SY?si=Hn8if3URQoZJ69QY" data-cover="assets/images/cover-fitra-eri.webp" href="https://youtu.be/7VlMKFcP1SY?si=Hn8if3URQoZJ69QY" target="_blank" rel="noopener" aria-label="Putar video YouTube: Video YouTube #1" data-label="TERBUKTI SAMA FITRA ERI">
 <img class="xv-media" src="assets/images/cover-fitra-eri.webp" alt="Fitra Eri" loading="lazy" decoding="async" width="480" height="360">
