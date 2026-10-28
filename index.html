@@ -960,14 +960,32 @@ html.lenis{scroll-behavior:auto}
 }
 @media(prefers-reduced-motion:reduce){.hero-bg-media{animation:none}}
 
-/* ===== HERO HP: paragraf "Setiap liter … 5 menit" diganti foto unit XCS Twin Turbo ===== */
-.hero-unit-pic{display:none}
+/* ===== HERO HP: foto unit XCS Twin Turbo — muncul menyala, cahaya oranye bernapas, melayang, kilau logam ===== */
+.hero-unit{display:none}
 @media(max-width:768px){
-.hero-content .hero-lead{display:none}
-.hero-unit-pic{display:block;position:relative;width:min(100vw,560px);max-width:none;margin:0 0 .9rem calc(50% - min(50vw,280px))}   /* selebar layar: unit besar & dekat, cahaya oranye sampai ke tepi */
-.hero-unit-pic img{display:block;width:100%;height:auto}
-.hero-bg-media{background-image:none !important;animation:none}   /* unit sudah tampil sebagai foto, latar cukup gelap polos */
+.hero-unit{display:block;position:relative;width:min(100vw,560px);margin:0 0 .9rem calc(50% - min(50vw,280px));perspective:900px;isolation:isolate}
+.hero-unit::before{content:"";position:absolute;z-index:-1;left:50%;top:48%;width:118%;aspect-ratio:1.15;transform:translate(-50%,-50%);border-radius:50%;pointer-events:none;
+  background:radial-gradient(closest-side,rgba(255,150,40,.62),rgba(255,110,20,.32) 38%,rgba(255,80,10,.12) 62%,transparent 78%);
+  animation:hu-glow-in 1.5s cubic-bezier(.16,1,.3,1) .15s both,hu-breathe 3.4s ease-in-out 1.7s infinite alternate}
+.hero-unit::after{content:"";position:absolute;z-index:-1;left:50%;bottom:4%;width:70%;height:12%;transform:translateX(-50%);border-radius:50%;pointer-events:none;
+  background:radial-gradient(closest-side,rgba(255,170,70,.55),rgba(255,120,30,.18) 55%,transparent 75%);animation:hu-floor 5s ease-in-out 1.4s infinite alternate}
+.hu-float{position:relative;animation:hu-in 1.3s cubic-bezier(.16,1,.3,1) both,hu-float 5.2s ease-in-out 1.4s infinite alternate;transform-style:preserve-3d}
+.hero-unit-pic{display:block}
+.hero-unit-pic img{display:block;width:100%;height:auto;filter:drop-shadow(0 18px 26px rgba(0,0,0,.65)) drop-shadow(0 0 22px rgba(255,140,30,.35))}
+.hu-shine{position:absolute;inset:0;pointer-events:none;mix-blend-mode:screen;
+  -webkit-mask:url("assets/images/hero-xcs-unit.webp") center/100% 100% no-repeat;mask:url("assets/images/hero-xcs-unit.webp") center/100% 100% no-repeat;
+  background:linear-gradient(105deg,transparent 38%,rgba(255,255,255,.85) 48%,rgba(255,232,180,.4) 53%,transparent 62%) 160% 0/260% 100% no-repeat;
+  animation:hu-shine 4.6s cubic-bezier(.4,0,.2,1) 1.3s infinite}
+.hero-unit.is-off::before,.hero-unit.is-off::after,.hero-unit.is-off .hu-float,.hero-unit.is-off .hu-shine{animation-play-state:paused}
+.hero-bg-media{background-image:none !important;animation:none}   /* unit tampil sebagai foto, latar cukup gelap polos */
 }
+@keyframes hu-in{from{opacity:0;transform:translateY(46px) scale(.86) rotateY(-18deg)}to{opacity:1;transform:none}}
+@keyframes hu-float{from{transform:translateY(0) rotateY(0) rotateX(0)}to{transform:translateY(-12px) rotateY(7deg) rotateX(-1.5deg)}}
+@keyframes hu-glow-in{0%{opacity:0;transform:translate(-50%,-50%) scale(.5)}55%{opacity:1;transform:translate(-50%,-50%) scale(1.14)}100%{opacity:.85;transform:translate(-50%,-50%) scale(1)}}
+@keyframes hu-breathe{from{opacity:.85;transform:translate(-50%,-50%) scale(1)}to{opacity:1;transform:translate(-50%,-50%) scale(1.08)}}
+@keyframes hu-floor{from{opacity:.9;transform:translateX(-50%) scale(1)}to{opacity:.55;transform:translateX(-50%) scale(.86)}}
+@keyframes hu-shine{0%{background-position:160% 0}38%,100%{background-position:-60% 0}}
+@media(prefers-reduced-motion:reduce){.hero-unit::before,.hero-unit::after,.hu-float,.hu-shine{animation:none !important}.hu-shine{display:none}}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org/","@type":"Product","name":"Hurricane XCS Voltage Stabilizer","image":"assets/images/Produk%20XCS7%20Xtreme%20Charging%20System%20301123%20-%20H.png","description":"Alat penghemat bahan bakar dan stabilisator kelistrikan kendaraan berteknologi Jerman dengan garansi resmi dan jaminan uang kembali.","brand":{"@type":"Brand","name":"Hurricane XCS"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"999"},"offers":{"@type":"Offer","priceCurrency":"IDR","availability":"https://schema.org/InStock","seller":{"@type":"Organization","name":"Hurricane Indonesia"}}}
@@ -1009,8 +1027,9 @@ html.lenis{scroll-behavior:auto}
 <div class="hero-content reveal-on-scroll">
 <div class="hero-badge-pill"><span class="pulse-dot"></span><span>Solusi Hemat BBM</span></div>
 <h1 class="hero-title"><span class="ln"><span>BBM Makin Mahal?</span></span><span class="ln"><span class="gradient-text-gold">Stop Buang Uang.</span></span></h1>
-<picture class="hero-unit-pic"><source media="(max-width:768px)" srcset="assets/images/hero-xcs-unit.webp" type="image/webp"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Hurricane XCS Twin Turbo" width="1000" height="857" decoding="async" fetchpriority="high"></picture>
-<p class="hero-lead">Setiap liter yang terbakar sia-sia adalah uang yang keluar dari kantong Anda. <strong>Hurricane XCS</strong> mengoptimalkan kelistrikan mobil supaya pembakaran lebih sempurna — konsumsi BBM turun, tarikan lebih enteng. Pasang cuma 5 menit.</p>
+<div class="hero-unit">
+<div class="hu-float"><picture class="hero-unit-pic"><source media="(max-width:768px)" srcset="assets/images/hero-xcs-unit.webp" type="image/webp"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Hurricane XCS Twin Turbo" width="1000" height="857" decoding="async" fetchpriority="high"></picture><span class="hu-shine" aria-hidden="true"></span></div>
+</div>
 <ul class="hero-chips">
 <li class="hero-chip-item"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#ck"/></svg><span>Hemat BBM s.d 30%</span></li>
 <li class="hero-chip-item"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#ck"/></svg><span>Pasang Cuma 5 Menit</span></li>
@@ -2026,6 +2045,14 @@ window.__vidVariants = function (url) {
     });
   });
   sec.addEventListener('pointerleave', function () { prod.style.setProperty('--ry', '0deg'); prod.style.setProperty('--rx', '0deg'); });
+})();
+</script>
+
+<script>
+/* ===== HERO HP: animasi unit berhenti saat hero tidak terlihat ===== */
+(function () {
+  var u = document.querySelector('.hero-unit'); if (!u || !('IntersectionObserver' in window)) return;
+  new IntersectionObserver(function (es) { u.classList.toggle('is-off', !es[0].isIntersecting); }).observe(u);
 })();
 </script>
 </body>
