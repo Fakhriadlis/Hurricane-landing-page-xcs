@@ -979,13 +979,59 @@ html.lenis{scroll-behavior:auto}
 .hero-unit.is-off::before,.hero-unit.is-off::after,.hero-unit.is-off .hu-float,.hero-unit.is-off .hu-shine{animation-play-state:paused}
 .hero-bg-media{background-image:none !important;animation:none}   /* unit tampil sebagai foto, latar cukup gelap polos */
 }
-@keyframes hu-in{from{opacity:0;transform:translateY(46px) scale(.86) rotateY(-18deg)}to{opacity:1;transform:none}}
-@keyframes hu-float{from{transform:translateY(0) rotateY(0) rotateX(0)}to{transform:translateY(-12px) rotateY(7deg) rotateX(-1.5deg)}}
+@keyframes hu-in{from{opacity:0;transform:translateY(46px) scale(.86) rotateY(-10deg)}to{opacity:1;transform:none}}
+@keyframes hu-float{from{transform:translateY(0) rotateY(0)}to{transform:translateY(-12px) rotateY(4deg)}}
 @keyframes hu-glow-in{0%{opacity:0;transform:translate(-50%,-50%) scale(.5)}55%{opacity:1;transform:translate(-50%,-50%) scale(1.14)}100%{opacity:.85;transform:translate(-50%,-50%) scale(1)}}
 @keyframes hu-breathe{from{opacity:.85;transform:translate(-50%,-50%) scale(1)}to{opacity:1;transform:translate(-50%,-50%) scale(1.08)}}
 @keyframes hu-floor{from{opacity:.9;transform:translateX(-50%) scale(1)}to{opacity:.55;transform:translateX(-50%) scale(.86)}}
 @keyframes hu-shine{0%{background-position:160% 0}38%,100%{background-position:-60% 0}}
 @media(prefers-reduced-motion:reduce){.hero-unit::before,.hero-unit::after,.hu-float,.hu-shine{animation:none !important}.hu-shine{display:none}}
+
+/* ===== HERO HP · SHOWROOM: unit berdiri di atas cincin cahaya oranye dengan pantulan lantai ===== */
+@media(max-width:768px){
+.hero-unit{width:min(88vw,520px);margin:0 0 1.15rem calc(50% - min(44vw,260px))}   /* sedikit lebih kecil → tombol merah tetap terlihat di layar pertama */
+.hero-section{padding-top:6.2rem}
+.hero-unit::after{display:none}
+.hu-float{z-index:2}
+.hu-ring{position:absolute;z-index:1;left:50%;top:85%;width:82%;height:15%;transform:translate(-50%,-50%);border-radius:50%;pointer-events:none;
+  border:1.5px solid rgba(255,186,90,.8);box-shadow:0 0 26px rgba(255,159,10,.75),inset 0 0 20px rgba(255,159,10,.5);
+  background:radial-gradient(closest-side,rgba(255,150,40,.28),rgba(255,120,30,.08) 70%,transparent);
+  animation:hu-ring-in 1.2s cubic-bezier(.16,1,.3,1) .5s both,hu-ring 2.8s ease-in-out 1.7s infinite alternate}
+.hu-refl{position:absolute;z-index:0;left:0;top:86%;width:100%;pointer-events:none;opacity:.26;transform:scaleY(-1);
+  -webkit-mask:linear-gradient(to top,rgba(0,0,0,.9),transparent 38%);mask:linear-gradient(to top,rgba(0,0,0,.9),transparent 38%);
+  animation:hu-refl-in 1.3s cubic-bezier(.16,1,.3,1) both,hu-refl 5.2s ease-in-out 1.4s infinite alternate}
+.hu-refl img{display:block;width:100%;height:auto}
+.hero-unit.is-off .hu-ring,.hero-unit.is-off .hu-refl{animation-play-state:paused}
+}
+@keyframes hu-ring-in{from{opacity:0;transform:translate(-50%,-50%) scale(.6)}to{opacity:1;transform:translate(-50%,-50%) scale(1)}}
+@keyframes hu-ring{from{opacity:.75;transform:translate(-50%,-50%) scale(.97)}to{opacity:1;transform:translate(-50%,-50%) scale(1.03)}}
+@keyframes hu-refl-in{from{opacity:0;transform:scaleY(-1) translateY(46px)}to{opacity:.26;transform:scaleY(-1)}}
+@keyframes hu-refl{from{transform:scaleY(-1) translateY(0)}to{transform:scaleY(-1) translateY(-12px)}}   /* bergerak berlawanan dengan unit, seperti pantulan asli */
+@media(prefers-reduced-motion:reduce){.hu-ring,.hu-refl{animation:none !important}}
+
+/* ===== HP: ANTI-KEPOTONG (iPhone Safari & browser di dalam WhatsApp/Instagram) =====
+   Safari kadang melebarkan kolom grid mengikuti ukuran asli gambar (mis. tabel harga 422px, logo ATPM 460px),
+   sehingga isi hero lebih lebar dari layar dan terpotong di kanan. Di HP, hero dibuat satu kolom biasa (bukan grid),
+   semua isi dikunci maksimal selebar layar, dan efek animasi dikurung di dalam bagiannya. */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+@supports(overflow:clip){body{overflow-x:clip}}
+.hero-section,.solusi-section,.kinetic-strip,.testimoni-section{contain:paint}
+.hero-grid>*,.solusi-grid>*,.testdrive-layout>*,.comp-cards-grid>*,.no1-showcase-grid>*,.benefit-checklist>*{min-width:0}
+.hero-side>*,.hero-fuel-price,.fuel-price-card,.atpm-strip,.atpm-logo-frame{min-width:0;max-width:100%}
+.fuel-price-card img,.atpm-logo-frame img,.testdrive-poster-frame img,.solusi-visual img{max-width:100%;height:auto}
+@media(max-width:992px){
+.hero-grid{display:block !important;width:100%;max-width:100%}
+.hero-content,.hero-side{width:100%;max-width:100%}
+.hero-side{margin-top:1.75rem}
+.testdrive-layout,.no1-showcase-grid{grid-template-columns:minmax(0,1fr) !important}
+}
+@media(max-width:768px){
+.site-header .header-inner{width:auto !important;max-width:none !important;margin:0 1rem !important}
+.hero-unit{width:100% !important;margin-left:0 !important;margin-right:0 !important}
+.hero-side .hero-fuel-price,.hero-side .atpm-logo-frame{width:100%;max-width:460px}
+.solusi-grid,.comp-cards-grid{grid-template-columns:minmax(0,1fr) !important}
+.btn,.wa-end-btn{max-width:100%}
+}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org/","@type":"Product","name":"Hurricane XCS Voltage Stabilizer","image":"assets/images/Produk%20XCS7%20Xtreme%20Charging%20System%20301123%20-%20H.png","description":"Alat penghemat bahan bakar dan stabilisator kelistrikan kendaraan berteknologi Jerman dengan garansi resmi dan jaminan uang kembali.","brand":{"@type":"Brand","name":"Hurricane XCS"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"999"},"offers":{"@type":"Offer","priceCurrency":"IDR","availability":"https://schema.org/InStock","seller":{"@type":"Organization","name":"Hurricane Indonesia"}}}
@@ -1028,6 +1074,8 @@ html.lenis{scroll-behavior:auto}
 <div class="hero-badge-pill"><span class="pulse-dot"></span><span>Solusi Hemat BBM</span></div>
 <h1 class="hero-title"><span class="ln"><span>BBM Makin Mahal?</span></span><span class="ln"><span class="gradient-text-gold">Stop Buang Uang.</span></span></h1>
 <div class="hero-unit">
+<span class="hu-ring" aria-hidden="true"></span>
+<picture class="hu-refl" aria-hidden="true"><source media="(max-width:768px)" srcset="assets/images/hero-xcs-unit.webp" type="image/webp"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" width="1000" height="857"></picture>
 <div class="hu-float"><picture class="hero-unit-pic"><source media="(max-width:768px)" srcset="assets/images/hero-xcs-unit.webp" type="image/webp"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Hurricane XCS Twin Turbo" width="1000" height="857" decoding="async" fetchpriority="high"></picture><span class="hu-shine" aria-hidden="true"></span></div>
 </div>
 <ul class="hero-chips">
